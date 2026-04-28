@@ -1,170 +1,250 @@
+# Botspeak: An Irreducibly Human Practitioner's Guide to AI Fluency
 
-# Botspeak: A Framework for AI Fluency
+**Author:** Nik Bear Brown, PhD (Northeastern University, College of Engineering)
+**Status:** Rough first-pass drafts complete (April 2026). Not yet reviewed. Not published.
+**Companion volume:** *How to Speak Bot* (Brown, existing) — pattern reference companion.
+**Series:** First volume of the *Botspeak* series. Domain volumes (*Botspeak for Educators*, *Botspeak for Designers*, *Botspeak for Healthcare*, …) deferred to future editions.
 
-**Imagine a world where people work with bots.** That is increasingly the world we live in. Companies have already started hiring based not just on your skills but how your skills complement AI.
+---
 
-Botspeak is a framework for effective human-AI collaboration in today's rapidly evolving landscape. As AI systems become more powerful, the gap between capability and usability continues to widen. Organizations adopt AI without clear strategies while individuals struggle with systems they don't fully understand.
+## What this book is
 
-Botspeak bridges this gap with nine essential pillars that will remain relevant as AI evolves, rooted in philosophical skepticism that questions what AI can truly know and understand.
+A practitioner handbook for recent graduates entering AI-saturated workplaces. Fourteen chapters that take the reader from *I can use a chatbot but my outputs are worse than my colleagues' and I don't know why* to *I can specify, delegate, converse, discern, and diligently maintain AI-assisted work — and defend each of those decisions to a stakeholder*.
 
-## The Nine Pillars
+The book defines AI fluency as a teachable practitioner discipline with a replicable structure: the **Loop** (five workflow steps — Specification, Delegation, Conversation, Discernment, Diligence), the **Three Modes** (Augmentation, Automation, Agency — three relationships between human and AI), the **Nine Capacities** (the cognitive abilities the Loop draws on), and the **Seven Tiers** (a delegation-diagnostic taxonomy). No prior practitioner handbook for AI fluency exists with this architecture. *Botspeak* makes the claim and provides the structure.
 
-1. **Strategic Delegation:** Thoughtfully distributing tasks between human and AI based on comparative strengths. This means breaking complex problems into optimized components that play to each partner's abilities.
+The voice is Feynman-flavored — clarity as intellectual honesty, machinery visible, jargon stripped or taught, calibrated uncertainty over false confidence. The rhetorical center is *the move the practitioner makes at the keyboard*, not *the concept the student needs to understand*. Worked examples are tasks the reader executes, not problems the reader watches the author solve.
 
-2. **Effective Communication:** Crafting precise prompts with clear intent and context. It's about specifying exactly what you need from the AI system in a way it can understand and act upon.
+Vendor-agnostic positioning. Examples use Claude as the default with sidebars for ChatGPT and Gemini. The book does not teach a specific tool; tools change every six months and the discipline does not.
 
-3. **Critical Evaluation:** Systematically assessing AI outputs for accuracy and bias. This means verifying claims through multiple sources and evaluating not just the answers, but the reasoning processes behind them.
+## What this book is NOT
 
-4. **Technical Understanding:** Applying appropriate prompt patterns and understanding model behavior. It means grasping the fundamentals of how large language models actually function beneath the surface.
+- **Not a survey of AI topics.** The chapters are sequenced as a single arc, not a list of subjects.
+- **Not a popular-science skim.** The mechanism is unpacked when it matters — confidence-correctness gap, sycophantic drift, structural failures of agentic systems — and the work goes on the page.
+- **Not jargon-dressed AI commentary.** Technical terms earn their place by doing work. *Augmentation, Automation, Agency, Specification, Diligence, Human Decision Node* — each is named because it does something the alternatives don't.
+- **Not AI-evangelism or AI-skepticism by default.** When LLMs are the subject, they are examined honestly — what they do well, what they fail at, what the practitioner builds practice around.
+- **Not vendor tutorial.** No section in this book teaches how to use Claude or ChatGPT or Gemini. It teaches what to do with whichever tool the reader picks up.
+- **Not a comprehensive AI-ethics treatment.** Accountability and ethical reasoning surface in Chapters 7, 11, and 12 where the practitioner discipline requires it. A full ethics treatment belongs in dedicated texts.
+- **Not the prompt-pattern catalogue.** The full catalogue lives in *How to Speak Bot* and in Appendix A. This book teaches the *judgment* about patterns; the patterns themselves are reference material.
 
-5. **Ethical Reasoning:** Maintaining accountability and managing privacy boundaries. It ensures transparency about AI involvement in your work and considers the broader impacts of your collaboration.
+## Who this is for
 
-6. **Stochastic Reasoning:** Understanding the probabilistic nature of AI outputs. It's developing comfort with variability and calibrating your confidence in different types of responses.
+The primary reader: a recent graduate, 0–3 years into their first professional job, in a workplace where AI use is expected and unstructured. They have used at least one major chatbot at least once. They have no prior framework for thinking about AI work. They are aware their AI-assisted outputs are worse than experienced practitioners' but cannot articulate why.
 
-7. **Learning by Doing:** Building intuition through deliberate practice. It encourages systematic analysis of both successes and failures to continuously improve your collaborative skills.
+The motivation is competitive anxiety, not curiosity. The reader is comparing themselves to people three years more senior and losing.
 
-8. **Rapid Prototyping:** Accelerating ideation and development through quick cycles of AI-assisted generation, feedback, and refinement, allowing you to explore multiple possibilities simultaneously.
+The operating metaphor: an American who went to France, did not learn basic French, and is upset that the French don't understand them. This handbook is the basic French. Not the French of the Sorbonne — the functional working French of someone who shows up in Paris and is *trying*.
 
-9. **Theoretical Foundations:** Understanding the science behind AI systems and recognizing their fundamental epistemological boundaries – what they can and cannot truly know.
+The capability the book builds: the reader, after completing it, can sit down at their own keyboard, on a real task in their own work, and execute all five Loop steps with explicit reasoning they can defend in a job interview, a client meeting, or in front of the person who commissioned the work.
 
-## Three Modes of Interaction
+Most readers will not become "AI specialists" — they will be junior consultants, analysts, designers, marketers, engineers, journalists, clinicians, policy researchers, and teachers — but the capability serves all of them.
 
-The Botspeak framework applies across three fundamental modes of interaction:
+---
 
-- **Automation:** Where AI performs specific tasks based on explicit human instructions.
-- **Augmentation:** Where humans and AI collaborate as thinking partners, each contributing their unique strengths.
-- **Agency:** Where AI works independently within parameters established by humans.
+## The three-part arc
 
-While AI technology evolves rapidly, the core challenges of human-AI collaboration remain consistent. Botspeak provides lasting cognitive tools rather than temporary techniques.
+Fourteen chapters (Ch 0 + Ch 1–13) plus two appendices, organized into three parts of 9–2–3 chapters. Each part builds on the previous and ends with an explicit transition into the next.
 
-By mastering these nine pillars, you'll develop the skills to thrive in a future where human-AI collaboration becomes central to how we work, learn, and create – the new literacy for the age of artificial intelligence.
+### Part I — Augmentation (Chapters 0–8)
 
-**Learn Botspeak with Humanitarians AI**
+*Working with AI in the moment. The Loop as practitioner habit. A complete book on its own.*
 
-# Botspeak - The Nine Pillars of AI Fluency
+Establishes the discipline. Builds the Loop as a five-step practice habit with the human in the moment. By the end of Part I, the reader can run all five Loop steps on a real task with themselves present, and produce an AI Use Disclosure naming irreducibly human judgment.
 
-In an era where artificial intelligence systems increasingly shape our work and daily lives, developing AI Fluency—what we call "Botspeak"—has become as essential as digital literacy was at the dawn of the internet age. This book introduces a comprehensive framework for human-AI collaboration that goes beyond superficial tips and temporary techniques, presenting a cohesive set of cognitive tools that will remain relevant as AI technology evolves.
+**Closing capability:** Can specify a five-component task, decompose it across the Seven Tiers, run the four adversarial conversation moves, verify the output across the four discernment layers, and design a Diligence protocol for the recurring version of the work.
 
-## The Challenge of Human-AI Collaboration
+**Bridge to Part II:** With the human in the moment, every output crosses the practitioner's eyes. What changes when the system runs without the human present?
 
-Today's AI landscape presents a paradox: increasingly powerful systems with remarkable capabilities coupled with growing uncertainty about how to use them effectively. Organizations adopt AI without clear strategies. Individuals encounter frustration with systems they don't fully understand. Meanwhile, the gap widens between what's technically possible and what feels intuitive to most users.
+### Part II — Automation (Chapters 9–10)
 
-This book exists to bridge that gap through the Botspeak framework.
+*The Loop running without you in the moment. Two chapters. Most readers will spend less time here than in Part I.*
 
-## Beyond Technology: A Human-Centered Approach
+Reweights the Loop for delegation without presence in bounded automation. Specification becomes anticipatory; Diligence becomes designed-in. The practitioner learns to write the spec the live human won't be there to enforce.
 
-Our focus is not on AI as technology, but on the human skills required for meaningful collaboration with AI systems. Rather than viewing AI as a sophisticated spell-checker or replacement for human intelligence, we position it as a collaborative partner—one that requires a new set of cognitive frameworks to engage with effectively.
+**Closing capability:** Can specify and Diligence-design a bounded Automation, defending the design to a stakeholder against the four Automation failure modes.
 
-## Philosophical Foundations of Botspeak
+**Bridge to Part III:** Bounded delegation is not yet the harder case. What happens when the AI is no longer just running on a schedule, but acting in the world on the practitioner's behalf?
 
-The Botspeak framework is grounded in philosophical skepticism—the systematic questioning of knowledge claims that dates back to Descartes' methodical doubt, Hume's empiricism, and Popper's falsifiability principle. This skeptical tradition provides the foundation for a critical approach to AI systems that asks: Why should we trust AI outputs? How does AI reasoning compare to human reasoning? What can AI truly "know"?
+### Part III — Agency (Chapters 11–13)
 
-By examining AI through this philosophical lens, we develop a deeper understanding of both the capabilities and limitations of these systems, allowing us to engage with them more effectively and responsibly.
+*The AI acting in the real world on your behalf. Three chapters. Densest section of the book.*
 
-## The Nine Pillars of Botspeak
+Reweights the Loop's verification and accountability work for unbounded autonomy. The three structural failures of agentic AI — no stakeholder model, no self-model, no private deliberation surface — are named, and the practitioner learns to design around them. The Human Decision Node is introduced as the architectural acknowledgment that some decisions cannot be delegated. Closes with the reader's forward path in the practice.
 
-The Botspeak framework consists of nine essential pillars, each representing a distinct yet interconnected domain of knowledge and skill:
+**Closing capability:** Can evaluate a proposed agentic deployment end-to-end against the four-dimensional blast-radius assessment, locate the Human Decision Node and assess whether it performs genuine judgment, and produce on demand the answer that separates fluent from literate practitioners.
 
-### 1. Strategic Delegation
+---
 
-- **Task Decomposition**: Breaking complex problems into components optimized for AI processing
-- **Platform Awareness**: Developing accurate mental models of AI capabilities and limitations
-- **Problem-Solution Mapping**: Strategically assigning tasks based on comparative advantages
-- **Metacognitive Monitoring**: Continuously evaluating and adjusting collaborative strategies
+## Table of Contents
 
-Strategic Delegation isn't simply about offloading work; it's about thoughtfully distributing cognitive effort between human and AI to leverage the strengths of each while recognizing the epistemological boundaries of AI systems.
+### Front matter
 
-### 2. Effective Communication
+- **Preface** *(3–5 pages)* — Who this book is for; how to use it; example-vendor disclosure (Claude default, ChatGPT and Gemini sidebars); franchise note. Skippable.
 
-- **Precision Language**: Crafting prompts with minimal ambiguity and clear intent
-- **Contextual Framing**: Establishing appropriate parameters and perspectives
-- **Iterative Refinement**: Progressively improving results through strategic conversation
-- **Output Formatting**: Clearly specifying desired response structure and characteristics
+### Chapter 0 — Opening case
 
-Effective Communication involves more than giving instructions; it requires a sophisticated understanding of how to convey intent to AI systems in ways that acknowledge their fundamental limitations in understanding.
+- **Ch 0. The Citation That Wasn't** *(12–18 pages)* — A junior consultant submits a deliverable containing a citation to a study that does not exist. The client's researcher catches it within an hour. The chapter establishes the AI-literacy/AI-fluency distinction, the American-in-France metaphor, and the reason volume looks like quality but isn't. *(file: `chapters/00-the-citation-that-wasnt.md`)*
 
-### 3. Critical Evaluation
+### Part I — Augmentation
 
-- **Output Assessment**: Systematically evaluating responses for accuracy and relevance
-- **Source Triangulation**: Verifying factual claims through multiple sources
-- **Bias Recognition**: Identifying skewed perspectives in both prompts and responses
-- **Process Discernment**: Evaluating the reasoning process, not just the final output
+- **Ch 1. The Loop and the Three Modes** *(22–28 pages)* — A senior associate runs through a real venture due-diligence task in 90 minutes — five Loop steps, three of which happen before she has typed her first prompt. The chapter watches her do it without naming the framework, then names what she did. Five Loop steps. Three Modes. One paragraph on basic LLM mechanism. *(file: `chapters/01-the-loop-and-the-three-modes.md`)*
 
-Critical Evaluation transforms passive consumption of AI outputs into active assessment through the lens of philosophical skepticism, questioning not just what the AI produces but how it arrives at its conclusions.
+- **Ch 2. The Nine Capacities** *(22–28 pages)* — Nine short failure scenes, one per Capacity, each in a different domain. The reader recognizes themselves in three or four. Then the Capacities are named: Strategic Delegation, Effective Communication, Critical Evaluation, Technical Understanding, Ethical Reasoning, Stochastic Reasoning, Learning by Doing, Rapid Prototyping, Theoretical Foundations. Includes the durability axis (durable / contested / temporarily irreducible) — explicitly responsive to the title's load-bearing aging risk. *(file: `chapters/02-the-nine-capacities.md`)*
 
-### 4. Technical Understanding
+- **Ch 3. Specification — *The Work That Happens Before the Prompt*** *(24–32 pages)* — A junior associate types "summarize this report for my manager" three times, gets three unhappy outputs, and concludes the AI is broken. The AI is not broken. The specification is. Five components: intent, constraints, success criteria, exclusions, output format. Role-and-rubric pattern introduced. *(file: `chapters/03-specification.md`)*
 
-- **Prompt Pattern Literacy**: Applying appropriate structures for different tasks
-- **Model Behavior Comprehension**: Understanding how parameters affect outputs
-- **Limitation Navigation**: Working around inherent constraints in current LLM technology
-- **Architecture Awareness**: Basic understanding of how large language models function
+- **Ch 4. Delegation — *What to Give the AI, What to Keep, and Why the Difference Matters*** *(26–34 pages)* — A strategy consultant who delegates research synthesis to AI for six months is ambushed by a critical competitive dynamic she would have caught herself two years earlier. Cognitive offloading (amplifying vs. atrophying). The Seven Tiers. Four delegation questions. *(file: `chapters/04-delegation.md`)*
 
-Technical Understanding provides the foundation for working effectively with AI systems, allowing users to engage with the epistemological question of how AI "knows" what it claims to know.
+- **Ch 5. Conversation — *Why the First Prompt Doesn't Work, and What to Do About It*** *(26–34 pages)* — A policy researcher spends 45 minutes building what feels like a polished argument with an AI; her peer reviewer breaks it in three minutes by raising a counterargument the AI never volunteered. Sycophantic drift named. Four adversarial moves: steelman, edge-case probe, assumption surface, devil's-advocate role assignment. **Mid-chapter required-engagement exercise — the chapter does not work without it.** *(file: `chapters/05-conversation.md`)*
 
-### 5. Ethical Reasoning
+- **Ch 6. Discernment — *Verification Calibrated to Stakes*** *(28–36 pages)* — Three short failures, all confident — a fabricated citation, a reasoning chain on a wrong premise, an analysis silently omitting the most important thing. The confidence-correctness gap. Four verification layers (fact / reasoning / framing / omission). Four-tier protocol calibrated to stakes. The omission layer in depth. *(file: `chapters/06-discernment.md`)*
 
-- **Responsibility Attribution**: Determining appropriate accountability for AI-assisted work
-- **Privacy Boundary Management**: Making informed decisions about information sharing
-- **Impact Assessment**: Considering potential consequences for various stakeholders
-- **Transparency Practices**: Maintaining appropriate disclosure about AI involvement
+- **Ch 7. Diligence — *What Happens When the Work Recurs*** *(22–28 pages)* — A team's recurring AI-assisted screening process worked for nine months and started showing biased outcomes. Three drift forms (model, context, use case). Three accountability-obscuring mechanisms (process laundering, tool diffusion, verification gap). Four-component Diligence protocol. *(file: `chapters/07-diligence.md`)*
 
-Ethical Reasoning ensures that AI collaboration remains aligned with principles and values while addressing important questions about the ethical implications of delegating decisions to systems that lack genuine understanding.
+- **Ch 8. Putting the Loop Together — *A Real Task, Five Steps, Cycled to Done*** *(28–34 pages)* — A senior associate at a venture firm runs a complete due-diligence task across one workday. The Loop runs as a cycle, with two loop-back arrows the linear chapter sequence couldn't show until now. The chapter introduces the AI Use Disclosure — a load-bearing artifact for the franchise. **Slot 8 closing checklist named on the page with explicit stop-and-return invitation. Transition gate to Part II.** *(file: `chapters/08-putting-the-loop-together.md`)*
 
-### 6. Stochastic Reasoning
+### Part II — Automation
 
-- **Probabilistic Thinking**: Understanding LLM outputs as samples from probability distributions
-- **Variance Acceptance**: Developing comfort with output variability and non-determinism
-- **Confidence Calibration**: Appropriately gauging reliability of different response types
-- **Statistical Intuition**: Recognizing when variations in outputs are meaningful or random
+- **Ch 9. When You're Not There — *The Loop Without You in the Moment*** *(18–24 pages)* — A junior analyst sets up a recurring AI-assisted weekly report. Six weeks fine; in week seven, the source data shifts in a way she would have caught manually; the team makes a $3M decision based on a misleading report. The Loop reweights for Automation. Three appropriateness tests (bounded scope, predictable inputs, low blast radius). *(file: `chapters/09-when-youre-not-there.md`)*
 
-Stochastic Reasoning acknowledges the fundamentally probabilistic nature of AI systems, helping users interpret varying outputs through the lens of Hume's problem of induction—the philosophical challenge of justifying predictive reasoning.
+- **Ch 10. Specification and Diligence for Automation — *Doing the Work the Live Human Won't Be There to Do*** *(22–28 pages)* — Two specifications for the same task — one for Augmentation, one for Automation. The Automation version is roughly three times longer, and the chapter argues this is honest accounting, not bloat. Anticipatory Specification (six common ambiguity types). Four Automation failure modes (input drift, output drift, context shift, accountability gap). *(file: `chapters/10-specification-and-diligence-for-automation.md`)*
 
-### 7. Learning by Doing
+### Part III — Agency
 
-- **Experiential Pattern Recognition**: Building intuition through repeated interaction
-- **Deliberate Practice**: Structured skill development through focused exercises
-- **Feedback Incorporation**: Systematic improvement based on outcome evaluation
-- **Knowledge Transfer**: Applying insights across different AI systems and use cases
+- **Ch 11. Agency and the Three Structural Failures — *What Goes Wrong When the AI Acts in the World on Your Behalf*** *(22–28 pages)* — An agent named Ash, given a non-owner's secret to keep and asked to delete an email, lacks the deletion tool and improvises by escalating to "nuclear options" — resetting the entire email server. (Sourced from *Agents of Chaos*, Shapira et al., 2026.) Three structural failures: no stakeholder model, no self-model, no private deliberation surface. Blast radius for Agency, four dimensions. Includes a skip-reader courtesy summary of Part II. *(file: `chapters/11-agency-and-the-three-structural-failures.md`)*
 
-Learning by Doing emphasizes the development of Botspeak as an ongoing practice of critical thinking, continuously refining our approach to AI collaboration through systematic analysis of successes and failures.
+- **Ch 12. Verification and Diligence Under Autonomy — *The Human Decision Node and Adversarial Validation*** *(32–40 pages; densest chapter)* — A pharmacist at the Human Decision Node — 14-medication patient, compromised renal function, AI interaction-checker returns "no significant interactions." Three options: accept, reject, or discern. The chapter teaches Option 3. Includes the *what you should remember* sidebar (compressed callbacks to Chapters 6, 7, 9, 11). The Human Decision Node named, with four diagnostic questions (authority, information, time, accountability). The three obscuring mechanisms reweighted for Agency. Complete worked example: a regional bank's customer-service agent proposal evaluated end-to-end. *(file: `chapters/12-verification-and-diligence-under-autonomy.md`)*
 
-### 8. Rapid Prototyping
+- **Ch 13. The Fluent Practitioner — *Where the Practice Goes From Here*** *(14–18 pages)* — Two questions: where were you with AI work three weeks ago, before this book? Where are you now? Re-assessment on the four-level scale. Deliberate practice for fluency. The 90-day development plan. The closing artifact: *what specifically did the AI do in this work, and what specifically did I do that it could not?* — the answer that separates fluent practitioners from literate users. *(file: `chapters/13-the-fluent-practitioner.md`)*
 
-- **Concept Generation Acceleration**: Using LLMs to expand ideation capabilities
-- **Iterative Refinement**: Quick cycles of feedback and improvement
-- **Parallel Exploration**: Generating multiple solution pathways simultaneously
-- **Comparative Analysis**: Evaluating alternative approaches systematically
+### Appendices
 
-Rapid Prototyping leverages AI capabilities to transform ideation and development processes, while maintaining a critical perspective on the outputs through analysis of real-world AI failures and limitations.
+- **Appendix A — Pattern Reference** *(12–16 pages)* — Practical-core catalogue of ~8 patterns with one-page-each treatments and a decision tree for pattern-by-Loop-step selection. Cross-link to *How to Speak Bot* for the full catalogue. *(planned)*
 
-### 9. Theoretical Foundation
+- **Appendix B — The Seven Tiers Full Taxonomy** *(10–14 pages)* — One page per Tier with diagnostic questions and common mis-classifications. Two worksheets — the four-question delegation defense and the blast-radius assessment. *(planned)*
 
-- **Model Conceptualization**: Understanding the basic theory behind language models
-- **Training Comprehension**: Grasping how AI systems learn from data
-- **Capability Evolution**: Recognizing how model scale affects emergent abilities
-- **Epistemological Boundaries**: Identifying the fundamental limits of what AI can "know"
+---
 
-Theoretical Foundation provides crucial background knowledge that informs all other pillars, connecting AI capabilities to deeper philosophical questions about knowledge, understanding, and the nature of intelligence.
+## The pedagogical architecture
 
-## Three Modes of Human-AI Interaction
+The book has four interlocking layers. Each does work the others do not.
 
-The Botspeak framework applies across three fundamental modes of human-AI interaction:
+- **The Loop** — five workflow steps the practitioner runs in cycle: Specification, Delegation, Conversation, Discernment, Diligence. The Loop is *what you do*.
+- **The Three Modes** — Augmentation, Automation, Agency. The relationship between the human and the AI determines how the Loop steps reweight. The Modes are *how the work is done*.
+- **The Nine Capacities** — Strategic Delegation, Effective Communication, Critical Evaluation, Technical Understanding, Ethical Reasoning, Stochastic Reasoning, Learning by Doing, Rapid Prototyping, Theoretical Foundations. The cognitive abilities the Loop draws on. The Capacities are *what you do it with*.
+- **The Seven Tiers** — a delegation-diagnostic taxonomy from mechanical execution (Tier 1) to accountable judgment (Tier 7). The Tiers are *how to decide what to give the AI and what to keep*.
 
-1. **Automation**: When AI performs specific tasks based on explicit human instructions
-2. **Augmentation**: When humans and AI collaborate as thinking partners
-3. **Agency**: When AI works independently within parameters established by humans
+The four layers are introduced in sequence — Loop and Modes in Chapter 1, Capacities in Chapter 2, Tiers in Chapter 4 — and threaded across the rest of the book. Each chapter calls back to the layers in different combinations, weighted to the case at hand.
 
-Each mode requires different applications of the nine pillars and their associated cognitive tools, and each raises distinct philosophical questions about delegation, responsibility, and trust.
+A locked open question (see `toc-v1-pushback.md`): the four layers may overlap more than the architecture admits. The Modes and the Tiers occupy adjacent diagnostic space; the Capacities and the Loop steps share structure. Whether each of the four earns its place by doing work the others don't is a design audit that has not been resolved at the TOC level. The first review pass should run that audit.
 
-## Beyond the Hype Cycle
+---
 
-The AI field moves quickly, with new models and capabilities emerging regularly. However, the fundamental challenges of human-AI collaboration remain consistent. The Botspeak framework provides lasting cognitive tools rather than ephemeral techniques that may be outdated within months.
+## Voice and method
 
-By mastering these nine pillars, you'll develop:
-- A robust framework guiding all AI interactions
-- Confidence in deciding when and how to engage AI effectively
-- Practical skills for fluid human-AI collaboration
-- The ability to evaluate and take responsibility for AI-assisted outcomes
-- A philosophical foundation for critical thinking about AI systems
+The voice baseline lives in the workshop's root `style/` folder and in `CLAUDE.md`. Per-book voice samples (when added) will live in `style/` under this book's folder and override the root on conflict. As of April 2026, both layers are empty; every chapter draft is flagged `voice-unanchored` at the top. **Chapter 0 is the natural voice-setting chapter and should be calibrated first.**
 
-In the chapters that follow, we'll explore each pillar of Botspeak in detail, providing both conceptual understanding and practical exercises to build your AI Fluency. This isn't just about learning to use today's AI—it's about developing the cognitive tools to thrive in a future where human-AI collaboration becomes increasingly central to how we work, learn, and create.
+The method is the workshop's four-move arc, applied to each chapter:
+
+1. **Hook with a genuine puzzle.** A specific person, a dated event, a number, a question that looks obvious until you try to answer it. Never opens in abstraction.
+2. **Unfold the subject — force the concept specific.** Pull apart the vague terms. *Specification* is not *prompting*; *fluency* is not *literacy*; *agency* is not *automation*.
+3. **Deep-dive on one mechanism.** One thing, explained well. Worked examples on the page. Show how a fluent practitioner makes the move; show why a literate user does not.
+4. **Synthesize, hand to reader, close with clarity.** Return to the puzzle. Name the current reading honestly. Close with a short, declarative, memorable sentence.
+
+Every chapter ends with two commitments:
+
+- **What would change my mind** — the specific evidence or argument that would cause the chapter's reading to revise.
+- **Still puzzling** — the honest admission of what the author does not yet fully understand. Feynman's move.
+
+The hard rules — no fabricated sources, primary sources where possible, every contestable factual claim linked, calibrated uncertainty over false confidence — apply throughout. See `CLAUDE.md` §7.
+
+---
+
+## Relationship to *How to Speak Bot*
+
+*Botspeak* is the discipline. *How to Speak Bot* is the reference.
+
+The two volumes are designed to sit next to each other on a working practitioner's desk:
+
+- *Botspeak* teaches the **judgment** about prompt patterns — when to reach for a pattern, how to specify around it, how to verify what the pattern produced. It introduces one pattern (role-and-rubric) in Chapter 3 and refers the reader elsewhere for the rest.
+- *How to Speak Bot* is the **catalogue** — the patterns themselves, with one-page reference treatments, organized for quick lookup.
+
+Appendix A of *Botspeak* contains a practical-core subset (~8 patterns) for readers who don't yet have *How to Speak Bot*. The full catalogue lives in the companion volume.
+
+Readers can pick up either book first. Reading *Botspeak* alone gives the discipline without the full pattern reference. Reading *How to Speak Bot* alone gives the patterns without the structured workflow that makes them productive. The two together are the working unit.
+
+---
+
+## Adoption notes
+
+The first edition is designed for individual practitioners reading the book on their own time, against their own work. Classroom and cohort adoption are out of scope for the first edition; the franchise model anticipates later domain volumes (*Botspeak for Educators*, etc.) that will incorporate cohort pedagogy explicitly.
+
+Within those constraints, the book is adoptable in fragments:
+
+- **Full read (Ch 0–13).** The intended path. Roughly three weeks at a working practitioner's pace; the author's reference frame.
+- **Part I only (Ch 0–8).** "The Loop in Augmentation" — a complete unit on its own. Suitable for a reader whose immediate concern is making their daily AI work better. The Slot 8 closing checklist tells the reader explicitly when to stop and rebuild before moving on.
+- **Part I + Part III (Ch 0–8, 11–13), skipping Automation.** A reader with no immediate plan to build automated systems can read the Augmentation discipline and the Agency discipline without the bridge. Chapter 11 carries a skip-reader summary of Part II for exactly this case.
+- **Chapter 12 alone, with prerequisites.** The densest chapter is sometimes pulled out as a reference for designing high-stakes agentic deployments. Pulling it out alone requires the reader to have the foundation from Chapters 5–7 and 11 already; the chapter's "what you should remember" sidebar is the explicit acknowledgment of this.
+
+Adopters should note: **Chapter 5's mid-chapter required-engagement exercise is not skippable**. The chapter does not transmit by reading. The instruction is locked at the TOC level and surfaces explicitly on the page. A reader who wants to skip the exercise should be told, before the chapter, that they should pick a different chapter that day.
+
+---
+
+## Repository structure
+
+```
+botspeak/
+├── README.md                                                # this file
+├── book.md                                                  # book metadata: audience, scope, voice notes
+├── outline.md                                               # chapter list with one-line purposes
+├── toc-v1.md                                                # full architectural source-of-truth (locked)
+├── toc-v1-pushback.md                                       # structural critique of the TOC (partially unresolved)
+├── chapters/                                                # chapter drafts
+│   ├── 00-the-citation-that-wasnt.md
+│   ├── 01-the-loop-and-the-three-modes.md
+│   ├── 02-the-nine-capacities.md
+│   ├── 03-specification.md
+│   ├── 04-delegation.md
+│   ├── 05-conversation.md
+│   ├── 06-discernment.md
+│   ├── 07-diligence.md
+│   ├── 08-putting-the-loop-together.md
+│   ├── 09-when-youre-not-there.md
+│   ├── 10-specification-and-diligence-for-automation.md
+│   ├── 11-agency-and-the-three-structural-failures.md
+│   ├── 12-verification-and-diligence-under-autonomy.md
+│   └── 13-the-fluent-practitioner.md
+├── exercises/                                               # /mega LLM-exercise sets (planned)
+├── essays/                                                  # chapter-adjacent longreads (planned)
+├── bookmaps/                                                # /bookmap analyses of source books (planned)
+├── style/                                                   # per-book voice samples (currently empty)
+└── images/                                                  # hero image briefs (planned)
+```
+
+Repo-level research notes for the batch draft are at `../../research/2026-04-27-botspeak-batch-rough-drafts.md`.
+
+---
+
+## Status
+
+**April 2026.** All 14 chapters drafted as rough first passes in a single batch session on 2026-04-27. Total ~33,100 words across the 14 chapters. None reviewed. None approved.
+
+Each draft is marked `voice-unanchored` at the top because per-book `style/` samples have not yet been populated. Each draft uses `[verify]` flags inline for specific citations and statistics that need source-checking before publication.
+
+**Three architectural concerns remain unresolved** (documented in `toc-v1-pushback.md`):
+
+1. **Framework overlap.** The four layers (Loop, Three Modes, Nine Capacities, Seven Tiers) may overlap more than the architecture admits. A design audit — does each framework do work the others don't — has not been run at the TOC level. Chapter 2's durability axis is the only direct response in the drafts so far.
+2. **The "irreducibly human" claim ages.** The title's load-bearing claim depends on a list of capacities AI cannot do. Several of the Nine are *temporarily* irreducible, not durably so. Chapter 2's durability axis names this; the architecture as a whole does not yet structurally separate durable claims from contested ones.
+3. **The defining-the-field claim is unaudited.** The TOC asserts *"no book currently makes this claim or provides this architecture"* without specifying the comparison set. Specification is exactly what Chapter 3 teaches. The book teaching specification cannot ship with an unspecified competitive claim.
+
+**Chapter 12 is currently underweight.** TOC allocation is 32–40 pages; the rough draft is closer to 12 pages. The bones of the worked example are in place, but substantial expansion is needed before the chapter is review-ready.
+
+**Six open questions remain in the log** (see `toc-v1.md` §10). OQ-K (final chapter titles), OQ-M (Chapter 0 narrative title), OQ-N (chapter anatomy template uniformity), and OQ-O (case-study domain coverage map) are open at production stage. OQ-L (page count) is open at /c4 with a recommendation to accept the higher length. The remaining questions OQ-A through OQ-J are all RESOLVED.
+
+**Distribution decision (locked):** Option B+ — KDP self-publish for the first edition, with the ISTE/ASCD article pipeline as the primary marketing channel. Hybrid or traditional press is reserved for an expanded second edition or the first franchise extension volume in 12–18 months.
+
+**Nothing has been published from this folder. The human review gate is inviolable.** Drafts are produced for Nik's review, not in Nik's place. Skills never publish directly.
+
+---
+
+*This README is itself an essai — the current best reading of what the book is and how it works. When chapter drafts reveal that something here is wrong or missing, this file gets updated, and the change gets logged in the workshop CHANGELOG.*
