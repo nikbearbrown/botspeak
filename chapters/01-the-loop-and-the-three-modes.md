@@ -78,13 +78,14 @@ The Ash case from Chapter 11 — the agent that reset an entire email server in 
 Three modes. Five Loop steps. The Loop has to run in each mode, and the steps reweight as the mode changes. Augmentation — Priya at the keyboard, Part I — is where most of a practitioner's day still happens, and it is the mode we treat first and at length. Automation and Agency are where the stakes get higher and the design discipline gets harder.
 
 
-| Mode             | Human presence during execution                                                             | Steps that reweight                                                                                                             | Characteristic failure mode                                                                                                            | Where covered |
-| ---------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| **Augmentation** | Human is present at the keyboard; every output crosses human eyes before use.               | **Conversation** and **Discernment** stay central because the human can refine, challenge, verify, and edit in real time.       | Fluent but wrong output gets accepted because the user mistakes confidence for correctness.                                            | **Part I**    |
-| **Automation**   | Human is not present when the task runs; the system executes on a schedule or trigger.      | **Specification** and **Diligence** become heavier because problems must be anticipated and review systems designed in advance. | Small errors accumulate quietly across repeated runs before anyone notices.                                                            | **Part II**   |
-| **Agency**       | Human may not review each decision before action; the system can take actions in the world. | **Discernment** and **Diligence** must move before execution, with stronger boundaries, permissions, and escalation rules.      | The system takes a locally reasonable but globally harmful action because it lacks context, stakeholder awareness, or proportionality. | **Part III**  |
 
-* The distinction between Augmentation, Automation, and Agency and how the Loop changes across those modes. *
+| Mode | Human presence during execution | Steps that reweight | Characteristic failure mode | Where covered |
+|---|---|---|---|---|
+| **Augmentation** | Human is present at the keyboard; every output crosses human eyes before use. | **Conversation** and **Discernment** stay central because the human can refine, challenge, verify, and edit in real time. | Fluent but wrong output gets accepted because the user mistakes confidence for correctness. | **Part I** |
+| **Automation** | Human is not present when the task runs; the system executes on a schedule or trigger. | **Specification** and **Diligence** become heavier because problems must be anticipated and review systems designed in advance. | Small errors accumulate quietly across repeated runs before anyone notices. | **Part II** |
+| **Agency** | Human may not review each decision before action; the system can take actions in the world. | **Discernment** and **Diligence** must move before execution, with stronger boundaries, permissions, and escalation rules. | The system takes a locally reasonable but globally harmful action because it lacks context, stakeholder awareness, or proportionality. | **Part III** |
+
+*Figure 1. The distinction between Augmentation, Automation, and Agency and how the Loop changes across those modes.*
 
 ---
 
