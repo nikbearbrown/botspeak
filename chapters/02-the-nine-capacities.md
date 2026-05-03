@@ -1,89 +1,166 @@
 # Chapter 2 — The Nine Capacities
 *The gap between two equally smart people isn't skill — it's a constellation you can learn to see.*
 
-I want to start with something I have been turning over for the last two years, because it is going to organize everything that follows.
+I have been watching people use AI tools for the last two years, and I keep noticing the same puzzle. Take two equally smart engineers, or two analysts, or two graduate students, and watch them work with the same tool on the same kind of task. One of them gets dramatically better results than the other. The gap is not in their raw intelligence. It is not in their familiarity with the tool. It is not, usually, in how much they know about machine learning. The gap is somewhere else, and for a while I couldn't name where.
 
-When I watch two equally smart people use an AI tool — say, two software engineers, or two analysts, or two graduate students — and one of them gets dramatically better results than the other, the difference between them is almost never what you would predict. It is not that one of them knows more about machine learning. It is not that one of them is better at writing prompts. It is not that one of them is more familiar with the particular tool. Sometimes those things matter at the margin. But the bulk of the gap — the gap that makes one of them ship good work in a third of the time and the other ship mediocre work and not notice — that gap comes from somewhere else.
+I want to show you what I mean through one case, because this is the kind of thing that is better seen than described. I will call the person Devin. He is a composite — the things I am going to describe really happened, but across several engineers I have worked with. The pattern is real. The quotes are not.
 
-I want to find out where.
+Devin is a software engineer, two years out of school. Sharp. Trusted by his team. He gets a ticket: a customer is reporting an occasional error in a date-related calculation. Specifically, the product sometimes returns the wrong number of days between two dates near the end of February. Devin has done date arithmetic before, though not quite this kind. He opens an LLM, explains the problem in a paragraph, and gets back a function that looks correct. It compiles. He writes a test. The test passes. He commits the code.
 
-Let me show you what I mean by way of a single example. I will come back to it many times in this chapter, and I will refer to the person as Devin, because that is what I have always called him in my head. Devin is a real composite — that is, the things I am going to describe really happened, but they happened to several different engineers I have worked with, and I have rolled them into one person to keep the story clean. There are no invented quotes. There is only the pattern.
+Three weeks later, the same customer reports the same bug. The function fails on the last day of February in a leap year, in a specific case Devin's test had not exercised: February 29 as the *end date* of a calculation that crosses it. When Devin looks at the function again, he sees the failure immediately. The model had handled February 28 correctly. It had handled February 29 correctly as a *start date*. The case where it was the end date had slipped through. And Devin had not caught it because, when he read the function, he had stopped reading at the point where it looked plausible.
 
-Devin is a software engineer, two years out of school. Sharp. Writes clean code. Trusted by his team. He gets a ticket: a customer is complaining that some date-related calculation in the product is occasionally wrong. Specifically, it sometimes returns the wrong number of days between two dates near the end of February. Devin has done date arithmetic before, but not this kind, and he reaches for an LLM. He explains the problem in a paragraph. He gets back a function that, on first read, looks correct. The function compiles. Devin writes a test. The test passes. Devin commits the code.
+Now here is the question I want to sit with for a moment: what, exactly, did Devin do wrong?
 
-Three weeks later the same customer reports the same bug. The function fails on the last day of February in a leap year, in a way Devin's test did not exercise. Devin, when he looks back at the code, sees the failure mode immediately. The model had handled February 28 correctly. It had handled February 29 in a leap year correctly *as the start date*. It had not handled the case where February 29 was the *end* date and the calculation crossed it. Devin had not noticed because he had not generated the case in his test. He had not generated the case in his test because, when he read the function, he stopped reading at the place where it looked plausible.
+Notice that it is not one thing. He did not fail at one cognitive task. He failed at several, and they are not the same kind of failure. I want to pull them apart, because the pulling-apart is the move this chapter is really about.
 
-Now here is the question I want you to sit with for a moment: *what, exactly, did Devin do wrong?*
+He failed, first, at deciding what to delegate. He handed the model the whole problem — including the part that required someone to hold in mind a working model of the edge cases in the Gregorian calendar. He treated the model as a function that returns answers. He should have treated it as a draftsman that returns drafts.
 
-Notice that it is not one thing. He did not fail at one cognitive task. He failed at several at once, and they are not the same kind of failure. Let me try to pull them apart, because the pulling-apart is the move I want you to learn in this chapter.
+He failed, second, at evaluating the output. He read the function, but he did not stress-test it. He did not ask, before committing: *what would have to be true for this to be wrong?* That question is a different cognitive move from *does this look right?* The first asks you to imagine the world in which the code fails. The second asks whether the code matches a vague mental picture of correctness. They feel similar from the inside. They are not. Devin made the second move when the situation required the first.
 
-He failed, first, at *deciding what to delegate*. He gave the model the whole problem — including the part that required holding in his head a working model of the edge cases in the Gregorian calendar, which is exactly the kind of thing a human checking a model's output is supposed to do. He treated the model as a function that returns an answer. He should have treated it as a draftsman that returns a draft.
+He failed, third, at handling uncertainty honestly. The model had not said, "I am ninety percent confident this covers all leap-year edge cases." Models do not say things like that. They produce confident-looking output, and you have to import the uncertainty yourself. Devin did not. The output looked certain, so he treated it as certain. The sleight of hand was the model's, but the cure was always going to be his.
 
-He failed, second, at *evaluating the output*. He read the function. He did not stress-test the function. He did not, before committing, ask himself: *what would have to be true for this to be wrong?* That question — *what would have to be true for this to be wrong* — is a different cognitive move from *does this look right?* The first asks you to imagine the world in which the code fails. The second asks you whether the code matches a vague mental picture of what correct code looks like. They feel similar. They are not. Devin made the second move when the situation called for the first.
+And he failed, fourth — this one is the subtle one, the slow one — at staying in the practice. Devin used to think carefully about date arithmetic edge cases because he had to. The model has, over the last year, taken that thinking out of his daily routine. Not out of his abilities; he can still do it when he tries. But out of his daily routine. And a muscle you stop using does not fail suddenly. It gets slow before it atrophies. You do not feel it getting slow. You feel it the day it fails to do what you needed, and by then the gap has been accumulating for months.
 
-He failed, third, at *handling uncertainty honestly*. The model had not told him, "I am 95% confident this handles all leap-year edge cases." Models do not, in general, tell you that. They produce confident-looking output and you have to import the uncertainty yourself. Devin did not import it. The output looked confident, so he treated it as confident. That is a sleight of hand the model is performing on him, and the cure for it is not in the model. It is in him.
+Four different failures, all at once, all in what looked like a simple ticket. Now let me tell you something interesting: if I told you a similar story about a marketing associate picking AI-generated taglines without telling the model the brand voice or the legal constraints, or a hiring manager running résumés through an AI tool he has not audited, or a graduate student handing in a literature review he did not read — you would find a different combination of similar failures each time. But you would always find a combination. Never just one.
 
-And he failed, fourth — this one is subtle, but it matters more than the other three combined over the long run — at *staying in the practice*. Devin used to write date arithmetic by hand. He used to think carefully about edge cases because he had to. The model has, over the last year, taken that careful thinking out of his daily practice. Not out of his abilities — he could still do it if he sat down and tried. But out of his daily practice. And here is what is curious: what falls out of daily practice gets *slow* before it gets *weak*. A muscle you do not use gets slow before it atrophies. Devin's was getting slow. He could not feel it getting slow. People rarely can. They notice the day the muscle fails to do what they need it to do, and by then the gap they have to close is months wide instead of days.
+That is what I have been trying to understand. People who use AI well are not doing one thing right. They are doing a constellation of things right, and the constellation has a shape.
 
-So we have four different things, all happening at once, in one apparently simple failure. And if I told you a similar story about a marketing associate writing taglines, or a hiring manager screening résumés, or a graduate student writing a literature review — I will mention each of them briefly in a moment — you would find a different combination of similar failures each time. But you would always find a combination. Never just one.
+I am going to claim the shape has nine points. The number is not sacred. I have looked at enough working practitioners that nine seems to fit the cases I have seen, but nine might be eight or eleven with more data. The count is bookkeeping. The capacities are what matter.
 
-This is what I have been turning over. People who use AI well are not doing one thing right. They are doing a constellation of things right, and the constellation has a shape.
+<!-- → [INFOGRAPHIC: A "constellation" diagram with nine labeled nodes arranged in a loose organic cluster — each node shows the capacity name and its one-line diagnostic question. Nodes connected by light lines suggesting interdependence rather than hierarchy. This is the chapter's central organizing image; should be visually memorable and referenceable at a glance throughout the book.] -->
 
-I am going to claim the shape has nine points. I will not pretend the number is sacred. I will say that I have looked, over the last two years, at a lot of working practitioners, and the same nine kinds of cognitive move keep showing up. They are not exhaustive. They may, with more data, prove to be eight, or eleven. For now, nine fits the cases I have seen, and the cost of changing the count later is small. The capacities are what matter; the count is bookkeeping.
+Here they are, briefly, before I give any of them the treatment they deserve.
 
-Here is the whole shape at once, sketched briefly, before I go through them in any depth. I will not work through all of them carefully here — that is what the rest of the book is for — but I want you to see the constellation in one glance, because each point only makes sense in relation to the others.
+The first is **strategic delegation**: deciding, before you begin, what the model should do and what you should do, and why. Devin's first failure. The diagnostic question is: *what should I give the AI, what should I keep, and why?* A fluent practitioner can answer this in seconds. A novice cannot answer it at all and so hands the model the whole task, which is the same as not deciding.
 
-<!-- → [INFOGRAPHIC: A "constellation" diagram with nine labeled nodes arranged in a loose circular or organic cluster — each node is a capacity name with its one-line diagnostic question. Nodes are connected by light lines to suggest interdependence rather than hierarchy. This is the chapter's organizing image; it should be visually memorable and referenceable throughout the book.] -->
+The second is **effective communication**: telling the model what it actually needs to know. Intent, constraints, audience, success criteria. When this fails, the model fills in the blanks with its best guess at what you meant. The best guess will be slightly different each time — which is how you get the experience of "the model is inconsistent," when in fact you have been inconsistent and the model has been faithfully reflecting your inconsistency back at you. I find this the funniest of the nine, because the failure looks like the model's failure and is in fact yours.
 
-The first is **strategic delegation**: deciding, before you begin, what the model should do and what you should do, and why. This was Devin's first failure. The diagnostic question is: *what should I give the AI, what should I keep, and why?* The fluent practitioner can answer this question in seconds. The novice cannot answer it at all and so just hands the model the whole task, which is the same as not deciding.
+The third is **critical evaluation**: reading the output for what kind of error it might contain. This was Devin's second failure, and I think it is the most under-practiced of the nine. Most people read AI output for whether it *sounds* right. Reading it for whether it *is* right is a different activity. It requires you to hold, in your head, a model of the kinds of failure this kind of system produces. Without that internal model, you have nothing to check against except plausibility. Plausibility is a very low bar.
 
-The second is **effective communication**: telling the model — or your colleague, or the document you are writing — what it actually needs to know. The diagnostic question is: *am I specifying intent, constraints, audience, success criteria?* When this fails, the model fills in the blanks with its best guess at what you meant, and the best guess will be a slightly different one each time, which is how you get the experience of "the model is inconsistent" when actually you have been inconsistent and the model has been faithfully reflecting your inconsistency back at you. I find this the funniest of the nine, because the failure looks like the model's failure and is in fact yours.
+The fourth is **technical understanding**: knowing enough about how the system works to predict where it will fail. Not at research depth. Practitioner depth. Enough to know that a language model will hallucinate citations because of how it was trained, and so you should always check citations. Enough to know that an image model will produce six fingers because of the structure of its training data, and so you should always count fingers. The diagnostic question is: *do I have a working model of why this thing succeeds and fails?* This is the capacity I find most often missing in otherwise sophisticated users. They use the tool well in cases where it happens to work, and have no theory of when it will not.
 
-The third is **critical evaluation**: reading the output for what kind of error it might contain. This was Devin's second failure, and it is, I think, the most under-practiced of the nine. Most people read AI output for whether it sounds right. Reading AI output for whether it *is* right is a different cognitive activity, and it requires you to hold, in your head, a model of the kinds of failure this kind of system produces. Without that internal model of failure, you have nothing to check against, and so the only thing you can check against is plausibility. Plausibility is a very low bar.
+The fifth is **ethical reasoning**: noticing when the use case has stakeholders other than yourself and the AI, and acting on that noticing. The hiring manager who deploys an unaudited screening tool has failed at this. So has any team that ships a product affecting other people's lives without asking who might be harmed. I want to be direct: this is not a soft skill. It is the capacity that keeps you from shipping something that gets someone hurt, gets you sued, or both.
 
-The fourth is **technical understanding**: knowing enough about how the system works under the hood to predict where it will fail. Not at a research depth. At a practitioner's depth. Enough to know that a language model will hallucinate citations because of how it was trained, and so you should always check citations. Enough to know that an image model will produce six fingers because of the structure of its training data, and so you should always count fingers. The diagnostic question is: *do I have a working model of why this thing succeeds and fails?* This is the capacity I find most often missing in otherwise sophisticated users. They use the tool well in the cases where it happens to work and have no theory of when it will not.
+The sixth is **stochastic reasoning**: handling uncertainty honestly. Yours, the model's, the world's. The diagnostic question is: *what kind of probabilistic claim is this, and what would calibrate my belief in it?* A model will give you a number — say, "sixty-five percent probability the Fed cuts rates" — and the number will look like a number, and you will use it as if it were a number, and it may be the model's best guess at last week's market-implied probability with no fresh information at all. The capacity is not "be good at probability." The capacity is "ask, every time, what kind of probabilistic claim is in front of me and where it came from."
 
-The fifth is **ethical reasoning**: noticing when the use case has stakeholders other than yourself and the AI, and acting on that noticing. The hiring manager who runs résumés through a tool he has not audited has failed at this. So has the marketing team that ships an ad campaign without asking who might be hurt by it. The diagnostic question: *who could be harmed by this output, and am I tracking that?* I want to flag, because it matters: this is not a soft skill. This is the capacity that keeps you from shipping a thing that gets you sued, or fired, or — more importantly — hurts somebody.
+The seventh is **learning by doing**: using AI in ways that amplify your skills rather than replace them. This was Devin's fourth failure, the slow one. The diagnostic question is: *am I building the skill, or consuming the output?* AI use can be the most powerful learning multiplier you have ever had. It can also be the fastest skill atrophier. Which one it is depends almost entirely on how you use it — not whether you use it. Most people who think they are using AI to learn are using it in a way that prevents learning. Most people who think AI is making them weaker simply have not found the specific moves that turn AI use into accelerated practice. These are learnable. The chapter that covers this will show you what they are.
 
-The sixth is **stochastic reasoning**: handling uncertainty honestly. Yours, the model's, the world's. This was Devin's third failure. The diagnostic question is: *what kind of probabilistic claim is this, and what would calibrate my belief in it?* I want to be honest with you that this is one of the harder capacities, because we are all bad at probability and the model produces output that looks deterministic when it is anything but. The model will give you a number — say, "65% probability the Fed cuts rates" — and the number will look like a number, and you will use it as if it were a number, and it may in fact be the model's best guess at last week's market-implied probability with no fresh information at all. The capacity is not "be good at probability." The capacity is "ask, every time, what kind of probabilistic claim is in front of me."
+The eighth is **rapid prototyping**: treating model output as a draft to be tested in the world, not as the work itself. The product manager who hands AI-generated feature ideas to engineering without any user testing has failed at this. The model produced options. The model did not produce validation. The diagnostic question is: *am I testing this against reality, or just against my own approval?* Approval is cheap. Reality is the only thing that talks back.
 
-The seventh is **learning by doing**. This was Devin's fourth failure, the slow one. The diagnostic question is: *am I using the AI in a way that builds my skill, or in a way that consumes my skill?* These are different. AI use can be the most powerful learning multiplier you have ever encountered, and it can also be the fastest skill atrophier. Whether it is one or the other depends almost entirely on how you use it — not whether you use it. I am going to have a lot to say about this later, and I am going to keep coming back to it, because I think most people who think they are using AI to learn are using it in a way that prevents learning, and most people who think AI is making them dumber have simply not noticed the few specific moves that turn AI use into accelerated practice.
+The ninth is **theoretical foundations**: keeping enough domain knowledge in your own head that the AI amplifies your understanding rather than substituting for it. The graduate student who hands in a literature review without reading the foundational papers has the prose without the foundation — which means he cannot tell good prose from prose with subtly wrong framing. The diagnostic question: *do I understand the underlying material well enough to judge whether this output is good?* Without that, you are not collaborating with the model. You are taking dictation from it.
 
-The eighth is **rapid prototyping**: treating model output as a draft to be tested in the world, rather than as the work itself. The product manager who hands four AI-generated feature ideas to engineering without prototyping or user-testing has failed at this. The model produced options. The model did not produce validation. The diagnostic question is: *am I testing this against reality, or just against my own approval?* Approval is cheap. Reality is the only thing that talks back.
+<!-- → [TABLE: The Nine Capacities quick-reference — columns: Capacity Name | Diagnostic Question | Primary Loop Step | Durability (Durable / Contested / Temporary). One row per capacity. Formatted for scanning; this table is the chapter's reference artifact and will be reprinted in the book's appendix.] -->
 
-The ninth is **theoretical foundations**: keeping enough domain knowledge in your own head that the AI is amplifying your understanding rather than substituting for it. The graduate student who has the AI write his literature review without reading the foundational papers has failed at this. He has the prose. He does not have the foundation, which means he cannot tell good prose from prose with subtly wrong framing. The diagnostic question: *do I understand the underlying material well enough to judge whether this output is good?* Without that, you are not collaborating with the model. You are taking dictation from it.
+Nine. Each one a cognitive capacity. Each one a place where I have watched real practitioners fail. And — the part that took me longest to see — each one separable enough to practice on its own.
 
-<!-- → [TABLE: The Nine Capacities reference table — columns: Capacity Name, Diagnostic Question, Which Kind of Failure (delegation / evaluation / uncertainty / practice), Durability (durable / contested / temporary). One row per capacity. This table should be formatted for easy scanning and positioned here so readers have the full picture before the durability discussion that follows.] -->
+That last claim is the one I am least confident in, and I want to say so directly. It is possible that these nine correlate so strongly with general professional judgment that "develop the nine capacities" reduces, empirically, to "get better at your job." If that is true, the architecture in this book is decorative — it produces the right behavior, but the decomposition into nine is not doing real work. I have looked at this carefully and I believe the decomposition earns its keep. I can identify practitioners who are strong in some of these and weak in others, and the patterns are not random. But I do not have longitudinal data. If a careful study showed that fluent practitioners share four or five of these and the rest are noise, I would update. The list comes from observation, not theory. Observation can be wrong.
 
-Nine. Each one a different cognitive capacity. Each one a place where I have watched real working practitioners fail. And — this is the part that took me longest to see — each one separable enough to practice on its own.
+Now I want to say something about durability, because it matters for how you invest.
 
-That last claim is the one I am least sure of, and I want to be honest about it. It is possible that the nine capacities correlate so strongly with general professional judgment that "develop the nine capacities" reduces, empirically, to "get better at your job." If that is true, the architecture in this book is decorative — it gets you the right behavior, but the decomposition into nine is not actually doing work. I have looked at this carefully and I believe the decomposition is doing work, in the sense that I can identify practitioners strong in some capacities and weak in others, and the patterns are not random. But I do not have the longitudinal data to be sure. If a careful empirical study showed that fluent practitioners share four or five of these and the rest are decorative, I would update. The list comes from observation, not theory, and observation can be wrong.
+Some of these capacities are durably the human's responsibility, in any future I can foresee. Strategic delegation is one. Someone has to be accountable for the work, and accountability cannot be delegated to a model. Your name on the work is your name on the work, and the question of what to delegate is an accountability question, not a capability question. Ethical reasoning is the same. When the lawsuit is filed, when the patient is harmed, when the algorithm denies the loan — the model is not the defendant. You are.
 
-There is a second thing I want to be honest about, which is the question of *durability*. Some of these capacities are durably the human's responsibility, in any future I can foresee. Some are temporarily the human's responsibility, in 2026, and may not be in 2028 or 2030.
+Learning by doing is durable in a different way: you have a body and the model does not, and the skills you have built into your daily practice are yours regardless of what the model can do at any given moment.
 
-Strategic delegation is durable. Someone has to be accountable for the work, and accountability cannot be delegated to a model. Your name on the work is your name on the work, and the question of what to delegate is an accountability question, not a capability question. Ethical reasoning is durable in the same way. Someone has to be on the hook. Models cannot be on the hook in the relevant sense — when the lawsuit is filed, when the patient is harmed, when the algorithm denies the loan, the model is not the defendant. You are.
+Critical evaluation and stochastic reasoning are contested. Models are getting better at calibrated self-doubt and uncertainty quantification. In some narrow domains, a well-tuned model may already produce better-calibrated probabilistic claims than a well-trained human. The practitioner of 2028 may have to update which parts of these she still owns and which she has reasonable grounds to lean on the model for. I cannot tell you yet which parts those will be. You will be able to tell, when the time comes, because the practice you have built will give you the sensors to notice.
 
-Learning by doing is durable in a different way: you have a body and the model does not, and the skills you build in your body — including the cognitive skills that live in the way you reach for tools — are yours regardless of what the model can do at any given moment.
+The remaining four — effective communication, technical understanding, rapid prototyping, theoretical foundations — are temporarily irreducible at varying timelines. Models will erode parts of each. The judgment of what is a good prototype, what is a load-bearing theoretical foundation, what level of technical understanding is actually sufficient — that is going to remain yours longer than the production of those things.
 
-Critical evaluation and stochastic reasoning are *contested*. Models are getting better at calibrated self-doubt and at uncertainty quantification. In some narrow domains a well-tuned model may already produce better-calibrated probabilistic claims than a well-trained human. The fluent practitioner of 2028 may have to update which parts of these capacities she still owns and which she has reasonable grounds to lean on the model for. I cannot tell you yet which parts those are. You will be able to tell, when the time comes, by the practice you have built.
+<!-- → [CHART: Horizontal durability spectrum — nine capacities plotted left to right from "Durable (human always responsible)" through "Contested (timeline unclear)" to "Temporarily irreducible (eroding with time)". Each capacity shown as a labeled point at its approximate position. Spatial layout makes the investment logic legible at a glance.] -->
 
-The remaining four — effective communication, technical understanding, rapid prototyping, theoretical foundations — are temporarily irreducible at varying timelines. Models will erode parts of each. The judgment of what is a good prototype, what is a load-bearing foundation, what level of technical understanding is sufficient — that is going to remain yours longer than the production of those things.
+I am being explicit about this because I want the book to age well in your hands. The durable capacities, you are investing in for the whole career. The temporary ones, you still need now, and the book will try to teach them. When the timeline closes on any of them, you will be among the first to notice. That is one of the hidden returns on building a practice: the practice gives you the sensors to know when a capacity is no longer load-bearing. Someone who only read about these things will not have those sensors.
 
-<!-- → [CHART: A horizontal timeline or spectrum diagram showing the nine capacities arranged by durability — left axis "Durable (human always responsible)" through center "Contested (timeline unclear)" to right "Temporarily irreducible (eroding)". Each capacity placed at its approximate position based on the text's analysis. The goal is to make the durability gradient spatially legible.] -->
+Let me end with something practical.
 
-I am telling you this because I want the book to age well in your hands. The capacities that are durable, you are investing in for the whole career. The capacities that are temporary, you are still going to need for now, and the book will still try to teach them. When the timeline closes on any of them, you will be among the first to notice, because the practice you have built will tell you. That is one of the hidden benefits of practicing a capacity rather than reading about it: the practice gives you the sensors to know when the capacity is or is not still load-bearing.
+Take the nine capacities and ask yourself, for each one, where you are. Not precisely. On a four-level scale. *Untrained* means you have not knowingly practiced this and may not even know what it would feel like to practice it. *Aware* means you can name the capacity and recognize when it is at issue, but you do not yet have a routine for it. *Practicing* means you have a routine and you execute it imperfectly. *Fluent* means it is reflex — you do it without thinking, and you can teach it.
 
-I want to end with a thing I would do if I were sitting with you in a room. Take the nine capacities and ask yourself, on each one, where you are. Not in a precise way. In a four-level way. *Untrained* means you have not knowingly practiced this; you may not even know what it would feel like to practice it. *Aware* means you can name the capacity and recognize when it is at issue, but you do not yet have a routine for it. *Practicing* means you have a routine and you execute it imperfectly. *Fluent* means it is reflex, you do it without thinking, and you can teach it to somebody else.
+<!-- → [TABLE: Self-assessment grid — rows are the nine capacities, columns are the four levels (Untrained / Aware / Practicing / Fluent) with a fillable checkbox cell at each intersection, plus a narrow Notes column. Formatted to print cleanly on a single page or display as a fillable digital form. Positioned here so readers can complete it before the chapter's closing instruction.] -->
 
-<!-- → [TABLE: A self-assessment grid — rows are the nine capacities, columns are the four levels (Untrained / Aware / Practicing / Fluent) with a checkbox or blank cell at each intersection. Designed as a fill-in tool for readers, ideally formatted so it can be printed or used digitally. Include a small notes column or margin.] -->
+Don't agonize. Five minutes. Pick the level that is closer to true than the alternatives and move on.
 
-Don't agonize about which level. Pick the one that is closer to true than the alternatives, and move on. The rough answer is what you need.
+When you have nine answers, look at them and pick the two capacities you most want to move up one level in the next ninety days. Not the ones you are already strongest in — that is comfortable and unproductive, and I have watched many smart people make exactly that mistake. Pick the ones that are slightly painful to look at honestly. Those are the ones where deliberate practice will buy you the most working capability in the next three months.
 
-When you have nine answers, look at them and pick the two capacities you most want to move up one level in the next ninety days. Those are the two the rest of the book is going to be most useful for you on. Do not pick the ones you are already strongest in. That is comfortable and unproductive, and I have watched a lot of smart people make exactly that mistake — they invest in their already-strong capacities because the practice feels rewarding, and they leave the weak ones weak. The weak ones are where the next ninety days of deliberate practice will buy you the most working capability. Pick the ones that are slightly painful to look at honestly. Those.
+Write them down somewhere you will find again. You are going to come back to them at the end of the book, and the comparison — what you said you would work on, what you actually improved at — is going to teach you something about yourself that I cannot teach you here.
 
-Write them down somewhere you will find again. You are going to come back to them at the end of the book, and the comparison — what you said you would work on, what you actually got better at — is going to teach you something about yourself that I cannot teach you here.
+The Loop, which the next chapter introduces properly, is the workflow. The nine capacities are what the workflow draws on. The Loop tells you what steps to take. The capacities are what makes those steps go well or badly. Hold both in your head as we go. The rest of the book develops them in parallel, and the chapters are designed so that you can read them in the order that matches the two capacities you just wrote down.
 
-That is what the nine capacities are. We will spend the rest of the book on them, one and two at a time, with the Loop as the workflow that draws on them. The Loop is what you do. The capacities are what you do it with. Hold both in your head as we go.
+---
+
+*What would change my mind.* If a careful empirical study showed that fluent AI practitioners systematically share fewer than nine of these capacities — say, four or five appear together and the rest are decorative — the architecture needs revision. The list emerged from observation, not from theory. It is testable, and I would update if the test came back differently.
+
+*Still puzzling.* I do not yet know whether the nine capacities are separable in practice. They may correlate so strongly with general professional judgment that "develop the nine capacities" reduces, empirically, to "develop professional judgment generally." I think they are separable enough to teach individually. I do not have the longitudinal data to be sure.
+
+---
+
+> **Going deeper — *Computational Skepticism for AI***
+>
+> Three of the Nine Capacities have full chapters of treatment in the advanced volume, useful when you decide one of them is the capacity you most need to develop:
+>
+> - **Stochastic Reasoning** (Gabriela's failure with the 65% probability) — the deeper book starts from Bayes' theorem and base rates and shows why a "99% accurate" test can be useless on a rare event, and what calibration curves reveal that accuracy hides. See *Computational Skepticism for AI*, **Chapter 2 — Probability, Uncertainty, and the Confidence Illusion**.
+>
+> - **Critical Evaluation** (Devin's database error and Esme's framing capture) — the deeper book gives you the four verification layers (fact, reasoning, framing, omission) and treats the *technically-accurate-practically-misleading* failure mode formally. See *Computational Skepticism for AI*, **Chapter 6 — Model Explainability**.
+>
+> - **Ethical Reasoning** (Frank's biased screening tool) — the deeper book proves that three reasonable definitions of fairness cannot all hold on the same dataset when base rates differ, and gives you the *defended-choice* deliverable that engineers in regulated industries are increasingly required to produce. See *Computational Skepticism for AI*, **Chapter 7 — Fairness Metrics**.
+
+---
+
+### LLM Exercise — Chapter 2: The Nine Capacities
+
+**Project:** AI Fluency for [Your Role] — The Domain Field Manual
+
+**What you're building this chapter:** Section 3 of the playbook — the Nine Capacities annotated with what failure looks like in your role. Each capacity gets a domain-specific failure scene drawn from your role's typical tasks, so readers recognize themselves the way the chapter's nine scenes are designed to do for the general audience.
+
+**Tool:** Claude Project (continue) + Cowork (write Section 3 to the playbook).
+
+---
+
+**The Prompt:**
+
+```
+Continuing my Domain Field Manual playbook. My Role Dossier and the worked example from Section 2 are in the Project context.
+
+Botspeak Chapter 2 introduces the Nine Capacities through nine short failure scenes — Ben's Strategic Delegation failure, Camila's Effective Communication failure, Devin's and Esme's Critical Evaluation failures, Frank's Ethical Reasoning failure, Gabriela's Stochastic Reasoning failure, Hiro's Learning by Doing failure, Iris's Rapid Prototyping failure, and Jordan's Theoretical Foundations failure. Each scene is a different person in a different field doing one thing wrong. The chapter then names the nine capacities and assigns each a diagnostic question.
+
+For my playbook's Section 3, do three things:
+
+TASK 1 — NINE FAILURE SCENES IN MY ROLE:
+Write nine short failure scenes, one per Capacity, all set in my role. Each scene 100–200 words. Each scene a different (named) person in a different sub-context of the role. Each scene a clean instance of the capacity's failure mode. Use real tools, real artifacts, real stakeholders for my role.
+
+The Nine Capacities and the chapter's diagnostic question for each:
+
+1. STRATEGIC DELEGATION — what should I give the AI, what should I keep, and why?
+2. EFFECTIVE COMMUNICATION — am I telling the model what it actually needs to know to do this well?
+3. CRITICAL EVALUATION — would I bet on this output, and on what evidence?
+4. TECHNICAL UNDERSTANDING — do I know enough about how this system works to recognize when it's failing?
+5. ETHICAL REASONING — who could be harmed by this output or this deployment, and am I tracking that?
+6. STOCHASTIC REASONING — what kind of probabilistic claim is this, and what would calibrate my belief in it?
+7. LEARNING BY DOING — am I still building the skill, or just consuming the output?
+8. RAPID PROTOTYPING — am I treating model output as the work, or as a draft I will pressure-test in the world?
+9. THEORETICAL FOUNDATIONS — do I understand the underlying material well enough to judge whether this output is good?
+
+Resist the temptation to make all nine scenes about the same task type. Spread them across the role's sub-contexts so the playbook's reader sees the nine capacities engaging different parts of their job.
+
+TASK 2 — DURABILITY ANNOTATION FOR MY ROLE:
+Botspeak distinguishes durable capacities (Strategic Delegation, Ethical Reasoning, Learning by Doing) from contested ones (Critical Evaluation, Stochastic Reasoning) from temporarily-irreducible ones (the rest). Annotate which capacities matter MOST for my role specifically. Some roles weight Stochastic Reasoning enormously (anyone who reads probability claims for a living); some weight Theoretical Foundations less (highly procedural roles); some weight Ethical Reasoning at the absolute top (clinical, legal, policy). Make the role-specific weighting explicit.
+
+TASK 3 — THE SELF-ASSESSMENT, ROLE-CALIBRATED:
+Adapt the four-level self-assessment scale (untrained / aware / practicing / fluent) with role-specific anchors for what each level looks like for each capacity. A reader of my playbook should be able to honestly score themselves without having to translate from a generic example.
+
+Save as `03-the-nine-capacities-in-my-role.md` in my playbook folder.
+```
+
+---
+
+**What this produces:** Section 3 of the playbook — nine domain-specific failure scenes, a durability annotation explaining which capacities matter most for the role, and a role-calibrated self-assessment scale. ~3,000–5,000 words.
+
+**How to adapt this prompt:**
+- *For your own project:* The nine scenes ARE the playbook's diagnostic instrument. Don't rush them. A reader who recognizes themselves in three of nine scenes is a reader the playbook has already earned.
+- *For ChatGPT / Gemini:* Works as-is.
+- *For Claude Code:* Not the right fit.
+- *For Cowork:* Recommended.
+
+**Connection to previous chapters:** The opening case (Section 1) and the worked example (Section 2) showed two ends of the spectrum. Section 3 maps the cognitive moves between them.
+
+**Preview of next chapter:** Chapter 3 produces Section 4 — five specification templates for the five most common task types in your role. The templates are the first directly-usable artifacts in the playbook.
 
 ---
 
@@ -91,63 +168,50 @@ That is what the nine capacities are. We will spend the rest of the book on them
 
 ### Warm-Up
 
-**1. Name the failure.** *(Tests: capacity identification)*
-Return to the Devin story. For each of the four failures described — delegation, evaluation, uncertainty, practice — write one sentence that names what Devin should have done differently at exactly that moment. Keep each sentence to the action, not the theory.
+**1. Name the failure.** *(Capacity identification | Difficulty: low)*
+Return to the Devin story. Four distinct failures are pulled apart in the opening movement. For each one, write a single sentence naming what Devin should have done differently at exactly that moment. Stay at the level of action, not theory — what is the specific move he skipped?
 
-**2. Map the diagnostic questions.** *(Tests: capacity recall)*
-Without looking back at the chapter, write the diagnostic question for any five of the nine capacities. Then check your answers. For any you got wrong or couldn't recall: why did that one not stick? What would make the diagnostic question more memorable to you?
+**2. Match the diagnostic question.** *(Capacity recall | Difficulty: low)*
+Without looking back, write the diagnostic question for any five of the nine capacities. Then check. For each you missed or got wrong: what made it not stick? Rewrite it in your own words — one that you would actually ask yourself mid-task.
 
-**3. Spot the missing capacity.** *(Tests: capacity recognition in context)*
-A marketing associate uses an AI tool to generate five tagline options for a product launch. She picks her favorite, sends it to the client, and the client approves it. Six months later the tagline turns out to echo the slogan of a competitor from a decade ago — not copyrighted, but embarrassing. Name every capacity she failed to exercise, in the order she failed to exercise them.
+**3. Identify the missing specification.** *(Effective communication | Difficulty: low)*
+A marketing associate prompts an LLM: "Write a tagline for our new product line." She gets ten options, picks one, and the client approves it. Six months later the tagline turns out to echo a competitor's decade-old slogan. List every piece of information she failed to give the model, in the order that omission became consequential. Then write the prompt she should have sent.
 
 ---
 
 ### Application
 
-**4. Classify a real task.** *(Tests: strategic delegation)*
-Take a task you actually did in the last week — with AI or without. Break it into its component subtasks. For each subtask, apply the strategic delegation diagnostic: *what should I give the AI, what should I keep, and why?* Write out your reasoning for at least three of the subtasks. Then ask: did you actually split the work this way? If not, what would have changed if you had?
+**4. Decompose a real task.** *(Strategic delegation | Difficulty: medium)*
+Take a task you actually completed in the last week — with AI or without. Break it into its component subtasks. For each subtask, apply the strategic delegation diagnostic: *what should I give the AI, what should I keep, and why?* Write out your reasoning for at least three subtasks. Then ask: did you actually split the work this way? If not, what would have changed if you had?
 
-**5. Rewrite the prompt.** *(Tests: effective communication)*
-Below is a real prompt that produces inconsistent output from a language model:
+**5. Import the uncertainty.** *(Stochastic reasoning | Difficulty: medium)*
+A model returns this output in response to a business decision question: "Based on current trends, there is approximately a 70% chance that the new feature will increase retention." Write three questions you would ask — or three investigations you would run — before using that number in a decision. For each question, name the kind of uncertainty it is probing: the model's training data, the model's reasoning process, or the underlying variability of the world.
 
-> "Summarize this article for me."
+**6. Stress-test an output.** *(Critical evaluation | Difficulty: medium)*
+Take any AI-generated text output you produced or received in the last month. Apply the question Devin failed to ask: *what would have to be true for this to be wrong?* Generate at least three specific failure scenarios. For each: how would you check whether that failure is present? What is the cheapest verification that would catch it?
 
-Rewrite it to specify intent, constraints, audience, and success criteria. Your rewrite should be no longer than 80 words. Then explain, in two or three sentences, what gap between the original and the rewrite the model was previously filling with guesswork.
-
-**6. Import the uncertainty.** *(Tests: stochastic reasoning)*
-A model returns the following output in response to a question about a business decision:
-
-> "Based on current trends, there is approximately a 70% chance that the new feature will increase retention."
-
-Write three questions you would ask — or investigations you would run — before using this number in a decision. For each question, name what kind of uncertainty it is checking: the model's training data, the model's reasoning, or the underlying world.
-
-**7. Durability classification.** *(Tests: technical understanding + theoretical foundations)*
-The chapter places the nine capacities on a rough durability spectrum. Pick one capacity the chapter calls "durable" and one it calls "contested." For each: write a one-paragraph argument for why a practitioner in 2030 might reasonably disagree with the chapter's classification. You don't have to believe the argument — just make it honestly.
+**7. Classify the durability.** *(Technical understanding + theoretical foundations | Difficulty: medium)*
+The chapter places critical evaluation and stochastic reasoning in the "contested" category — capacities where models may erode the human's role on a shorter timeline than the durable ones. Pick one of these two. Write a one-paragraph argument that the chapter has it wrong — that this capacity is actually durable, and a well-reasoned case can be made that humans will always need to own it. You do not have to believe the argument. Argue from evidence, not from instinct.
 
 ---
 
 ### Synthesis
 
-**8. The hiring manager case.** *(Tests: ethical reasoning + strategic delegation + critical evaluation)*
-A hiring manager at a mid-size company is screening 200 résumés for an engineering role. She passes all 200 through an AI tool that ranks them by predicted job fit and returns the top 20 for human review. She does not audit the tool, does not examine how it was trained, and does not review any résumé outside the top 20.
+**8. The hiring manager case.** *(Ethical reasoning + strategic delegation + critical evaluation | Difficulty: medium-high)*
+A hiring manager screens 200 résumés for an engineering role by passing all of them through an AI tool that returns a ranked top 20. She does not audit the tool, does not examine how it was trained, and reviews no résumé outside the top 20. Identify every capacity she failed to exercise. For the two you consider most consequential: explain not just what she failed to do but what specific harm could result. Then describe the minimum practice — one action per capacity — that would have meaningfully reduced that risk without abandoning the tool.
 
-Identify every capacity the hiring manager failed to exercise. For the two you consider most consequential: explain not just what she failed to do but what specific harm or error could result. Then describe the minimum practice — one action per capacity — that would have meaningfully reduced that risk.
-
-**9. The slow failure.** *(Tests: learning by doing)*
-The chapter describes a kind of failure that is "slow" — a capacity that atrophies before it visibly fails. Choose a professional skill from your own domain (not date arithmetic) that you believe is currently in your daily practice. Describe, concretely, what it would look like if that skill were being quietly eroded by AI use — the early warning signs, the first visible failure, the gap that would have accumulated by the time you noticed. Then design one specific practice routine — something you could do in under 20 minutes per week — that would keep the skill load-bearing regardless of how much AI you use.
+**9. Design the atrophy test.** *(Learning by doing | Difficulty: high)*
+The chapter describes a failure that is slow — a capacity that gets weak before it visibly fails. Choose a professional skill from your own domain that you believe is in your daily practice right now. Describe, concretely, what early-warning signs would tell you that skill is being quietly eroded by AI use — before the first visible failure. Then design a specific practice routine, executable in under 20 minutes per week, that would keep the skill load-bearing regardless of how much AI you use alongside it.
 
 ---
 
 ### Challenge
 
-**10. The ninth capacity stress test.** *(Tests: theoretical foundations — open-ended)*
-The chapter argues that theoretical foundations are "temporarily irreducible" — that a practitioner needs enough domain knowledge to judge whether model output is good, even if models are getting better at producing it. Find a domain where you have genuine expertise. Design a test — a specific prompt, task, or question — that you believe would reveal the difference between a practitioner who has that domain foundation and one who does not, using only the outputs they produce or accept from an AI tool. Your test should be concrete enough that someone could actually run it.
+**10. Audit the architecture.** *(All nine — critical stance | Difficulty: high)*
+The chapter admits it does not have longitudinal data to confirm the nine-capacity decomposition is doing real work. Treat this as an invitation. Based on your own experience using AI tools professionally, make one of the following arguments in 400–600 words, supported by at least two concrete cases or observations:
 
-**11. Update the architecture.** *(Tests: all nine — synthesis and critical stance)*
-The chapter admits: "I do not have the longitudinal data to be sure" the decomposition into nine is doing work. Treat this as an invitation. Based on your own experience using AI tools professionally, make one of the following arguments in 400–600 words:
+- One of the nine capacities should be split into two distinct capacities (name the split and explain what separate failure it captures).
+- Two of the nine should be merged (they reliably co-occur and cannot be meaningfully separated in practice).
+- A tenth capacity is missing (name it, give its diagnostic question, describe the failure its absence causes).
 
-- One of the nine capacities should be split into two distinct capacities (they are not the same kind of failure).
-- Two of the nine capacities should be merged (they reliably co-occur and cannot be meaningfully separated in practice).
-- A tenth capacity is missing from the list (name it, give its diagnostic question, give a real case where its absence caused a failure).
-
-You are not required to be right. You are required to argue from evidence — cases, observations, or your own experience — rather than from theory alone.
+You are not required to be right. You are required to argue from evidence rather than from theory alone.
