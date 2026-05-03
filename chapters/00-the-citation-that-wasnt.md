@@ -16,9 +16,15 @@ That gap — between hearing an instruction and knowing what it actually require
 
 ---
 
-<!-- → [INFOGRAPHIC: Two-column split — "AI Literacy" vs "AI Fluency" — each column lists 4–5 concrete observable behaviors (e.g., literacy: opens chatbot, reads output, copies and pastes; fluency: spots citation-risk zones, runs verification moves, treats output as raw material). Purpose: make the distinction tangible before the prose defines it.] -->
+| AI Literacy | AI Fluency |
+|---|---|
+| Opens a chatbot and types a request | Specifies the task before delegating it |
+| Reads the output and judges it by how it looks | Reads the output looking for where it could be wrong |
+| Copies and pastes into the deliverable | Treats output as raw material, not finished work |
+| Cites what the model returns | Verifies which citations are worth betting a client relationship on |
+| Polishes the prose before shipping | Runs a verification move calibrated to the failure mode |
 
-*Figure 0.1*
+* "AI Literacy" vs "AI Fluency" *
 
 Let me name two things that look identical from the outside and are not.
 
@@ -33,26 +39,27 @@ A senior consultant — call her Maya, three years ahead of Diego — would not 
 That difference is teachable. It has structure. It is not a personality trait, not a function of native carefulness, not something you absorb from another year of undirected experience with the tools. It is a discipline. It is what this book is for.
 
 ---
-
 Here is the metaphor I keep coming back to.
-
-<!-- → [IMAGE: Illustrated split-scene — left panel: confident American pointing at a Paris brasserie menu while the waiter looks on coolly; right panel: same brasserie, different traveler leaning in, waiter smiling. No text needed. Visual anchor for the literacy/fluency/illiteracy triad before the prose walks through it.] -->
 
 ![Figure 0.2 — Illustrated split-scene](images/00-the-citation-that-wasnt-fig-02.jpg)
 
-A young American goes to Paris on his first business trip. He has, at some point, learned about French in the way Americans learn about French. He knows there is a French language. He knows *bonjour* means hello. He knows you order *un café* for coffee and ask for *l'addition* when you want the bill. He has eaten at a creperie in Brooklyn. He thinks of himself as someone who is okay with French.
+A young American goes to India on her first work trip. She has, at some point, picked up a little Hindi — the way Americans pick up a little Hindi when they take a semester of it in college, or date someone whose parents are from Mumbai, or spend a week on Duolingo before the flight. She knows the Devanagari script well enough to sound out syllables, slowly. She knows *namasté* means hello. She knows *kitna* is "how much" and *kahan* is "where." She thinks of herself as someone who can manage.
 
-He arrives in Paris and is surprised to find that the French expect him to do things in French. The waiter at the brasserie does not warm to him when he points at the menu. His hotel concierge gives crisp answers but does not volunteer context. The man at the *tabac* is contemptuous in a way the American cannot quite name. He flies home and tells his friends the French are rude.
+She arrives at a major railway junction — Nagpur, say, or Itarsi, a hub where a dozen lines cross — and she has forty minutes to find the right platform for the Howrah Express. The departure board is in Hindi. She can read it, after a fashion. She sounds out the letters, matches a few syllables to the train name she wrote in her notebook, finds what looks like a match, and heads confidently toward Platform 7.
 
-The French are not rude. The American does not speak French.
+The train on Platform 7 is not the Howrah Express. She misread a conjunct consonant — a ligature that collapses two letters into one shape — the kind of thing a real reader processes automatically and a slow reader gets wrong under time pressure. The Howrah Express left from Platform 4. It is now gone.
 
-What he has is French *literacy* — the bare awareness that French exists and that some of its words map onto some of his needs. What he lacks is French *fluency* — the basic competence to ask a question, hear an answer, follow up, navigate a misunderstanding, or recognize when his interlocutor is being polite in a way he should match.
+The tourist who speaks no Hindi at all was never in danger of this. She knew, from the moment she arrived, that she could not read the board. So she found a railway employee, showed him her ticket, and was walked to Platform 4 with ten minutes to spare. She was not surprised when she needed help. She had built "needing help" into her plan.
 
-The fluent traveler goes to Paris and watches the same brasseries warm up over the course of dinner. The American who knows no French at all is annoyed too, but he at least *knows* he doesn't speak the language, so he doesn't put himself in situations his lack of French will cost him. He is not surprised when things go badly. The literate traveler is the one in the worst position. He has enough to feel confident going in and not enough to handle what he encounters. He is the only one who walks into situations he cannot manage and then blames the situation.
+The Hindi-literate tourist is the one stranded on the wrong platform. She had just enough to feel confident. She did not have enough to catch the error. She had not built "needing help" into her plan because she believed — reasonably, given her experience — that she could handle it. She was the only one who walked into a situation she could not manage and then managed it wrong.
 
-Diego, at 9:42 in the morning, is the literate traveler. He has enough AI capability to feel confident. He does not have enough to know what he is shipping. The deliverable looked like work. It read like research. The polish was real. The underlying judgment — the judgment that should have caught the eleventh citation — was not there.
+The fluent speaker does not miss the train either, but for a different reason than the tourist who asked for help. She reads the board in one glance, confirms the platform, and has time to buy chai. She did not need to be careful. Careful is what you need when you might be wrong. She was not going to be wrong.
 
-This book is not the French of the Sorbonne. It is the working French of someone who shows up in Paris *trying* — how do I order food, how do I ask where the bathroom is, how do I tell the doctor where it hurts. The functional, daily-use competence that gets the brasseries to warm up.
+Not being able to read a sign can strand you. But misreading a sign you were confident you could read — that is the specific failure of the person in the middle. Confidence is load-bearing when it is warranted. When it is not, it is the mechanism of the mistake.
+
+Diego, at 9:42 in the morning, is the tourist on the wrong platform. He had enough AI capability to feel confident. He did not have enough to catch the error. The deliverable looked right. It read like research. The polish was real. The underlying judgment — the judgment that should have caught the eleventh citation — was not there.
+
+This book is not fluency for its own sake. It is the working competence of someone who shows up at the junction *trying* — how do I read this board, how do I confirm I have the right platform, how do I know when I should hand the ticket to someone else. The functional, daily-use skill that gets you on the right train.
 
 ---
 
@@ -100,9 +107,11 @@ And then one citation was wrong, and the whole memo was now in question, and the
 
 This is what I mean when I say AI literacy is not sufficient. The literate user produces *a lot* of work. The problem is that the work is unpriced — the literate user cannot look at his own output and tell where the value is and where the rot is. The firm bet on a productivity multiplier and got one. What they did not know is that the multiplier comes with a verification cost, and that someone has to pay it. If Diego does not pay it before the deliverable leaves his desk, the client pays it afterward, and the cost the client pays is denominated in trust.
 
-<!-- → [TABLE: "Who pays the verification cost" — three rows: (1) Fluent practitioner pays before delivery — cost: her time; consequence: clean deliverable; (2) Literate practitioner skips it — cost: none upfront; consequence: client discovers the error; (3) Client pays — cost: trust, relationship, repair time. Columns: Who pays | When | In what currency | Consequence. Anchors the economics argument the paragraph is making.] -->
-
-*Figure 0.5*
+| Who pays | When | In what currency | Consequence |
+|---|---|---|---|
+| Fluent practitioner | Before delivery | Her time | Clean deliverable |
+| Literate practitioner | Never | Nothing upfront | Client discovers the error |
+| Client | After delivery | Trust, relationship, repair time | Confidence in the firm takes a hit |
 
 The fluent practitioner pays the verification cost in her own workflow, before the work leaves her desk. That is most of what fluency *is*. That is most of what this book teaches.
 
@@ -190,9 +199,11 @@ Save as `01-the-[your-failure-slug].md` in my playbook folder.
 
 ---
 
-## 🕰️ AI Wayback Machine
+## AI Wayback Machine
 
 The ideas in this chapter didn't appear from nowhere. **Henriette Avram** was teaching computers to handle bibliographic references with structural integrity decades before most people had heard of "AI hallucinations." Here's a prompt to find out more — and then make it better.
+
+![Henriette Avram](images/henriette-avram.jpg)
 
 **Run this:**
 
