@@ -51,7 +51,6 @@ The second specification is roughly three times the length of the first. Most pe
 
 ![Figure 10.1 — Side-by-side annotated comparison](images/10-specification-and-diligence-for-automation-fig-01.jpg)
 
-
 That is the core discipline of Automation specification: make the implicit explicit, in advance, because nothing about the execution will be in person.
 
 ---
@@ -76,12 +75,14 @@ Run through these six categories before you ship any automation. For each one, a
 
 *Figure 10.2*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Input-quality variation / Output-volume variation / Context shifts the model cannot detect / Ambiguous inputs / High-stakes outputs / Model-specific failure modes** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
+| Category | What it addresses | Detection mechanism | Handling rule | Example from the competitive-intelligence spec |
+|---|---|---|---|---|
+| **Input-quality variation** | Inputs degraded, missing, or formatted differently than expected | Pre-flight check on each input batch | Halt or flag when quality drops below the trust threshold; do not silently proceed | Retractions, paywalls, articles older than the freshness window |
+| **Output-volume variation** | Output substantially longer or shorter than the design case | Format and length constraints checked at output time | Truncate or expand to spec; fail loudly if neither resolves it | The 800-word truncation rule |
+| **Context shifts the model cannot detect** | World has changed in ways the model has no access to | Monthly source-list review for slow shifts; pre-flight + weekly spot-check for fast shifts | Refresh sources and prompts; flag stale-context output for human review | Monthly source-list review with retraction-frequency threshold |
+| **Ambiguous inputs** | Input is internally contradictory or unclear | Conflict detection at parse time, before model call | Surface the conflict to a human rather than letting the model paper over it | Two sources reporting different versions of the same event |
+| **High-stakes outputs** | Some outputs are more consequential than the design baseline | Pattern match on high-stakes indicators within the input or output | Detect, halt, surface to a human — do not handle in-automation | Major competitor acquisition appearing in the week's news |
+| **Model-specific failure modes** | Model hallucinates, refuses, or produces output that breaks the format spec | Citation verification, format check, refusal detection, language check | Reject the output; retry once or surface to human review | Citation-verification step against confident-looking fake citations |
 
 ---
 
@@ -104,13 +105,6 @@ The four Diligence moves are not heavy in aggregate. A weekly spot-check is fift
 <!-- → [TABLE: The four Diligence failure modes and their monitoring moves — columns: Failure mode, What it looks like when it occurs undetected, Diligence move that catches it, Cadence, Approximate annual time cost; rows: Input drift / Output drift / Context shift / Accountability gap; final row shows total ~40 hours/year; student should use this to cost out the diligence design for any automation they are considering and compare against the blast radius of an undetected failure] -->
 
 *Figure 10.3*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Input drift / Output drift / Context shift / Accountability gap** | _fill in_ | _fill in_ |
-
-: {.data-table}
-
 
 ---
 
@@ -264,3 +258,25 @@ Save as `11-an-automation-fully-specified.md` in my playbook folder.
 **Connection to previous chapters:** Section 10 screened candidates; Section 11 designs one in full. The discipline — anticipation, diligence-by-design — applies to every Automation a reader of the playbook ever specifies.
 
 **Preview of next chapter:** Chapter 11 starts Part III — Agency. Section 12 of the playbook surveys the agentic deployments your domain is currently weighing or has launched, and applies the three structural failures to each.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Jeannette Wing** was formalizing how to specify a system's behavior precisely enough that you could safely substitute one component for another — decades before "AI automation" was a job description. Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who is Jeannette Wing, and how does her work on Computational Thinking and the Liskov-Wing substitution principle connect to specifying AI automations against the six ambiguity types in this chapter? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Jeannette Wing"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain "behavioral subtyping" in plain language, as if you've never written a software contract
+- Ask it to compare Wing's substitution principle to anticipating model swaps in a deployed automation
+- Add a constraint: "Answer as if you're writing the rationale for a Section 11 automation spec"
+
+What changes? What gets better? What gets worse?

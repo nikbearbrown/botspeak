@@ -25,7 +25,6 @@ Notice the shape of this failure. The model did not hallucinate. It did not fabr
 
 ![Figure 9.1 — A seven-week timeline of Tessa's automation. Weeks 1–6 marked "clean runs / trust accumulates." Week 7 marked with three annotated events in sequence: retraction published → wrong summary posted → CFO cites it at board call → strategic decision paused. A callout should highlight the gap between "model ran correctly" and "output was wrong," making the design failure](images/09-when-youre-not-there-fig-01.jpg)
 
-
 In ordinary augmentation work, this error never happens. Tessa would have read the source article herself, or at minimum read the model's summary before it went anywhere, and would likely have checked the publication before forwarding claims about a competitor to her CFO. The error is impossible when a human is actively in the loop. Given enough recurrences, it is nearly inevitable when the human has been systematically removed.
 
 ---
@@ -37,20 +36,6 @@ When you automate something, the loop does not disappear. It runs. But you do no
 <!-- → [TABLE: The loop reweighting — rows for each loop step (Specification, Delegation, Conversation, Discernment, Maintenance), columns for "In augmentation" vs. "In automation." Each cell describes how the step works in each mode and what design work the shift requires. The reader should be able to see at a glance which steps become load-bearing in automation and why.] -->
 
 *Figure 9.2*
-
-| | **The loop reweighting — rows for each loop step (Specification, Delegation, Conversation, Discernment, Maintenance), columns for "In augmentation"** | **"In automation." Each cell describes how the step works in each mode and what design work the shift requires. The reader should be able to see at a glance which steps become load-bearing in automation and why.** |
-|---|---|---|
-| **The loop reweighting — rows for each loop step (Specification** | _fill in_ | _fill in_ |
-| **Delegation** | _fill in_ | _fill in_ |
-| **Conversation** | _fill in_ | _fill in_ |
-| **Discernment** | _fill in_ | _fill in_ |
-| **Maintenance)** | _fill in_ | _fill in_ |
-| **Columns for "In augmentation" vs. "In automation." Each cell describes how the step works in each mode** | _fill in_ | _fill in_ |
-| **What design work the shift requires. The reader should be able to see at a glance which steps become load-bearing in automation** | _fill in_ | _fill in_ |
-| **Why.** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
 
 **Specification** becomes harder, not easier. When you write a one-off task, your spec covers one set of inputs you have in front of you. You know the context because you are in it. When you specify an automation, you are specifying a class of tasks the system will run against inputs you have not yet seen, in conditions that will change over time. Tessa's spec was correct for the normal case — articles from her curated list that were currently accurate. It was silent on what to do when an article had been retracted. A good spec for automation has to anticipate the ways the inputs will deviate from the design case, and has to specify what the system should do when they deviate. The silence in the spec is where the failures live.
 
@@ -77,15 +62,6 @@ The scaling can be worse than linear if wrong outputs compound. A wrong competit
 <!-- → [CHART: Two line graphs side by side — left: blast radius in augmentation (flat, single point of damage, bounded); right: blast radius in automation over time (grows from first wrong output, potentially compounding nonlinearly when outputs feed downstream decisions). The visual should make the scaling difference visceral, not just stated.] -->
 
 *Figure 9.3*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Two line graphs side by side — left: blast radius in augmentation (flat** | _fill in_ | _fill in_ |
-| **Single point of damage** | _fill in_ | _fill in_ |
-| **Bounded)** | _fill in_ | _fill in_ |
-
-: {.data-table}
-
 
 The design implication is stark: you cannot rely on accidentally noticing that an automation is failing. In ordinary work, you notice because you are reading the output. In automation, you have deliberately arranged not to read the output in real time. Noticing has to be designed. It has to be a scheduled, explicit, accountable activity, built in at setup time, because if it is not built in, it does not happen — and the blast radius grows from the moment the first wrong output appears until the moment someone happens to look.
 
@@ -118,7 +94,6 @@ Designing the noticing means deciding, at setup time, how you will learn that th
 <!-- → [INFOGRAPHIC: A three-panel reference card for the noticing forms — Sampling, Adversarial Test Cases, Outcome Auditing. Each panel: what it catches, what it misses, suggested cadence. The design should make this feel like a quick-reference tool the practitioner returns to when designing any new automation, not a one-time read.] -->
 
 ![Figure 9.4 — A three-panel reference card for the noticing forms](images/09-when-youre-not-there-fig-04.jpg)
-
 
 Building these three practices in at design time is not optional infrastructure. They are the quality control that replaces the human who is no longer there.
 
@@ -267,3 +242,25 @@ Design an automation governance policy for a twelve-person analyst team that use
 
 **10. Operationalize the open puzzle.** *(Research design | Difficulty: high)*
 The chapter ends: "I do not have a clean estimate of what fraction of currently deployed AI automations would fail an honest run of the three appropriateness tests." Propose a study design that would produce that estimate. Specify the population you would sample from, how you would operationalize "fails a test" so that two independent raters would agree, what confounds your design would need to control for, and what you would conclude if the fraction turned out to be very high (above 70%) versus very low (below 20%). Your conclusions should engage with the chapter's prescriptive claims — not just describe what the number would mean in the abstract.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Clarence "Skip" Ellis** was figuring out how systems behave correctly when multiple actors touch the same artifact at different times — decades before anyone thought about "AI automations running while you sleep." Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was Clarence "Skip" Ellis, and how does his work on Operational Transformation and groupware connect to designing AI automations that act on shared resources when no human is in the chair? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Clarence Ellis (computer scientist)"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain Operational Transformation in plain language, as if you've never thought about concurrent edits
+- Ask it to compare Ellis's groupware concerns to the three appropriateness tests in this chapter
+- Add a constraint: "Answer as if you're sketching a noticing layer for a Tessa-style automation"
+
+What changes? What gets better? What gets worse?

@@ -35,7 +35,6 @@ The user who issued the instruction had not imagined this. The owner, who had th
 
 ![Figure 11.1 — Step-by-step flow diagram of Ash's decision path](images/11-agency-and-the-three-structural-failures-fig-01.jpg)
 
-
 ---
 
 The question I want to focus on is not whether Ash behaved strangely. Ash's behavior, once you understand what Ash had and did not have, is completely predictable — almost inevitable. The question is what, structurally, was missing. Because the missing things are not specific to Ash, or to this platform, or to this task. They are missing from agentic AI systems in general, by construction, and until you name them you cannot design around them.
@@ -88,7 +87,6 @@ Ash has goals and tools. Ash does not have judgment. Judgment is the thing that 
 
 ![Figure 11.2 — Three-part diagram showing the structural failures as three faces of one central absence labeled "judgment." Each face: (1) Stakeholder Model](images/11-agency-and-the-three-structural-failures-fig-02.jpg)
 
-
 This is not a criticism of Ash specifically. It is a description of where agentic AI systems are in 2026. There is real progress on each dimension — alignment work, constitutional approaches, capability sandboxing, chain-of-thought transparency, human-in-the-loop architecture. None of it, yet, closes the gap cleanly. The gap is structural, and the practitioner who deploys an agent without designing around it is making a version of the same mistake Ash's user made: assuming the implicit things come for free.
 
 They do not come for free. They have to be built in.
@@ -115,15 +113,12 @@ Four dimensions. For any agent deployment you are considering, run through each 
 
 *Figure 11.3*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Stakeholder Reach** | _fill in_ | _fill in_ |
-| **Reversibility** | _fill in_ | _fill in_ |
-| **Identity Verification** | _fill in_ | _fill in_ |
-| **Escalation Pathway** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
+| Dimension | The question to answer honestly | Available design lever | Where Ash failed it |
+|---|---|---|---|
+| **Stakeholder reach** | Whose interests are affected if the agent acts incorrectly? | Constrain the agent's privileges before any code runs — one of the few blast-radius defenses available pre-launch | Entire user population of the server — people who had no interaction with the agent, no chance to consent, and no recourse |
+| **Reversibility** | Can the action be undone? | Treat irreversible actions as a separate class deserving heavier human-in-the-loop discipline | Server reset against unknown backups — effectively irreversible |
+| **Identity verification** | Does the agent know whose authority it is acting on, and is that authority legitimate? | Build the auth check in as a design requirement, not a nice-to-have | Acted on instructions from a user who was not authorized to issue them; never checked |
+| **Escalation pathway** | When the targeted action is blocked or the next step has consequences the agent cannot evaluate, what does it do? | Specify the escalation path, make it technically available, keep it short enough that escalating beats improvising | No working escalation — had a goal, blocked tools, and available alternatives. The rest followed. |
 
 ---
 
@@ -259,3 +254,25 @@ Save as `12-agency-in-my-domain.md` in my playbook folder.
 **Connection to previous chapters:** Sections 10–11 covered Automation. Section 12 covers Agency — the categorically different mode where the AI takes action in the world. The structural failures here are not failures of the same kind as Automation drift.
 
 **Preview of next chapter:** Chapter 12 produces Section 13 — the Human Decision Node design for the typical workflow in your role where autonomy is being introduced. Plus the four diagnostic questions answered for each Decision Node, plus an adversarial-validation spiral compressed to the time budget your role actually has at the Node.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Charles Perrow** was arguing that certain accidents are baked into the architecture of tightly-coupled systems — not anyone's operator error — decades before agentic AI deployments existed. Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was Charles Perrow, and how does his theory of Normal Accidents connect to the three structural failures of agentic AI — overreach, identity-verification gap, and missing escalation? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Charles Perrow"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain "tight coupling" and "interactive complexity" in plain language, as if you've never read sociology of accidents
+- Ask it to compare Perrow's Three Mile Island analysis to a hypothetical agentic-tool failure in your role
+- Add a constraint: "Answer as if you're writing red-flag entries for a 'no go' agentic-deployment decision aid"
+
+What changes? What gets better? What gets worse?

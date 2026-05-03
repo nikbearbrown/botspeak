@@ -49,20 +49,6 @@ All four have to be real. When one degrades — authority theoretical, informati
 
 *Figure 12.1*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Authority / Information / Time / Accountability. Each row shows the functional state** | _fill in_ | _fill in_ |
-| **The degraded state** | _fill in_ | _fill in_ |
-| **** | _fill in_ | _fill in_ |
-| **The specific organizational mechanism by which degradation usually occurs (queue pressure** | _fill in_ | _fill in_ |
-| **Optimizing for efficiency over judgment** | _fill in_ | _fill in_ |
-| **Uniform time budgets** | _fill in_ | _fill in_ |
-| **Diffuse accountability). Positioned here so readers can scan it as a diagnostic tool during the exercises** | _fill in_ | _fill in_ |
-| **The bank case.** | _fill in_ | _fill in_ |
-
-: {.data-table}
-
-
 ---
 
 For Aya, at 2:14 AM, all four are real. She has genuine authority to refuse. She has the lab results the AI did not see. Two minutes is tight for this case but workable. Her pharmacist's license is on the line, and she knows it.
@@ -82,7 +68,6 @@ The compressed spiral took about ninety seconds. She holds the order. She calls 
 <!-- → [INFOGRAPHIC: A compressed timeline of Aya's discernment spiral — four labeled steps with estimated time: (1) Skeptical colleague test ~10 sec, (2) Training-boundary check ~20 sec, (3) Buried assumption identification ~30 sec, (4) Hostile-reviewer test ~30 sec. Total ~90 seconds. Then a separate timeline: order held at 2:14 → physician called → modified order issued → dispensed at 2:31. Makes the spiral replicable and the seventeen-minute total cost concrete.] -->
 
 ![Figure 12.2 — A compressed timeline of Aya's discernment spiral](images/12-verification-and-diligence-under-autonomy-fig-02.jpg)
-
 
 Seventeen minutes total. The blast radius of an undetected error — an elderly patient with compromised kidneys on a medication accumulating to toxic levels — would have been measured in days of harm at minimum. Seventeen minutes against that blast radius is the right trade.
 
@@ -114,18 +99,6 @@ That is a deployable system. It is not the system the product team proposed. The
 
 *Figure 12.3*
 
-| | **The bank deployment — two-column before/after comparison. Rows: Automation rate (60% proposed** | **Genuine authority + time budget + named accountability). Positioned after the design is described so readers see the full before/after at a glance.** |
-|---|---|---|
-| **Automation rate (60% proposed vs. 30–35% defensible) / Identity verification (absent vs. required before action) / Capability constraints (not specified vs. explicit: no transfers** | _fill in_ | _fill in_ |
-| **No cross-account access** | _fill in_ | _fill in_ |
-| **No policy exceptions) / Node trigger conditions (not specified vs. account closures** | _fill in_ | _fill in_ |
-| **Credential changes** | _fill in_ | _fill in_ |
-| **Uncertain cases** | _fill in_ | _fill in_ |
-| **5% random audit) / Node accountability structure (not specified vs. genuine authority + time budget + named accountability). Positioned after the design is described so readers see the full before/after at a glance.** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
-
 The gap between 60 and 35 is what honest pricing of agentic deployment looks like. The product team wanted 60. The 60 is achievable only if you accept the blast-radius consequences of skipping the Node design, the capability constraints, the identity verification. The 35 is what you get when you take the structural failures seriously and design for them.
 
 The fluent practitioner does not pretend the gap is smaller than it is. She goes to the product team and says: here is what the system can responsibly do, here is what it would take to do more, here is what we are trading away if we skip the discipline. That conversation is harder than agreeing to 60%. It is the conversation that keeps the deployment defensible two years from now when the regulator asks, or when a customer complaint surfaces something the system did at 2:00 AM on a Tuesday.
@@ -143,7 +116,6 @@ This is the organizational problem that no design document fully solves. The fou
 <!-- → [CHART: A degradation curve over 18 months — two lines. Line one: Node functionality without a recurring audit (smooth decline, accelerating after month 9 as trust in AI builds and override rates fall). Line two: Node with monthly audits (decline arrested and partially reversed each time the audit runs). Annotate the inflection points. Makes "Nodes degrade silently" spatially legible rather than abstract organizational pessimism.] -->
 
 ![Figure 12.4 — A degradation curve over 18 months](images/12-verification-and-diligence-under-autonomy-fig-04.jpg)
-
 
 The recurring audit — the practice from Chapter 7, now applied to the Node itself — is how you catch the drift before the catastrophic case. A monthly sample of five cases reviewed by someone other than the Node operators, asking not whether the process was followed but whether the judgment was real: did the human here have real authority, real information, real time, real accountability?
 
@@ -297,3 +269,25 @@ The chapter ends: "I do not yet have a clean answer to what organizational condi
 
 **11. The unregulated deployment.** *(Node design without regulatory scaffolding | Difficulty: high)*
 The chapter's two worked cases — the hospital pharmacy and the bank — operate in regulated industries with real accountability structures. The chapter notes that in less-regulated deployments, Nodes degrade faster. In 400–600 words, address: for a deployment in an unregulated or lightly regulated context — choose one: a startup's customer-facing AI, an internal knowledge management agent, an AI-assisted hiring tool at a small company — what substitutes for the regulatory accountability structure that keeps Aya's Node functional? If the answer is "nothing substitutes and the Node will degrade," make that argument and describe what the practitioner should do instead of designing a Node. If substitutes exist, name them, explain the mechanism by which they create genuine (not laundered) accountability, and describe how you would verify they are working.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Shafi Goldwasser** co-invented zero-knowledge proofs — the math of verifying a claim without re-doing the work — decades before "Human Decision Node" entered anyone's vocabulary. Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who is Shafi Goldwasser, and how does her work on zero-knowledge proofs connect to designing a Human Decision Node that has to verify an agentic action without re-running the agent's reasoning? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Shafi Goldwasser"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain "zero-knowledge proof" in plain language, as if you've never seen a cryptography textbook
+- Ask it to compare Goldwasser's verification framing to the four diagnostic questions for a functional Node
+- Add a constraint: "Answer as if you're sketching the audit cadence that catches Node degradation"
+
+What changes? What gets better? What gets worse?

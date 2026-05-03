@@ -25,15 +25,14 @@ Other cognitive offloading *atrophies* you. You hand off something that was, unt
 
 *Figure 4.1*
 
-| | **Two-column contrast — "Amplifying offload"** | **"Atrophying offload"; left column: task delegated, practitioner evaluates output, judgment muscle keeps firing, skill grows; right column: task delegated, output accepted without evaluation, judgment muscle goes dormant, skill erodes; student should see the determining factor is whether the practitioner's evaluative role survives the delegation** |
+| | Amplifying offload | Atrophying offload |
 |---|---|---|
-| **Task delegated** | _fill in_ | _fill in_ |
-| **Output accepted without evaluation** | _fill in_ | _fill in_ |
-| **Judgment muscle goes dormant** | _fill in_ | _fill in_ |
-| **Skill erodes** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
+| **What gets delegated** | Source-gathering, drafting, lower-judgment work | The same task — plus the evaluation that should have followed |
+| **What the practitioner does with the output** | Reviews, pattern-matches, edits, decides | Accepts, ships, moves on |
+| **Judgment muscle** | Keeps firing — more reps per unit time | Goes dormant — fewer reps, cooler signal |
+| **Skill trajectory over months** | Grows: more analysis at higher quality | Erodes: three months later you know less than you would have working by hand |
+| **Determining factor** | Practitioner's evaluative role survives the delegation | Practitioner's evaluative role does not survive |
+| **Visible while it's happening?** | Yes — the work feels harder | No — each individual case looks correct |
 
 The hard thing is that you cannot feel this happening. Each individual case looks correct. The synthesis tool ran, the output is good, you shipped it. That looks like efficiency. It *is* efficiency. And then six months later a CFO asks you about a trade-press story you did not catch, and you realize you stopped reading trade press when the synthesis tool started doing it for you, and the synthesis tool sources from major outlets, not the trades, and now you are standing in front of a client with a hole in your analysis where your domain intuition used to be.
 
@@ -93,13 +92,6 @@ Tier seven is accountable judgment. The model can inform it. You own it entirely
 
 *Figure 4.2*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Mechanical Execution through Accountable Judgment** | _fill in_ | _fill in_ |
-
-: {.data-table}
-
-
 A delegation map for any non-trivial task is: decompose it, locate each component on the tiers, hand over the bottom, partner on the middle, keep the top. The map is something you can defend. It is the artifact that proves you thought about what you were doing.
 
 ---
@@ -113,7 +105,6 @@ In practice, four questions get you to the map quickly. You can run them in two 
 <!-- → [CHART: 2x2 matrix — x-axis: blast radius (Low to High), y-axis: verification effort required (Low to High); four quadrants labeled: Delegate and spot-check / Delegate with structured review / Verify before use / Do not delegate without explicit sign-off; student should see that verification effort scales with consequence, not with how much you trust the model] -->
 
 ![Figure 4.3 — 2x2 matrix — x-axis: blast radius (Low to High), y-axis: verification effort required (Low to High)](images/04-delegation-fig-03.jpg)
-
 
 *Who is accountable if this is wrong, and does that person know how it was produced?* If your name is on the work, your accountability is on the work. The threshold for disclosure is lower than most practitioners currently assume. If a stakeholder would feel deceived to learn the work was AI-assisted, that is information you need to act on before the work ships, not after.
 
@@ -253,3 +244,25 @@ Save as `05-the-seven-tiers-and-delegation-worksheet.md` in my playbook folder.
 **Connection to previous chapters:** Sections 1–3 named the failure modes; Section 4 gave the specifications. Section 5 decides what to specify-and-delegate at all and what to keep entirely.
 
 **Preview of next chapter:** Chapter 5 produces Section 6 — a domain-specific list of adversarial moves. The four base moves (steelman, edge-case probe, assumption surface, devil's-advocate) plus 2–4 moves invented for failures peculiar to your role.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Mary Parker Follett** was working out the "law of the situation" — that authority should follow capacity, not position — in the 1920s, decades before anyone talked about delegating to AI. Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was Mary Parker Follett, and how does her "law of the situation" connect to deciding which parts of a task go to AI and which stay with the human? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Mary Parker Follett"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain "power-with" versus "power-over" in plain language, as if you've never read management theory
+- Ask it to compare Follett's authority-follows-capacity argument to the Seven Tiers framework
+- Add a constraint: "Answer as if you're writing one entry in a Delegation Worksheet field guide"
+
+What changes? What gets better? What gets worse?

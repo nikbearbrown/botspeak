@@ -31,7 +31,6 @@ I am going to claim the shape has nine points. The number is not sacred. I have 
 
 ![Figure 2.1 — A "constellation" diagram with nine labeled nodes arranged in a loose organic cluster](images/02-the-nine-capacities-fig-01.jpg)
 
-
 Here they are, briefly, before I give any of them the treatment they deserve.
 
 The first is **strategic delegation**: deciding, before you begin, what the model should do and what you should do, and why. Devin's first failure. The diagnostic question is: *what should I give the AI, what should I keep, and why?* A fluent practitioner can answer this in seconds. A novice cannot answer it at all and so hands the model the whole task, which is the same as not deciding.
@@ -56,14 +55,6 @@ The ninth is **theoretical foundations**: keeping enough domain knowledge in you
 
 *Figure 2.2*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Row 1** | _fill in_ | _fill in_ |
-| **Row 2** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
-
 Nine. Each one a cognitive capacity. Each one a place where I have watched real practitioners fail. And — the part that took me longest to see — each one separable enough to practice on its own.
 
 That last claim is the one I am least confident in, and I want to say so directly. It is possible that these nine correlate so strongly with general professional judgment that "develop the nine capacities" reduces, empirically, to "get better at your job." If that is true, the architecture in this book is decorative — it produces the right behavior, but the decomposition into nine is not doing real work. I have looked at this carefully and I believe the decomposition earns its keep. I can identify practitioners who are strong in some of these and weak in others, and the patterns are not random. But I do not have longitudinal data. If a careful study showed that fluent practitioners share four or five of these and the rest are noise, I would update. The list comes from observation, not theory. Observation can be wrong.
@@ -82,7 +73,6 @@ The remaining four — effective communication, technical understanding, rapid p
 
 ![Figure 2.3 — Horizontal durability spectrum](images/02-the-nine-capacities-fig-03.jpg)
 
-
 I am being explicit about this because I want the book to age well in your hands. The durable capacities, you are investing in for the whole career. The temporary ones, you still need now, and the book will try to teach them. When the timeline closes on any of them, you will be among the first to notice. That is one of the hidden returns on building a practice: the practice gives you the sensors to know when a capacity is no longer load-bearing. Someone who only read about these things will not have those sensors.
 
 Let me end with something practical.
@@ -92,15 +82,6 @@ Take the nine capacities and ask yourself, for each one, where you are. Not prec
 <!-- → [TABLE: Self-assessment grid — rows are the nine capacities, columns are the four levels (Untrained / Aware / Practicing / Fluent) with a fillable checkbox cell at each intersection, plus a narrow Notes column. Formatted to print cleanly on a single page or display as a fillable digital form. Positioned here so readers can complete it before the chapter's closing instruction.] -->
 
 *Figure 2.4*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Self-assessment grid — rows are the nine capacities** | _fill in_ | _fill in_ |
-| **Columns are the four levels (Untrained / Aware / Practicing / Fluent) with a fillable checkbox cell at each intersection** | _fill in_ | _fill in_ |
-| **Plus a narrow Notes column. Formatted to print cleanly on a single page or display as a fillable digital form. Positioned here so readers can complete it before the chapter's closing instruction.** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
 
 Don't agonize. Five minutes. Pick the level that is closer to true than the alternatives and move on.
 
@@ -242,3 +223,25 @@ The chapter admits it does not have longitudinal data to confirm the nine-capaci
 - A tenth capacity is missing (name it, give its diagnostic question, describe the failure its absence causes).
 
 You are not required to be right. You are required to argue from evidence rather than from theory alone.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Reuven Feuerstein** was arguing that cognitive capacities are made and unmade by the quality of mediation between a learner and the world decades before anyone worried about AI-induced skill atrophy. Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was Reuven Feuerstein, and how does his theory of Mediated Learning Experience connect to the worry that working with AI could quietly erode certain cognitive capacities? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Reuven Feuerstein"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain "structural cognitive modifiability" in plain language, as if you've never taken a psychology course
+- Ask it to compare Feuerstein's bad-mediation patterns to the early-warning signs of a capacity going slack from AI use
+- Add a constraint: "Answer as if you're writing a footnote in a chapter called The Nine Capacities"
+
+What changes? What gets better? What gets worse?

@@ -50,7 +50,6 @@ The third is repetition — not of the same thing, but of the same *type* of thi
 
 ![Figure 13.1 — Three-ingredient deliberate practice model](images/13-the-fluent-practitioner-fig-01.jpg)
 
-
 Most AI use fails to meet any of these three criteria. The feedback is vague — did it seem right? The work stays in the comfortable zone — tasks the user already knows how to evaluate. The repetition is of the same comfortable pattern, not of the skill being developed. This is how people accumulate years of AI use without accumulating fluency. The years are real. The practice, in the technical sense, was not.
 
 ---
@@ -69,14 +68,6 @@ A 90-day artifact. Something specific, at the ninety-day mark, that is the downs
 
 *Figure 13.2*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Capacity 1** | _fill in_ | _fill in_ |
-| **Capacity 2** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
-
 Two capacities. Three commitments per capacity. Ninety days. This is not a large ask. It is a precise one. Precision is what most professional development plans lack, which is why most professional development plans do not produce development.
 
 ---
@@ -94,14 +85,6 @@ That answer takes ninety seconds to give. It separates the model's contribution 
 <!-- → [TABLE: Anatomy of the fluent answer — four rows parsing the competitive-intelligence example above. Columns: Sentence or phrase / What it does / What the vague literate-user answer omits. Rows: (1) "model drafted company-snapshot and market-sizing" / names what AI did specifically / literate user says "helped me draft it" without naming which parts; (2) "source list verified independently, filings listed in appendix" / surfaces the verification / literate user buries or omits verification entirely; (3) "team analysis done without model — institutional knowledge required" / names where domain expertise was load-bearing / literate user cannot name this; (4) "recommendation and accountability are mine" / assigns accountability cleanly / literate user leaves accountability ambiguous. The reader should see the structural difference, not just hear it described.] -->
 
 *Figure 13.3*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **(1) "model drafted company-snapshot** | _fill in_ | _fill in_ |
-| **Market-sizing" / names what AI did specifically / literate user says "helped me draft it" without naming which parts** | _fill in_ | _fill in_ |
-
-: {.data-table}
-
 
 The literate user gives the vague answer because she has not been paying the kind of attention that produces the specific answer. The fluent practitioner gives the specific answer because she has been paying that attention in every piece of work she has done, over the months and years of the practice, until the attention is no longer effortful — it is just how she works.
 
@@ -242,3 +225,25 @@ Write the closing one-paragraph note in the practitioner's voice (mine, not gene
 **Connection to previous chapters:** Every chapter has produced one section of the playbook. This chapter assembles them and adds the developmental arc forward. The closing artifact is the proof, given on demand, that the discipline took.
 
 **Preview of next chapter:** There is no next chapter. The next thing is to share the playbook with one other junior in your role and watch what they do with it. The first feedback you get is data for the playbook's second edition.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Yuen Ren Chao** spent a lifetime studying what makes a speaker actually fluent — usage patterns, switching moves, the gap between rule and practice — decades before anyone called any of it "AI fluency." Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was Yuen Ren Chao, and how does his study of linguistic fluency connect to the idea of a fluent AI practitioner who runs the Loop without having to consult the templates? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Yuen Ren Chao"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain linguistic competence versus performance, in plain language
+- Ask it to compare Chao's account of fluency to the 90-day plan in this chapter
+- Add a constraint: "Answer as if you're writing the graduation note in the practitioner's voice"
+
+What changes? What gets better? What gets worse?

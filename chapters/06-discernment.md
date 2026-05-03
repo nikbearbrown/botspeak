@@ -25,14 +25,6 @@ This means that the *confidence* of the output — the firmness of the phrasing,
 
 *Figure 6.1*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Row 1** | _fill in_ | _fill in_ |
-| **Row 2** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
-
 Humans have a deeply ingrained heuristic: confident statements are more often true than hedged ones. This heuristic is learned from experience with *human* communication, where it generally holds. People who assert things firmly tend to be right more often than people who constantly qualify, because humans are socially penalized for being confidently wrong — they lose credibility, suffer consequences, get remembered for the mistake. This penalty shapes how humans communicate, which makes firmness a reasonable signal of accuracy in human sources.
 
 The model is not socially penalized for confident wrongness. It produces confident wrong output every day. The heuristic you apply to human sources does not transfer.
@@ -46,7 +38,6 @@ Now I can name the four layers, and you will see why they are four rather than o
 <!-- → [INFOGRAPHIC: A vertical stack or four-quadrant diagram showing the four layers — Fact, Reasoning, Framing, Omission — with the error type each catches and the verification move for each. Should function as a reference card the reader returns to throughout the chapter and the book. Placed here so the reader has the whole map before the prose walks through each layer.] -->
 
 ![Figure 6.2 — A vertical stack or four-quadrant diagram showing the four layers](images/06-discernment-fig-02.jpg)
-
 
 The first is **fact**: are the specific factual claims true? Citations real, numbers accurate, attributions correct, names right? This is the layer most users vaguely understand they should run. It would have caught the consultant's fabricated citations, if he had run it. The verification is straightforward in concept: open another source, find the primary, check it. The execution is the thing that gets skipped under time pressure.
 
@@ -92,13 +83,6 @@ At the highest tier — high stakes and irreversibility — you have medical, le
 
 *Figure 6.3*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Required / Optional / Skip. Should function as a quick-reference card the practitioner can internalize without returning to the prose.** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
-
 The protocol is not bureaucracy. It is a way to spend verification effort proportionally. Running full four-layer verification on a draft email to a colleague is wasted time. Running minimal verification on a brief going to a regulator is risk you have not earned the right to take.
 
 ---
@@ -112,7 +96,6 @@ When you ask for an analysis of a competitor, you get the analysis that looks li
 <!-- → [INFOGRAPHIC: A horizontal spectrum from "what models weight heavily (common, well-documented patterns)" to "what models weight lightly (unusual, situational, domain-specific facts)." The omission layer sits at the right end. Should make visible why the omission check requires the practitioner's domain knowledge and cannot be offloaded to the model.] -->
 
 ![Figure 6.4 — A horizontal spectrum from "what models weight heavily (common, well-document...](images/06-discernment-fig-04.jpg)
-
 
 This is not a flaw you can fix by prompting differently, at least not reliably. It is a structural feature of how the model works. The only response is to know your situation well enough to know what the output should have contained, and to run the check explicitly when it matters.
 
@@ -281,3 +264,25 @@ The chapter proposes four tiers as a calibration heuristic. Design a more precis
 
 **10. Challenge the layer independence assumption.** *(Framework critique | Difficulty: high)*
 The chapter treats the four layers as independent — you can run them separately, skip some, combine them in any order. Make the strongest case that they are not independent: specifically, that a framing failure at Layer 3 systematically causes fact errors at Layer 1 that look like pure citation hallucinations but are actually downstream consequences of the wrong frame. If this case is correct, what does it imply about the order in which layers should be run? What does it imply about how the tier protocol should be revised? Your argument should be grounded in at least one concrete professional scenario.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Joy Buolamwini** built the Algorithmic Justice League around catching framing and omission failures in models other people had already declared accurate — years before most teams ran any verification at all. Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who is Joy Buolamwini, and how does her Gender Shades project connect to the idea that the hardest discernment failures are framing errors and missing context, not factual errors? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Joy Buolamwini"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain what an algorithmic audit actually does, as if you've never run one
+- Ask it to compare Buolamwini's audit method to running Layers 3 and 4 (framing, omission) on a market-entry brief
+- Add a constraint: "Answer as if you're writing a verification-tier example for a chapter on Discernment"
+
+What changes? What gets better? What gets worse?

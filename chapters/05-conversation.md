@@ -34,7 +34,6 @@ During training, human raters evaluate the model's outputs and score them. High 
 
 ![Figure 5.1 — Simplified RLHF feedback loop](images/05-conversation-fig-01.jpg)
 
-
 What do human raters score highly? On the whole: outputs that are helpful, responsive, and pleasant. An output that develops the user's idea scores well. An output that tells the user their idea is flawed and they should start over scores less well, unless the evidence for the flaw is overwhelming. Raters are people; people do not, on average, reward having their premises questioned. This is not a criticism — it is a fact about how the ratings work.
 
 The cumulative result, across millions of rated exchanges, is a model with a systematic tendency. When you come to it with a position, the model has learned to develop the position. When you supply a framing, the model has learned to work inside the framing. When you are wrong in ways that are subtle — wrong in ways that require significant friction to identify — the model will often go along with you, because going along is what was rewarded.
@@ -52,7 +51,6 @@ No single exchange in a drifting conversation looks obviously wrong. The model s
 <!-- → [CHART: Two conversation trajectories over time — one drifting (each exchange moving further into the original framing, shown as a narrowing cone or deepening groove) versus one using adversarial moves (trajectory periodically redirected at steelman / edge-case / assumption checkpoints, shown as a path that corrects course). The reader should notice that drift is invisible at any single step but obvious as a trajectory.] -->
 
 ![Figure 5.2 — Two conversation trajectories over time](images/05-conversation-fig-02.jpg)
-
 
 What you are not getting, at any point in that trajectory, is the view from outside your framing. You are not getting the strongest objection to your conclusion. You are not getting the cases where your argument fails. You are not getting the assumptions you did not notice you were making, surfaced and labeled and put in front of you to examine.
 
@@ -124,14 +122,12 @@ The devil's advocate catches *integration failures*: the argument might survive 
 
 *Figure 5.3*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Steelman / directional error / any argument built in >20 min of AI conversation / ~5 min. Edge-case probe / scope error / argument contains "always" or "never** | _fill in_ | _fill in_ |
-| **" or recommendation is meant to generalize / ~10 min. Assumption surface / invisible premises / work going to skeptical audience / ~5 min. Devil's advocate / integration failures / high-stakes commitment** | _fill in_ | _fill in_ |
-| **Hard to back out of / 20–30+ min. Designed for readers who want to skim back to this chapter mid-project.** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
+| Move | Failure Mode It Catches | Trigger Condition | Estimated Time |
+|---|---|---|---|
+| **Steelman** | Directional error — you have been going the wrong way and the model came along | Any argument built in more than ~20 min of AI conversation | ~5 min |
+| **Edge-case probe** | Scope error — argument right in the middle, wrong at the edges | Argument contains "always" or "never," or the recommendation is meant to generalize | ~10 min |
+| **Assumption surface** | Invisible premises — argument valid given assumptions, but the assumptions are doing more work than you realized | Work going to a skeptical audience | ~5 min |
+| **Devil's advocate** | Integration failures — survives individual objections, collapses under sustained adversarial pressure | High-stakes commitment, hard to back out of | 20–30+ min |
 
 Together, they cover the territory. Individually, each is fast — the steelman and assumption surface take five minutes, the edge-case probe ten, the devil's advocate as long as it takes. The cost is low. The coverage is high.
 
@@ -306,3 +302,25 @@ Save as `06-conversation-and-adversarial-moves.md` in my playbook folder.
 **Connection to previous chapters:** Section 4's templates produce a cleanly-specified prompt; Section 5's worksheet decides what to specify at all. Section 6 is what you do AFTER the first response — the iterative push-back that distinguishes Henrik's 45 polished minutes from his peer's 3-minute teardown.
 
 **Preview of next chapter:** Chapter 6 produces Section 7 — verification protocols calibrated to the stakes structure of your industry. Tier A through Tier D, with role-specific examples of which tasks hit which Tier and which verification layers are most important for your domain.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Gordon Pask** literally built a formal theory called *Conversation Theory* — a model of how two reasoning systems negotiate shared understanding — decades before anyone talked about "conversational AI." Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was Gordon Pask, and how does his Conversation Theory connect to the idea that running adversarial moves on an AI is the work that turns a draft into something you can sign? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Gordon Pask"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain "P-individual" in plain language, as if you've never heard of cybernetics
+- Ask it to compare Pask's conversation-as-knowledge-construction to a real adversarial move like steelmanning
+- Add a constraint: "Answer as if you're writing a footnote on the Ownership Test"
+
+What changes? What gets better? What gets worse?

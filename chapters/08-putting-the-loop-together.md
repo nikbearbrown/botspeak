@@ -36,7 +36,6 @@ The reason to write the specification before opening the tool is not procedural.
 
 ![Figure 8.1 — A handwritten or typed specification document](images/08-putting-the-loop-together-fig-01.jpg)
 
-
 ---
 
 Now she decomposes the brief.
@@ -58,19 +57,6 @@ She writes a six-line delegation map at the top of her notes file. Not for anyon
 <!-- → [TABLE: Maya's delegation map — two columns: Task / Who Handles It. Rows: Company snapshot / Model entirely. Market sizing / Model generates, Maya verifies and checks for omissions. Team analysis / Model generates, Maya verifies against primary sources. Traction (public) / Model generates, Maya verifies. Traction (operational) / Maya alone. Risks / Model surfaces candidates, Maya judges. Recommendation / Maya alone. Designed to be reusable as a template — readers should be able to swap in their own task names and apply the same classification logic.] -->
 
 *Figure 8.2*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Company snapshot / Model entirely. Market sizing / Model generates** | _fill in_ | _fill in_ |
-| **Maya verifies** | _fill in_ | _fill in_ |
-| **Checks for omissions. Team analysis / Model generates** | _fill in_ | _fill in_ |
-| **Maya verifies against primary sources. Traction (public) / Model generates** | _fill in_ | _fill in_ |
-| **Maya verifies. Traction (operational) / Maya alone. Risks / Model surfaces candidates** | _fill in_ | _fill in_ |
-| **Maya judges. Recommendation / Maya alone. Designed to be reusable as a template — readers should be able to swap in their own task names** | _fill in_ | _fill in_ |
-| **Apply the same classification logic.** | _fill in_ | _fill in_ |
-
-: {.data-table}
-
 
 ---
 
@@ -128,7 +114,6 @@ This is what a linear chapter sequence cannot show. The Loop is a cycle. Midway 
 
 ![Figure 8.3 — A timeline of Maya's day](images/08-putting-the-loop-together-fig-03.jpg)
 
-
 ---
 
 The third conversation cycle, against the new specification, runs differently. It is faster and more surgical because the spec is sharper. The model produces, against the new brief, a recommendation framework: a list of what would have to be true for a yes-on-real-diligence, framed as testable hypotheses. She and the model spend forty-five minutes refining them, narrowing the open questions, holding each candidate question against the bar of *can the founder answer this in a one-hour call*.
@@ -160,21 +145,6 @@ This is the AI Use Disclosure. It is the artifact that closes the loop — the m
 <!-- → [TABLE: AI Use Disclosure anatomy — three rows breaking down Maya's four sentences. Columns: Sentence / What It Names / Why It Matters. Row 1: "Claude was used for market-sizing synthesis, team-background scan, and risk-category surfacing" / What the AI did, specifically / Lets the reader audit which sections carry AI-generated material. Row 2: "Sources verified independently, footnotes 3, 7, 11" / What Maya did to verify / Distinguishes AI-generated from human-verified claims. Row 3: "The recommendation is mine. The verification is mine. Any errors are mine." / Who is accountable / Names the load-bearing judgment and the human on the hook. Designed to help readers write their own disclosures by decomposing the structure.] -->
 
 *Figure 8.4*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Sentence / What It Names / Why It Matters. Row 1: "Claude was used for market-sizing synthesis** | _fill in_ | _fill in_ |
-| **Team-background scan** | _fill in_ | _fill in_ |
-| **** | _fill in_ | _fill in_ |
-| **Risk-category surfacing" / What the AI did** | _fill in_ | _fill in_ |
-| **Specifically / Lets the reader audit which sections carry AI-generated material. Row 2: "Sources verified independently** | _fill in_ | _fill in_ |
-| **Footnotes 3** | _fill in_ | _fill in_ |
-| **7** | _fill in_ | _fill in_ |
-| **11" / What Maya did to verify / Distinguishes AI-generated from human-verified claims. Row 3: "The recommendation is mine. The verification is mine. Any errors are mine." / Who is accountable / Names the load-bearing judgment** | _fill in_ | _fill in_ |
-| **The human on the hook. Designed to help readers write their own disclosures by decomposing the structure.** | _fill in_ | _fill in_ |
-
-: {.data-table}
-
 
 At 5:52 she sends it.
 
@@ -346,3 +316,25 @@ Save as `09-the-loop-together-and-disclosure.md` in my playbook folder.
 **Connection to previous chapters:** This section is the synthesis of Part I of the playbook. Sections 4–8 produced individual templates and protocols; Section 9 shows them running together on one task. After Section 9, the reader has everything they need for AI work in Augmentation (which is most of the day for most readers).
 
 **Preview of next chapter:** Chapter 9 starts Part II — Automation. Section 10 of the playbook applies the three appropriateness tests to typical Automation candidates in your role and identifies which would pass, which would fail, and which would require specific modification.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Donella Meadows** was writing about feedback loops, leverage points, and what makes a system fail visibly versus invisibly decades before most people had heard of "the AI Loop." Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was Donella Meadows, and how do her ideas about feedback loops and leverage points connect to running the full Specification → Delegation → Conversation → Discernment → Diligence loop on a single task? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Donella Meadows"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain "leverage points" in plain language, as if you've never read systems thinking
+- Ask it to compare Meadows's leverage-point hierarchy to the loop-back move (Discernment surfaces a Specification problem)
+- Add a constraint: "Answer as if you're annotating Maya's Tuesday for a junior reading the playbook"
+
+What changes? What gets better? What gets worse?

@@ -27,7 +27,6 @@ Here is what a working specification contains. I am going to name five component
 
 ![Figure 3.1 — A five-part diagram](images/03-specification-fig-01.jpg)
 
-
 The first is **intent**: not the immediate task, but the goal the task serves. Aisha's intent was not *produce a summary*. Her intent was *give my manager a five-bullet artifact she can paste onto a slide and use to argue our coalition's position in tomorrow's stakeholder meeting.* Those are not the same thing, and the model had no way to know which one she meant. The intent statement is what tells the model — and you — what counts as success.
 
 The second is **constraints**: what the output has to fit inside. Format constraints: five bullets, one clause each, no sub-bullets. Length constraints: under a hundred words total. Source constraints: only claims that appear in the report, not the model's outside knowledge. Audience constraints: people who have not read the document. Constraints are the parts of the specification the model would otherwise guess at — and guess wrong — while producing output that looks like it could be right.
@@ -53,14 +52,6 @@ Now watch what Aisha would have sent if she had specified before prompting:
 <!-- → [TABLE: Side-by-side comparison — left column: Aisha's three actual prompts (iteration 1, 2, 3); right column: the corresponding specification component each iteration was groping toward but never stated. Final row shows the complete specification above. Student should see exactly which component was missing at each iteration and what the omission cost.] -->
 
 *Figure 3.2*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Row 1** | _fill in_ | _fill in_ |
-| **Row 2** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
 
 That is not a prompt. It is the thinking a prompt needs to encode. The actual prompt Aisha types may be two or three sentences long — but those sentences will carry all five components because she now knows what they are.
 
@@ -100,7 +91,6 @@ A template is a specification you wrote once for a category of recurring work, w
 
 ![Figure 3.3 — A visual of a filled-in template card](images/03-specification-fig-03.jpg)
 
-
 The next time she summarizes a long document for a high-stakes deliverable, she fills in the brackets. The thinking she did the first time is now infrastructure. The template does not do the thinking for her — she still has to know her intent, her constraints, her success criteria. But it reminds her to have them, and it gives her a form to put them in.
 
 Build templates for the five tasks you do most often this quarter. Refine them as you discover what was missing. The fluent practitioner has a small library of templates and rarely starts a specification from scratch. The literate user invents the wheel every time, and every time runs into the same missing components she forgot last time.
@@ -118,14 +108,6 @@ The rubric piece supplies explicit criteria the output will be judged against: *
 <!-- → [TABLE: Two-column breakdown of the role-and-rubric pattern — left column: the five specification components (Intent, Constraints, Success Criteria, Exclusions, Output Format); right column: whether role-and-rubric encodes that component well, partially, or leaves it unaddressed, with a one-line note on what still needs explicit treatment. Student should see which components the pattern compresses and which it does not.] -->
 
 *Figure 3.4*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Row 1** | _fill in_ | _fill in_ |
-| **Row 2** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
 
 Role-and-rubric is one pattern. There are others — chain-of-thought, few-shot examples, constraint stacking. Each compresses different parts of the five components into a structure the model handles well. They are scaffolds for the same five components, not alternatives to them. The mistake I see most often is reaching for a pattern before specifying. Someone reads about chain-of-thought and starts adding *think step by step* to every prompt, regardless of whether step-by-step reasoning is what the task requires. Patterns serve the specification. The specification does not serve the pattern. If you do not yet know your intent, adding *think step by step* will give you a fluent, step-by-step, wrong answer.
 
@@ -291,3 +273,25 @@ The chapter ends with a stated puzzle: "I do not yet have a clean answer to when
 
 **11. Teach the five components.** *(Feynman test | Difficulty: high)*
 Design a 45-minute session for a team of ten that teaches the five-component specification to people who have never heard the term. Your design should specify: the opening problem you would pose and why it is the right problem, the order in which you would introduce the five components and why that order, the single exercise you would run after the third component is introduced, and how you would close the session. For each design decision, cite the chapter's reasoning about why specification is hard to learn and where the difficulty actually lives.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Nancy Leveson** was arguing that most failures come from incomplete specifications rather than component breakdown decades before anyone said "prompt engineering." Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who is Nancy Leveson, and how does her work on STAMP and System-Theoretic Process Analysis connect to the idea that careful specification is the main defense against AI failure? Keep it to three paragraphs. End with the single most surprising thing about her career or ideas.
+```
+
+→ Search **"Nancy Leveson"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain STAMP in plain language, as if you've never heard the words "control structure"
+- Ask it to compare Leveson's safety-spec components to the five-component prompt template in this chapter
+- Add a constraint: "Answer as if you're writing a memo to a manager who calls specification 'bloat'"
+
+What changes? What gets better? What gets worse?

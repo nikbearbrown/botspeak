@@ -31,13 +31,6 @@ Three drifts. Each one, on its own, might have been small enough to miss. Togeth
 
 *Figure 7.1*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Timeline of the screening tool case — horizontal axis February through November** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
-
 This is the structural fact about recurring AI-assisted work that Chapters 1 through 6 did not fully prepare you for: the process does not hold still. The model changes. The world changes. The use case expands. Any of these, unmonitored, can turn a well-designed workflow into a broken one while every individual actor in the system behaves exactly as they did on day one.
 
 ---
@@ -61,16 +54,6 @@ The verification gap closes only one way: scheduled checks, with dates and owner
 <!-- → [INFOGRAPHIC: Three accountability-obscuring mechanisms as flow diagrams — three side-by-side panels; Panel 1 "Process laundering": arrows from AI output → human approver → vendor → setup team, each labeled with their exculpatory statement, all arrows pointing away from a central "accountability" node that is empty; Panel 2 "Tool diffusion": original spec at center with radiating arrows to secondary users each carrying a fraction of the original understanding; Panel 3 "Verification gap": recruiter and setup team facing each other, each with a thought bubble saying "they're checking it," gap labeled "nobody is"; student should see that each mechanism produces the same result — no one owns the outcome — through a different structural path] -->
 
 *Figure 7.2*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Recruiter** | _fill in_ | _fill in_ |
-| **Setup team facing each other** | _fill in_ | _fill in_ |
-| **Each with a thought bubble saying "they're checking it** | _fill in_ | _fill in_ |
-| **" gap labeled "nobody is"** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
 
 ---
 
@@ -99,13 +82,6 @@ Four components. None of them is technically sophisticated. Each of them is, in 
 <!-- → [TABLE: The four diligence components as a setup checklist — columns: Component, The question it answers, What it prevents, Minimum cadence, Who owns it; rows: Documented specification / Drift checks on a schedule / Outcome audits / Named accountable human; student should be able to print this and use it as a go/no-go gate before deploying any recurring AI-assisted workflow] -->
 
 *Figure 7.3*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Documented specification / Drift checks on a schedule / Outcome audits / Named accountable human** | _fill in_ | _fill in_ |
-
-: {.data-table}
-
 
 ---
 
@@ -273,3 +249,25 @@ Save as `08-diligence-templates.md` in my playbook folder.
 **Connection to previous chapters:** Section 7 verifies a single output. Section 8 maintains the verification across recurring outputs over time — the discipline that prevents the screening-company audit from happening to your reader.
 
 **Preview of next chapter:** Chapter 8 produces Section 9 — the AI Use Disclosure language your industry / regulator expects, plus a worked end-to-end Loop on a real role-typical task that ties Sections 1–8 together.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **Genichi Taguchi** was arguing that quality comes from designing against deviation — not catching it at the end — decades before anyone worried about AI tool diffusion or process laundering. Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was Genichi Taguchi, and how does his philosophy of robust design connect to the idea that diligence in AI work is mostly about anticipating where outputs drift, rather than spot-checking after the fact? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"Genichi Taguchi"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain Taguchi's loss function in plain language, as if you've never taken a quality-engineering course
+- Ask it to compare his robust-design approach to the three obscuring mechanisms in this chapter
+- Add a constraint: "Answer as if you're defending the diligence budget to a skeptical manager"
+
+What changes? What gets better? What gets worse?

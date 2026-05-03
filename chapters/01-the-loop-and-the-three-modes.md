@@ -17,14 +17,6 @@ Confidence is a textual feature. It has no necessary relationship to correctness
 
 *Figure 1.1*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **Row 1** | _fill in_ | _fill in_ |
-| **Row 2** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
-
 I want you to sit with that sentence for a moment. Every failure mode we are going to spend this book on — the invented source, the plausible-sounding number that turns out to be wrong, the paragraph that is subtly off in a way you have to look up to catch — is a direct consequence of this one fact about how the system produces output at all. Not bugs. Direct consequences. The fluent practitioner does not encounter these failures occasionally; she works inside them constantly, and she knows what the failure shapes look like before they arrive.
 
 That is the one technical fact I need you to carry. Now let me show you what fluency with it actually looks like in practice.
@@ -71,17 +63,6 @@ Specify. Delegate. Converse. Discern. Be diligent. These five steps are what I a
 
 *Figure 1.2*
 
-| | **Property** | **Value** |
-|---|---|---|
-| **The Loop as a cycle — five labeled nodes (Specify** | _fill in_ | _fill in_ |
-| **Delegate** | _fill in_ | _fill in_ |
-| **Converse** | _fill in_ | _fill in_ |
-| **Discern** | _fill in_ | _fill in_ |
-| **Be Diligent) arranged in a circle with directional arrows between each adjacent pair** | _fill in_ | _fill in_ |
-
-: {.infographic-table}
-
-
 ---
 
 The Loop is not a checklist you run once. It is a cycle, and the steps loop back on themselves. Halfway through conversation, you may discover your specification was wrong — you go back. Halfway through discernment, you may realize you delegated something you should have kept — you go back. The picture I want in your head is not five boxes with an arrow running left to right. It is five boxes with arrows running in every direction, including a thick return arrow from diligence back to specification, because when a recurring task changes shape, the whole cycle starts over. We will come back to those return arrows in Chapter 8. For now: hold the cycle, not the line.
@@ -102,7 +83,6 @@ The failure mode here is slow and quiet. An error in a one-off deliverable is vi
 
 ![Figure 1.3 — Timeline showing error accumulation in an automated process](images/01-the-loop-and-the-three-modes-fig-03.jpg)
 
-
 The second harder configuration is when the model is taking actions in the world on Priya's behalf. Not producing text she reviews — sending emails, calling APIs, modifying files, executing transactions. The model now has hands. The blast radius of an error grows in ways text-only mistakes cannot grow, because some actions cannot be undone. Discernment now has to happen before the action, not after. Diligence now has to account for failure modes that are specific to autonomy: the model taking a locally reasonable action in a context it has misread, the model escalating in a way no one authorized, the model acting without a clear model of who the affected stakeholders are.
 
 The Ash case from Chapter 11 — the agent that reset an entire email server in order to delete one email — is this configuration's characteristic failure. The agent had a goal, available tools, no stakeholder model, no sense of proportionality, and no pause between deciding and executing. Each of those absences is a direct consequence of deploying the easy configuration's assumptions into a situation where those assumptions no longer hold. I am going to call this mode Agency, and Part III is about it.
@@ -114,13 +94,6 @@ The table below fixes the relationships. Not because you need to memorize it, bu
 <!-- → [TABLE: The three-mode summary table — columns: Mode, Human presence during execution, Steps that reweight, Characteristic failure mode, Where covered; rows: Augmentation / Automation / Agency; student should use this as a reference map for which part of the book addresses which operational context] -->
 
 *Figure 1.4*
-
-| | **Property** | **Value** |
-|---|---|---|
-| **Augmentation / Automation / Agency** | _fill in_ | _fill in_ |
-
-: {.comparison-table}
-
 
 | Mode | Human presence during execution | Steps that reweight | Characteristic failure mode | Where covered |
 |---|---|---|---|---|
@@ -253,3 +226,25 @@ Save as `02-the-loop-on-a-real-task.md` in my playbook folder.
 **Connection to previous chapters:** Section 1 (the opening case) showed your role's failure mode. Section 2 shows the alternative — fluent execution on a typical task. Together they set up everything that follows.
 
 **Preview of next chapter:** Chapter 2 produces Section 3 — the Nine Capacities annotated with what failure looks like in your role. Each capacity gets a domain-specific example so readers recognize themselves.
+
+---
+
+## 🕰️ AI Wayback Machine
+
+The ideas in this chapter didn't appear from nowhere. **W. Ross Ashby** was formalizing how a controller must match the variability of the system it controls decades before most people had heard of human-AI loops. Here's a prompt to find out more — and then make it better.
+
+**Run this:**
+
+```
+Who was W. Ross Ashby, and how does his Law of Requisite Variety connect to a practitioner cycling through Augmentation, Automation, and Agency on a single task? Keep it to three paragraphs. End with the single most surprising thing about his career or ideas.
+```
+
+→ Search **"W. Ross Ashby"** on Wikipedia after you run this. See what the model got right, got wrong, or left out.
+
+**Now make the prompt better.** Try one of these:
+
+- Ask it to explain "requisite variety" in plain language, as if you've never heard of cybernetics
+- Ask it to compare Ashby's idea of a controller to a fluent practitioner running the Loop on a Tier-C task
+- Add a constraint: "Answer in the style of a museum placard at a cybernetics exhibit"
+
+What changes? What gets better? What gets worse?
