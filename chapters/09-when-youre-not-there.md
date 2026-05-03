@@ -23,6 +23,9 @@ Notice the shape of this failure. The model did not hallucinate. It did not fabr
 
 <!-- → [INFOGRAPHIC: A seven-week timeline of Tessa's automation. Weeks 1–6 marked "clean runs / trust accumulates." Week 7 marked with three annotated events in sequence: retraction published → wrong summary posted → CFO cites it at board call → strategic decision paused. A callout should highlight the gap between "model ran correctly" and "output was wrong," making the design failure — not the model — visible as the locus of error.] -->
 
+![Figure 9.1 — A seven-week timeline of Tessa's automation. Weeks 1–6 marked "clean runs / trust accumulates." Week 7 marked with three annotated events in sequence: retraction published → wrong summary posted → CFO cites it at board call → strategic decision paused. A callout should highlight the gap between "model ran correctly" and "output was wrong," making the design failure](images/09-when-youre-not-there-fig-01.jpg)
+
+
 In ordinary augmentation work, this error never happens. Tessa would have read the source article herself, or at minimum read the model's summary before it went anywhere, and would likely have checked the publication before forwarding claims about a competitor to her CFO. The error is impossible when a human is actively in the loop. Given enough recurrences, it is nearly inevitable when the human has been systematically removed.
 
 ---
@@ -32,6 +35,22 @@ Every chapter up to this one has described a loop: you specify the task, you del
 When you automate something, the loop does not disappear. It runs. But you do not. Every step still has to happen — specification, delegation, conversation, discernment, maintenance — but some steps that were reflexive in person become impossible without explicit design. The automation changes where the weight falls.
 
 <!-- → [TABLE: The loop reweighting — rows for each loop step (Specification, Delegation, Conversation, Discernment, Maintenance), columns for "In augmentation" vs. "In automation." Each cell describes how the step works in each mode and what design work the shift requires. The reader should be able to see at a glance which steps become load-bearing in automation and why.] -->
+
+*Figure 9.2*
+
+| | **The loop reweighting — rows for each loop step (Specification, Delegation, Conversation, Discernment, Maintenance), columns for "In augmentation"** | **"In automation." Each cell describes how the step works in each mode and what design work the shift requires. The reader should be able to see at a glance which steps become load-bearing in automation and why.** |
+|---|---|---|
+| **The loop reweighting — rows for each loop step (Specification** | _fill in_ | _fill in_ |
+| **Delegation** | _fill in_ | _fill in_ |
+| **Conversation** | _fill in_ | _fill in_ |
+| **Discernment** | _fill in_ | _fill in_ |
+| **Maintenance)** | _fill in_ | _fill in_ |
+| **Columns for "In augmentation" vs. "In automation." Each cell describes how the step works in each mode** | _fill in_ | _fill in_ |
+| **What design work the shift requires. The reader should be able to see at a glance which steps become load-bearing in automation** | _fill in_ | _fill in_ |
+| **Why.** | _fill in_ | _fill in_ |
+
+: {.infographic-table}
+
 
 **Specification** becomes harder, not easier. When you write a one-off task, your spec covers one set of inputs you have in front of you. You know the context because you are in it. When you specify an automation, you are specifying a class of tasks the system will run against inputs you have not yet seen, in conditions that will change over time. Tessa's spec was correct for the normal case — articles from her curated list that were currently accurate. It was silent on what to do when an article had been retracted. A good spec for automation has to anticipate the ways the inputs will deviate from the design case, and has to specify what the system should do when they deviate. The silence in the spec is where the failures live.
 
@@ -56,6 +75,17 @@ When a model produces a wrong output in an automation, the blast radius is propo
 The scaling can be worse than linear if wrong outputs compound. A wrong competitive analysis in week three shapes how someone frames a conversation in week four. The wrong frame shapes a decision in week five. The decision structures a commitment in week six. By week seven, the wrong output from week three has influenced a chain of things that cannot be easily unwound. This is not a worst case. It is a realistic case for any automation where the outputs feed into a running process.
 
 <!-- → [CHART: Two line graphs side by side — left: blast radius in augmentation (flat, single point of damage, bounded); right: blast radius in automation over time (grows from first wrong output, potentially compounding nonlinearly when outputs feed downstream decisions). The visual should make the scaling difference visceral, not just stated.] -->
+
+*Figure 9.3*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Two line graphs side by side — left: blast radius in augmentation (flat** | _fill in_ | _fill in_ |
+| **Single point of damage** | _fill in_ | _fill in_ |
+| **Bounded)** | _fill in_ | _fill in_ |
+
+: {.data-table}
+
 
 The design implication is stark: you cannot rely on accidentally noticing that an automation is failing. In ordinary work, you notice because you are reading the output. In automation, you have deliberately arranged not to read the output in real time. Noticing has to be designed. It has to be a scheduled, explicit, accountable activity, built in at setup time, because if it is not built in, it does not happen — and the blast radius grows from the moment the first wrong output appears until the moment someone happens to look.
 
@@ -86,6 +116,9 @@ Designing the noticing means deciding, at setup time, how you will learn that th
 *Outcome auditing* is periodic review of what the automation produced against what actually turned out to be true. Once a quarter, Tessa reviews the past quarter's competitive summaries against what the competitors actually did. The audit catches systematic bias or systematic omission that sampling might miss because each individual output looked plausible. Outcome auditing is the slowest of the three forms but the one that catches the failures that are structurally correct and substantively wrong — the ones that look fine on the day and turn out to have been quietly misleading.
 
 <!-- → [INFOGRAPHIC: A three-panel reference card for the noticing forms — Sampling, Adversarial Test Cases, Outcome Auditing. Each panel: what it catches, what it misses, suggested cadence. The design should make this feel like a quick-reference tool the practitioner returns to when designing any new automation, not a one-time read.] -->
+
+![Figure 9.4 — A three-panel reference card for the noticing forms](images/09-when-youre-not-there-fig-04.jpg)
+
 
 Building these three practices in at design time is not optional infrastructure. They are the quality control that replaces the human who is no longer there.
 

@@ -48,6 +48,9 @@ The third is repetition — not of the same thing, but of the same *type* of thi
 
 <!-- → [INFOGRAPHIC: Three-ingredient deliberate practice model — three nodes labeled Specific Feedback, Edge of Ability, and Typed Repetition, arranged in a cycle. Each node annotated with the book mechanism that supplies it: four-layer verification → feedback; uncomfortable delegation tasks → edge; daily spec writing → repetition. The reader should see the book's practices mapped onto the deliberate-practice structure, not presented as arbitrary techniques.] -->
 
+![Figure 13.1 — Three-ingredient deliberate practice model](images/13-the-fluent-practitioner-fig-01.jpg)
+
+
 Most AI use fails to meet any of these three criteria. The feedback is vague — did it seem right? The work stays in the comfortable zone — tasks the user already knows how to evaluate. The repetition is of the same comfortable pattern, not of the skill being developed. This is how people accumulate years of AI use without accumulating fluency. The years are real. The practice, in the technical sense, was not.
 
 ---
@@ -64,6 +67,16 @@ A 90-day artifact. Something specific, at the ninety-day mark, that is the downs
 
 <!-- → [TABLE: 90-day plan template — rows: Capacity 1, Capacity 2; columns: Capacity name, Daily rep (what it is / how long / artifact produced), Weekly review (day / time / the one question), 90-day artifact (described specifically enough to evaluate at 90 days). Designed as a fillable working document the reader completes before closing the chapter.] -->
 
+*Figure 13.2*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Capacity 1** | _fill in_ | _fill in_ |
+| **Capacity 2** | _fill in_ | _fill in_ |
+
+: {.comparison-table}
+
+
 Two capacities. Three commitments per capacity. Ninety days. This is not a large ask. It is a precise one. Precision is what most professional development plans lack, which is why most professional development plans do not produce development.
 
 ---
@@ -79,6 +92,16 @@ Here is what a fluent practitioner's answer sounds like on a real piece of work 
 That answer takes ninety seconds to give. It separates the model's contribution from the practitioner's. It names the specific places where domain knowledge the model did not have was brought to bear. It assigns accountability cleanly. It surfaces the verification rather than burying it. It is, in any professional setting — an interview, a client meeting, a regulatory review, a boardroom — the kind of answer that tells the asker that the work is trustworthy without requiring them to audit every line.
 
 <!-- → [TABLE: Anatomy of the fluent answer — four rows parsing the competitive-intelligence example above. Columns: Sentence or phrase / What it does / What the vague literate-user answer omits. Rows: (1) "model drafted company-snapshot and market-sizing" / names what AI did specifically / literate user says "helped me draft it" without naming which parts; (2) "source list verified independently, filings listed in appendix" / surfaces the verification / literate user buries or omits verification entirely; (3) "team analysis done without model — institutional knowledge required" / names where domain expertise was load-bearing / literate user cannot name this; (4) "recommendation and accountability are mine" / assigns accountability cleanly / literate user leaves accountability ambiguous. The reader should see the structural difference, not just hear it described.] -->
+
+*Figure 13.3*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **(1) "model drafted company-snapshot** | _fill in_ | _fill in_ |
+| **Market-sizing" / names what AI did specifically / literate user says "helped me draft it" without naming which parts** | _fill in_ | _fill in_ |
+
+: {.data-table}
+
 
 The literate user gives the vague answer because she has not been paying the kind of attention that produces the specific answer. The fluent practitioner gives the specific answer because she has been paying that attention in every piece of work she has done, over the months and years of the practice, until the attention is no longer effortful — it is just how she works.
 

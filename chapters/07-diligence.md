@@ -29,6 +29,15 @@ Three drifts. Each one, on its own, might have been small enough to miss. Togeth
 
 <!-- → [INFOGRAPHIC: Timeline of the screening tool case — horizontal axis February through November; three labeled drift events marked at their month of origin (context drift: March pivot to non-traditional pipelines, model drift: May vendor update, use case drift: July junior-role extension) with downward arrows showing silent accumulation; single vertical line at November labeled "audit triggered by unrelated complaint"; student should see that no single event caused the failure — the compounding of three independent drifts did] -->
 
+*Figure 7.1*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Timeline of the screening tool case — horizontal axis February through November** | _fill in_ | _fill in_ |
+
+: {.infographic-table}
+
+
 This is the structural fact about recurring AI-assisted work that Chapters 1 through 6 did not fully prepare you for: the process does not hold still. The model changes. The world changes. The use case expands. Any of these, unmonitored, can turn a well-designed workflow into a broken one while every individual actor in the system behaves exactly as they did on day one.
 
 ---
@@ -50,6 +59,18 @@ The third mechanism is the verification gap. In most workflows, checking whether
 The verification gap closes only one way: scheduled checks, with dates and owners, on someone's calendar. Not an aspiration. Not a norm. A calendar entry that recurs and has a name attached to it.
 
 <!-- → [INFOGRAPHIC: Three accountability-obscuring mechanisms as flow diagrams — three side-by-side panels; Panel 1 "Process laundering": arrows from AI output → human approver → vendor → setup team, each labeled with their exculpatory statement, all arrows pointing away from a central "accountability" node that is empty; Panel 2 "Tool diffusion": original spec at center with radiating arrows to secondary users each carrying a fraction of the original understanding; Panel 3 "Verification gap": recruiter and setup team facing each other, each with a thought bubble saying "they're checking it," gap labeled "nobody is"; student should see that each mechanism produces the same result — no one owns the outcome — through a different structural path] -->
+
+*Figure 7.2*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Recruiter** | _fill in_ | _fill in_ |
+| **Setup team facing each other** | _fill in_ | _fill in_ |
+| **Each with a thought bubble saying "they're checking it** | _fill in_ | _fill in_ |
+| **" gap labeled "nobody is"** | _fill in_ | _fill in_ |
+
+: {.infographic-table}
+
 
 ---
 
@@ -76,6 +97,15 @@ The named owner does not have to be the most senior person in the room. She has 
 Four components. None of them is technically sophisticated. Each of them is, in most organizations, missing for most AI-assisted processes.
 
 <!-- → [TABLE: The four diligence components as a setup checklist — columns: Component, The question it answers, What it prevents, Minimum cadence, Who owns it; rows: Documented specification / Drift checks on a schedule / Outcome audits / Named accountable human; student should be able to print this and use it as a go/no-go gate before deploying any recurring AI-assisted workflow] -->
+
+*Figure 7.3*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Documented specification / Drift checks on a schedule / Outcome audits / Named accountable human** | _fill in_ | _fill in_ |
+
+: {.data-table}
+
 
 ---
 

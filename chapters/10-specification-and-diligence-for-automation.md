@@ -49,6 +49,9 @@ The second specification is roughly three times the length of the first. Most pe
 
 <!-- → [IMAGE: Side-by-side annotated comparison — left column: the Augmentation spec (one paragraph, no section headers), right column: the Automation spec with callout labels pointing to each structural addition: "pre-flight checks = input-quality anticipation", "confidence labels = output-quality signaling", "exclusions = model-failure prevention", "failure-mode handling = six ambiguity types addressed", "diligence design = four failure modes addressed", "named accountable human = accountability gap closed"; student should see at a glance that the extra length is structured, not random, and maps directly to implicit work the human would have done at the keyboard] -->
 
+![Figure 10.1 — Side-by-side annotated comparison](images/10-specification-and-diligence-for-automation-fig-01.jpg)
+
+
 That is the core discipline of Automation specification: make the implicit explicit, in advance, because nothing about the execution will be in person.
 
 ---
@@ -71,6 +74,15 @@ Run through these six categories before you ship any automation. For each one, a
 
 <!-- → [TABLE: The six anticipatory categories as a pre-ship checklist — columns: Category, What it addresses, Detection mechanism, Handling rule, Example from the competitive intelligence spec; rows: Input-quality variation / Output-volume variation / Context shifts the model cannot detect / Ambiguous inputs / High-stakes outputs / Model-specific failure modes; student should print this and run through it before shipping any automation] -->
 
+*Figure 10.2*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Input-quality variation / Output-volume variation / Context shifts the model cannot detect / Ambiguous inputs / High-stakes outputs / Model-specific failure modes** | _fill in_ | _fill in_ |
+
+: {.comparison-table}
+
+
 ---
 
 The automation specification covers what happens during execution. The Diligence design covers what happens between executions — the monitoring that keeps the automation valid over time.
@@ -90,6 +102,15 @@ The fourth is the accountability gap. No human is actively monitoring; no human 
 The four Diligence moves are not heavy in aggregate. A weekly spot-check is fifteen minutes. A monthly fixed-test re-run is an hour. A quarterly outcome audit is a half-day. Across a year, this is roughly forty hours — the overhead of running the automation responsibly. That cost is real. It is also, in any domain where the automation's failures would be consequential, much smaller than the cost of the audit that follows when no one was watching.
 
 <!-- → [TABLE: The four Diligence failure modes and their monitoring moves — columns: Failure mode, What it looks like when it occurs undetected, Diligence move that catches it, Cadence, Approximate annual time cost; rows: Input drift / Output drift / Context shift / Accountability gap; final row shows total ~40 hours/year; student should use this to cost out the diligence design for any automation they are considering and compare against the blast radius of an undetected failure] -->
+
+*Figure 10.3*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Input drift / Output drift / Context shift / Accountability gap** | _fill in_ | _fill in_ |
+
+: {.data-table}
+
 
 ---
 

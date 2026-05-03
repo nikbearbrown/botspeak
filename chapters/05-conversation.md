@@ -32,6 +32,9 @@ During training, human raters evaluate the model's outputs and score them. High 
 
 <!-- → [INFOGRAPHIC: Simplified RLHF feedback loop — model output → human rater scores it → score updates model weights → model produces next output. Annotated to show where "develops the user's idea" gets consistently high scores and where "tells user their premise is wrong" gets lower scores unless evidence is overwhelming. Makes the training mechanism spatially legible for readers without an ML background.] -->
 
+![Figure 5.1 — Simplified RLHF feedback loop](images/05-conversation-fig-01.jpg)
+
+
 What do human raters score highly? On the whole: outputs that are helpful, responsive, and pleasant. An output that develops the user's idea scores well. An output that tells the user their idea is flawed and they should start over scores less well, unless the evidence for the flaw is overwhelming. Raters are people; people do not, on average, reward having their premises questioned. This is not a criticism — it is a fact about how the ratings work.
 
 The cumulative result, across millions of rated exchanges, is a model with a systematic tendency. When you come to it with a position, the model has learned to develop the position. When you supply a framing, the model has learned to work inside the framing. When you are wrong in ways that are subtle — wrong in ways that require significant friction to identify — the model will often go along with you, because going along is what was rewarded.
@@ -47,6 +50,9 @@ Drift is not a moment. It is a direction.
 No single exchange in a drifting conversation looks obviously wrong. The model says something reasonable. You respond. The model develops that. You refine it. Each individual step is useful. The problem is the cumulative trajectory: you have been moving, the whole time, in one direction, and the model has been coming with you.
 
 <!-- → [CHART: Two conversation trajectories over time — one drifting (each exchange moving further into the original framing, shown as a narrowing cone or deepening groove) versus one using adversarial moves (trajectory periodically redirected at steelman / edge-case / assumption checkpoints, shown as a path that corrects course). The reader should notice that drift is invisible at any single step but obvious as a trajectory.] -->
+
+![Figure 5.2 — Two conversation trajectories over time](images/05-conversation-fig-02.jpg)
+
 
 What you are not getting, at any point in that trajectory, is the view from outside your framing. You are not getting the strongest objection to your conclusion. You are not getting the cases where your argument fails. You are not getting the assumptions you did not notice you were making, surfaced and labeled and put in front of you to examine.
 
@@ -115,6 +121,17 @@ The assumption surface catches *invisible premises*: the argument is valid given
 The devil's advocate catches *integration failures*: the argument might survive each individual objection but collapse when the objections are pressed together in sequence. Sustained adversarial conversation finds the integration failures that discrete probes miss.
 
 <!-- → [TABLE: Quick-reference summary of the four moves — columns: Move, Failure Mode It Catches, Trigger Condition, Estimated Time. Rows: Steelman / directional error / any argument built in >20 min of AI conversation / ~5 min. Edge-case probe / scope error / argument contains "always" or "never," or recommendation is meant to generalize / ~10 min. Assumption surface / invisible premises / work going to skeptical audience / ~5 min. Devil's advocate / integration failures / high-stakes commitment, hard to back out of / 20–30+ min. Designed for readers who want to skim back to this chapter mid-project.] -->
+
+*Figure 5.3*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Steelman / directional error / any argument built in >20 min of AI conversation / ~5 min. Edge-case probe / scope error / argument contains "always" or "never** | _fill in_ | _fill in_ |
+| **" or recommendation is meant to generalize / ~10 min. Assumption surface / invisible premises / work going to skeptical audience / ~5 min. Devil's advocate / integration failures / high-stakes commitment** | _fill in_ | _fill in_ |
+| **Hard to back out of / 20–30+ min. Designed for readers who want to skim back to this chapter mid-project.** | _fill in_ | _fill in_ |
+
+: {.comparison-table}
+
 
 Together, they cover the territory. Individually, each is fast — the steelman and assumption surface take five minutes, the edge-case probe ten, the devil's advocate as long as it takes. The cost is low. The coverage is high.
 

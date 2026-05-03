@@ -23,6 +23,18 @@ Other cognitive offloading *atrophies* you. You hand off something that was, unt
 
 <!-- → [INFOGRAPHIC: Two-column contrast — "Amplifying offload" vs "Atrophying offload"; left column: task delegated, practitioner evaluates output, judgment muscle keeps firing, skill grows; right column: task delegated, output accepted without evaluation, judgment muscle goes dormant, skill erodes; student should see the determining factor is whether the practitioner's evaluative role survives the delegation] -->
 
+*Figure 4.1*
+
+| | **Two-column contrast — "Amplifying offload"** | **"Atrophying offload"; left column: task delegated, practitioner evaluates output, judgment muscle keeps firing, skill grows; right column: task delegated, output accepted without evaluation, judgment muscle goes dormant, skill erodes; student should see the determining factor is whether the practitioner's evaluative role survives the delegation** |
+|---|---|---|
+| **Task delegated** | _fill in_ | _fill in_ |
+| **Output accepted without evaluation** | _fill in_ | _fill in_ |
+| **Judgment muscle goes dormant** | _fill in_ | _fill in_ |
+| **Skill erodes** | _fill in_ | _fill in_ |
+
+: {.infographic-table}
+
+
 The hard thing is that you cannot feel this happening. Each individual case looks correct. The synthesis tool ran, the output is good, you shipped it. That looks like efficiency. It *is* efficiency. And then six months later a CFO asks you about a trade-press story you did not catch, and you realize you stopped reading trade press when the synthesis tool started doing it for you, and the synthesis tool sources from major outlets, not the trades, and now you are standing in front of a client with a hole in your analysis where your domain intuition used to be.
 
 Nora Mendelson is a strategy consultant six years into her career. She has, with the help of an AI research-synthesis tool she has been using daily for six months, produced a forty-page market analysis for a regional grocery chain considering expansion into prepared meals. The analysis is competent. It is, in fact, the best-organized work Nora has ever produced on a tight timeline.
@@ -79,6 +91,15 @@ Tier seven is accountable judgment. The model can inform it. You own it entirely
 
 <!-- → [TABLE: Seven delegation tiers quick reference — columns: Tier number, Name, One-line delegation rule, Atrophy risk (None / Low / Medium / High); rows: Mechanical Execution through Accountable Judgment; student should use this as a lookup card when building a delegation map for any real task] -->
 
+*Figure 4.2*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Mechanical Execution through Accountable Judgment** | _fill in_ | _fill in_ |
+
+: {.data-table}
+
+
 A delegation map for any non-trivial task is: decompose it, locate each component on the tiers, hand over the bottom, partner on the middle, keep the top. The map is something you can defend. It is the artifact that proves you thought about what you were doing.
 
 ---
@@ -90,6 +111,9 @@ In practice, four questions get you to the map quickly. You can run them in two 
 *What is the blast radius if the AI gets this wrong?* A misformatted table is one blast radius. An error in a strategic recommendation is another. A wrong medical call is a third. Match your verification effort to the blast radius. At high blast radius, the verification is more important than the generation.
 
 <!-- → [CHART: 2x2 matrix — x-axis: blast radius (Low to High), y-axis: verification effort required (Low to High); four quadrants labeled: Delegate and spot-check / Delegate with structured review / Verify before use / Do not delegate without explicit sign-off; student should see that verification effort scales with consequence, not with how much you trust the model] -->
+
+![Figure 4.3 — 2x2 matrix — x-axis: blast radius (Low to High), y-axis: verification effort required (Low to High)](images/04-delegation-fig-03.jpg)
+
 
 *Who is accountable if this is wrong, and does that person know how it was produced?* If your name is on the work, your accountability is on the work. The threshold for disclosure is lower than most practitioners currently assume. If a stakeholder would feel deceived to learn the work was AI-assisted, that is information you need to act on before the work ships, not after.
 

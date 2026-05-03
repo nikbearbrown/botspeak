@@ -25,6 +25,9 @@ Here is what a working specification contains. I am going to name five component
 
 <!-- → [INFOGRAPHIC: A five-part diagram — radial or stacked vertical — showing the five specification components (Intent, Constraints, Success Criteria, Exclusions, Output Format) with a one-line definition for each. Each component visually suggests that removing it leaves the specification incomplete. Placed here to anchor the five-component framework before the prose walks through each one.] -->
 
+![Figure 3.1 — A five-part diagram](images/03-specification-fig-01.jpg)
+
+
 The first is **intent**: not the immediate task, but the goal the task serves. Aisha's intent was not *produce a summary*. Her intent was *give my manager a five-bullet artifact she can paste onto a slide and use to argue our coalition's position in tomorrow's stakeholder meeting.* Those are not the same thing, and the model had no way to know which one she meant. The intent statement is what tells the model — and you — what counts as success.
 
 The second is **constraints**: what the output has to fit inside. Format constraints: five bullets, one clause each, no sub-bullets. Length constraints: under a hundred words total. Source constraints: only claims that appear in the report, not the model's outside knowledge. Audience constraints: people who have not read the document. Constraints are the parts of the specification the model would otherwise guess at — and guess wrong — while producing output that looks like it could be right.
@@ -48,6 +51,16 @@ Now watch what Aisha would have sent if she had specified before prompting:
 > **Output format:** Five bullets, each on its own line, no sub-bullets, no preamble, no closing sentence.
 
 <!-- → [TABLE: Side-by-side comparison — left column: Aisha's three actual prompts (iteration 1, 2, 3); right column: the corresponding specification component each iteration was groping toward but never stated. Final row shows the complete specification above. Student should see exactly which component was missing at each iteration and what the omission cost.] -->
+
+*Figure 3.2*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Row 1** | _fill in_ | _fill in_ |
+| **Row 2** | _fill in_ | _fill in_ |
+
+: {.infographic-table}
+
 
 That is not a prompt. It is the thinking a prompt needs to encode. The actual prompt Aisha types may be two or three sentences long — but those sentences will carry all five components because she now knows what they are.
 
@@ -85,6 +98,9 @@ A template is a specification you wrote once for a category of recurring work, w
 
 <!-- → [IMAGE: A visual of a filled-in template card — a physical notecard or document with the five fields completed for a real task instance. Should feel like a working artifact, not a polished infographic. The design should convey "this is a tool you actually use at your desk," not "this is a diagram from a textbook."] -->
 
+![Figure 3.3 — A visual of a filled-in template card](images/03-specification-fig-03.jpg)
+
+
 The next time she summarizes a long document for a high-stakes deliverable, she fills in the brackets. The thinking she did the first time is now infrastructure. The template does not do the thinking for her — she still has to know her intent, her constraints, her success criteria. But it reminds her to have them, and it gives her a form to put them in.
 
 Build templates for the five tasks you do most often this quarter. Refine them as you discover what was missing. The fluent practitioner has a small library of templates and rarely starts a specification from scratch. The literate user invents the wheel every time, and every time runs into the same missing components she forgot last time.
@@ -100,6 +116,16 @@ The role piece assigns the model a specific professional persona: not *act like 
 The rubric piece supplies explicit criteria the output will be judged against: *each bullet must be defensible against a hostile reviewer asking "where in the report is this"; no claim that goes beyond what the report supports; tone declarative, not hedged; total under a hundred words.* The rubric is the success criteria and exclusions components, made explicit in a form the model can self-check against.
 
 <!-- → [TABLE: Two-column breakdown of the role-and-rubric pattern — left column: the five specification components (Intent, Constraints, Success Criteria, Exclusions, Output Format); right column: whether role-and-rubric encodes that component well, partially, or leaves it unaddressed, with a one-line note on what still needs explicit treatment. Student should see which components the pattern compresses and which it does not.] -->
+
+*Figure 3.4*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Row 1** | _fill in_ | _fill in_ |
+| **Row 2** | _fill in_ | _fill in_ |
+
+: {.comparison-table}
+
 
 Role-and-rubric is one pattern. There are others — chain-of-thought, few-shot examples, constraint stacking. Each compresses different parts of the five components into a structure the model handles well. They are scaffolds for the same five components, not alternatives to them. The mistake I see most often is reaching for a pattern before specifying. Someone reads about chain-of-thought and starts adding *think step by step* to every prompt, regardless of whether step-by-step reasoning is what the task requires. Patterns serve the specification. The specification does not serve the pattern. If you do not yet know your intent, adding *think step by step* will give you a fluent, step-by-step, wrong answer.
 

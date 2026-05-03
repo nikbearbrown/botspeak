@@ -18,6 +18,16 @@ That gap — between hearing an instruction and knowing what it actually require
 
 <!-- → [INFOGRAPHIC: Two-column split — "AI Literacy" vs "AI Fluency" — each column lists 4–5 concrete observable behaviors (e.g., literacy: opens chatbot, reads output, copies and pastes; fluency: spots citation-risk zones, runs verification moves, treats output as raw material). Purpose: make the distinction tangible before the prose defines it.] -->
 
+*Figure 0.1*
+
+| | **Two-column split — "AI Literacy"** | **"AI Fluency"** |
+|---|---|---|
+| **Row 1** | _fill in_ | _fill in_ |
+| **Row 2** | _fill in_ | _fill in_ |
+
+: {.infographic-table}
+
+
 Let me name two things that look identical from the outside and are not.
 
 The first is AI literacy. Diego has this. He can open a chatbot, type a prompt, read the output, copy and paste. He can, at a taste level, tell polished output from rough output. He has gotten useful work out of these tools many times. Nearly every recent graduate has AI literacy now, even when they think they don't, even when their parents worry that they don't. The bar is low and the world has largely cleared it.
@@ -35,6 +45,9 @@ That difference is teachable. It has structure. It is not a personality trait, n
 Here is the metaphor I keep coming back to.
 
 <!-- → [IMAGE: Illustrated split-scene — left panel: confident American pointing at a Paris brasserie menu while the waiter looks on coolly; right panel: same brasserie, different traveler leaning in, waiter smiling. No text needed. Visual anchor for the literacy/fluency/illiteracy triad before the prose walks through it.] -->
+
+![Figure 0.2 — Illustrated split-scene](images/00-the-citation-that-wasnt-fig-02.jpg)
+
 
 A young American goes to Paris on his first business trip. He has, at some point, learned about French in the way Americans learn about French. He knows there is a French language. He knows *bonjour* means hello. He knows you order *un café* for coffee and ask for *l'addition* when you want the bill. He has eaten at a creperie in Brooklyn. He thinks of himself as someone who is okay with French.
 
@@ -62,6 +75,9 @@ Here is what is strange about this. In almost every other domain, volume is a re
 
 <!-- → [CHART: Simple two-panel contrast — left: pre-LLM world, upward-sloping line showing output volume correlating with effort/quality; right: post-LLM world, flat line showing output volume decoupled from effort, with "verification cost" marked as a separate unlabeled bar. Student should notice the correlation breaks and ask where the quality signal went.] -->
 
+![Figure 0.3 — Simple two-panel contrast](images/00-the-citation-that-wasnt-fig-03.jpg)
+
+
 Language models broke the correlation. They produce volume at constant cost. The four pages took the same effort to generate as the four sentences. Volume in the post-LLM world is not evidence of effort and not evidence of quality. To the literate eye, it still looks like both. To the fluent eye, it looks like raw material that has not yet been priced.
 
 This is why recent graduates ship deliverables their managers wouldn't, and why those deliverables read polished and read wrong. It is not the only reason. It is the easiest one to name on the first page.
@@ -73,6 +89,9 @@ I want to be honest about what this book can and cannot do.
 It will give you a workflow — five steps, run as a cycle. Specification, Delegation, Conversation, Discernment, Diligence. We will spend a chapter on each. By Chapter 8 you will have run the full cycle on a real task with yourself in the loop. By Chapter 10 you will have learned to run it without yourself in the loop. By Chapter 12 you will have learned to run it when the AI is taking actions in the world on your behalf and not just producing text.
 
 <!-- → [INFOGRAPHIC: The Loop as a circular five-step diagram — Specify → Delegate → Converse → Discern → Be Diligent → back to Specify. Minimal labels only; no descriptions. First appearance of the book's central framework; the visual should feel like a preview, not a full explanation.] -->
+
+![Figure 0.4 — The Loop as a circular five-step diagram](images/00-the-citation-that-wasnt-fig-04.jpg)
+
 
 It will give you a vocabulary — names for the moves Maya makes that Diego does not, so you can recognize them when you are making them and notice when you are skipping them.
 
@@ -93,6 +112,15 @@ And then one citation was wrong, and the whole memo was now in question, and the
 This is what I mean when I say AI literacy is not sufficient. The literate user produces *a lot* of work. The problem is that the work is unpriced — the literate user cannot look at his own output and tell where the value is and where the rot is. The firm bet on a productivity multiplier and got one. What they did not know is that the multiplier comes with a verification cost, and that someone has to pay it. If Diego does not pay it before the deliverable leaves his desk, the client pays it afterward, and the cost the client pays is denominated in trust.
 
 <!-- → [TABLE: "Who pays the verification cost" — three rows: (1) Fluent practitioner pays before delivery — cost: her time; consequence: clean deliverable; (2) Literate practitioner skips it — cost: none upfront; consequence: client discovers the error; (3) Client pays — cost: trust, relationship, repair time. Columns: Who pays | When | In what currency | Consequence. Anchors the economics argument the paragraph is making.] -->
+
+*Figure 0.5*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **(1) Fluent practitioner pays before delivery — cost: her time** | _fill in_ | _fill in_ |
+
+: {.data-table}
+
 
 The fluent practitioner pays the verification cost in her own workflow, before the work leaves her desk. That is most of what fluency *is*. That is most of what this book teaches.
 

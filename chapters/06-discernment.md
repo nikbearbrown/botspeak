@@ -23,6 +23,16 @@ This means that the *confidence* of the output — the firmness of the phrasing,
 
 <!-- → [INFOGRAPHIC: Side-by-side rendering of a real citation and a hallucinated citation formatted identically — same author, journal, year, page-range structure. Annotate to show that no surface feature distinguishes them; the only difference is whether the underlying paper exists. The reader should feel the structural problem viscerally, not just be told about it.] -->
 
+*Figure 6.1*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Row 1** | _fill in_ | _fill in_ |
+| **Row 2** | _fill in_ | _fill in_ |
+
+: {.infographic-table}
+
+
 Humans have a deeply ingrained heuristic: confident statements are more often true than hedged ones. This heuristic is learned from experience with *human* communication, where it generally holds. People who assert things firmly tend to be right more often than people who constantly qualify, because humans are socially penalized for being confidently wrong — they lose credibility, suffer consequences, get remembered for the mistake. This penalty shapes how humans communicate, which makes firmness a reasonable signal of accuracy in human sources.
 
 The model is not socially penalized for confident wrongness. It produces confident wrong output every day. The heuristic you apply to human sources does not transfer.
@@ -34,6 +44,9 @@ The update this requires is specific: the tone of the output tells you nothing a
 Now I can name the four layers, and you will see why they are four rather than one.
 
 <!-- → [INFOGRAPHIC: A vertical stack or four-quadrant diagram showing the four layers — Fact, Reasoning, Framing, Omission — with the error type each catches and the verification move for each. Should function as a reference card the reader returns to throughout the chapter and the book. Placed here so the reader has the whole map before the prose walks through each layer.] -->
+
+![Figure 6.2 — A vertical stack or four-quadrant diagram showing the four layers](images/06-discernment-fig-02.jpg)
+
 
 The first is **fact**: are the specific factual claims true? Citations real, numbers accurate, attributions correct, names right? This is the layer most users vaguely understand they should run. It would have caught the consultant's fabricated citations, if he had run it. The verification is straightforward in concept: open another source, find the primary, check it. The execution is the thing that gets skipped under time pressure.
 
@@ -77,6 +90,15 @@ At the highest tier — high stakes and irreversibility — you have medical, le
 
 <!-- → [TABLE: Verification tier matrix — rows for the four tiers (Trivial, Operational, External, High Stakes/Irreversible), columns for the four layers (Fact, Reasoning, Framing, Omission) plus an estimated time-investment column. Each cell: Required / Optional / Skip. Should function as a quick-reference card the practitioner can internalize without returning to the prose.] -->
 
+*Figure 6.3*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Required / Optional / Skip. Should function as a quick-reference card the practitioner can internalize without returning to the prose.** | _fill in_ | _fill in_ |
+
+: {.comparison-table}
+
+
 The protocol is not bureaucracy. It is a way to spend verification effort proportionally. Running full four-layer verification on a draft email to a colleague is wasted time. Running minimal verification on a brief going to a regulator is risk you have not earned the right to take.
 
 ---
@@ -88,6 +110,9 @@ The structure of the problem is this: the model produces what is typical. Your s
 When you ask for an analysis of a competitor, you get the analysis that looks like competitor analysis. When the thing that most differentiates your competitor from the typical competitor is something unusual — an ownership structure, a supplier relationship, a regulatory exposure, a cultural constraint — the model does not know to weight it heavily, because the training distribution does not weight it heavily. The unusual thing is exactly what makes your case your case, and exactly what the model is least equipped to surface.
 
 <!-- → [INFOGRAPHIC: A horizontal spectrum from "what models weight heavily (common, well-documented patterns)" to "what models weight lightly (unusual, situational, domain-specific facts)." The omission layer sits at the right end. Should make visible why the omission check requires the practitioner's domain knowledge and cannot be offloaded to the model.] -->
+
+![Figure 6.4 — A horizontal spectrum from "what models weight heavily (common, well-document...](images/06-discernment-fig-04.jpg)
+
 
 This is not a flaw you can fix by prompting differently, at least not reliably. It is a structural feature of how the model works. The only response is to know your situation well enough to know what the output should have contained, and to run the check explicitly when it matters.
 

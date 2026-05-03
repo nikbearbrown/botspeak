@@ -34,6 +34,9 @@ The reason to write the specification before opening the tool is not procedural.
 
 <!-- → [IMAGE: A handwritten or typed specification document — audience, success criteria, exclusions visible — sitting next to a closed laptop. The visual cue is that the spec precedes the tool. The reader should notice the laptop is closed. Works as a chapter-opener image if the publisher wants one.] -->
 
+![Figure 8.1 — A handwritten or typed specification document](images/08-putting-the-loop-together-fig-01.jpg)
+
+
 ---
 
 Now she decomposes the brief.
@@ -53,6 +56,21 @@ The recommendation is accountable judgment. Fully hers. The model will not be on
 She writes a six-line delegation map at the top of her notes file. Not for anyone else. For herself — so that when she is three hours in and the work is flowing, she does not accidentally start handing over the parts she meant to keep.
 
 <!-- → [TABLE: Maya's delegation map — two columns: Task / Who Handles It. Rows: Company snapshot / Model entirely. Market sizing / Model generates, Maya verifies and checks for omissions. Team analysis / Model generates, Maya verifies against primary sources. Traction (public) / Model generates, Maya verifies. Traction (operational) / Maya alone. Risks / Model surfaces candidates, Maya judges. Recommendation / Maya alone. Designed to be reusable as a template — readers should be able to swap in their own task names and apply the same classification logic.] -->
+
+*Figure 8.2*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Company snapshot / Model entirely. Market sizing / Model generates** | _fill in_ | _fill in_ |
+| **Maya verifies** | _fill in_ | _fill in_ |
+| **Checks for omissions. Team analysis / Model generates** | _fill in_ | _fill in_ |
+| **Maya verifies against primary sources. Traction (public) / Model generates** | _fill in_ | _fill in_ |
+| **Maya verifies. Traction (operational) / Maya alone. Risks / Model surfaces candidates** | _fill in_ | _fill in_ |
+| **Maya judges. Recommendation / Maya alone. Designed to be reusable as a template — readers should be able to swap in their own task names** | _fill in_ | _fill in_ |
+| **Apply the same classification logic.** | _fill in_ | _fill in_ |
+
+: {.data-table}
+
 
 ---
 
@@ -108,6 +126,9 @@ This is what a linear chapter sequence cannot show. The Loop is a cycle. Midway 
 
 <!-- → [CHART: A timeline of Maya's day — horizontal axis is clock time from 8:47 AM to 5:52 PM. Labeled events: spec writing, delegation map, first Claude session, verification pass, sandwich/decompression, loop-back to specification, second Claude session, template update, final verification, disclosure, send. A curved arrow points backward from the 1:14 loop-back node to the specification node. The reader should notice that the loop-back is not a failure — it is a structural feature of the cycle.] -->
 
+![Figure 8.3 — A timeline of Maya's day](images/08-putting-the-loop-together-fig-03.jpg)
+
+
 ---
 
 The third conversation cycle, against the new specification, runs differently. It is faster and more surgical because the spec is sharper. The model produces, against the new brief, a recommendation framework: a list of what would have to be true for a yes-on-real-diligence, framed as testable hypotheses. She and the model spend forty-five minutes refining them, narrowing the open questions, holding each candidate question against the bar of *can the founder answer this in a one-hour call*.
@@ -137,6 +158,23 @@ The disclosure does not apologize. It does not pretend the AI did nothing. It do
 This is the AI Use Disclosure. It is the artifact that closes the loop — the moment where the practitioner's name goes on the work, not as a formality but as a genuine claim of ownership over the judgment calls that mattered.
 
 <!-- → [TABLE: AI Use Disclosure anatomy — three rows breaking down Maya's four sentences. Columns: Sentence / What It Names / Why It Matters. Row 1: "Claude was used for market-sizing synthesis, team-background scan, and risk-category surfacing" / What the AI did, specifically / Lets the reader audit which sections carry AI-generated material. Row 2: "Sources verified independently, footnotes 3, 7, 11" / What Maya did to verify / Distinguishes AI-generated from human-verified claims. Row 3: "The recommendation is mine. The verification is mine. Any errors are mine." / Who is accountable / Names the load-bearing judgment and the human on the hook. Designed to help readers write their own disclosures by decomposing the structure.] -->
+
+*Figure 8.4*
+
+| | **Property** | **Value** |
+|---|---|---|
+| **Sentence / What It Names / Why It Matters. Row 1: "Claude was used for market-sizing synthesis** | _fill in_ | _fill in_ |
+| **Team-background scan** | _fill in_ | _fill in_ |
+| **** | _fill in_ | _fill in_ |
+| **Risk-category surfacing" / What the AI did** | _fill in_ | _fill in_ |
+| **Specifically / Lets the reader audit which sections carry AI-generated material. Row 2: "Sources verified independently** | _fill in_ | _fill in_ |
+| **Footnotes 3** | _fill in_ | _fill in_ |
+| **7** | _fill in_ | _fill in_ |
+| **11" / What Maya did to verify / Distinguishes AI-generated from human-verified claims. Row 3: "The recommendation is mine. The verification is mine. Any errors are mine." / Who is accountable / Names the load-bearing judgment** | _fill in_ | _fill in_ |
+| **The human on the hook. Designed to help readers write their own disclosures by decomposing the structure.** | _fill in_ | _fill in_ |
+
+: {.data-table}
+
 
 At 5:52 she sends it.
 
