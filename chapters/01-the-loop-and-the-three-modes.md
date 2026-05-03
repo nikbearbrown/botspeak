@@ -9,21 +9,25 @@ When you give a prompt to a large language model, the model does not look up the
 
 That is the whole mechanism. Everything else follows from it.
 
-The model can produce a fluent paragraph on a topic it was never explicitly taught because fluency is a pattern, and patterns generalize. The model can produce a citation that does not exist because the *shape* of a citation is a pattern — author, year, title, journal — and the model can fill in that shape with words that fit the pattern without ever having seen the specific source it is now generating. The model sounds confident because confident text is a pattern, and the model has seen a lot of confident text. Confidence is a textual feature. It has no necessary relationship to correctness.
+The model can produce a fluent paragraph on a topic it was never explicitly taught because fluency is a pattern, and patterns generalize. The model can produce a citation that does not exist because the *shape* of a citation is a pattern — author, year, title, journal — and the model can fill in that shape with words that fit the pattern without ever having seen the specific source it is now generating. The model sounds confident because confident text is a pattern, and the model has seen a lot of confident text.
 
-I want you to sit with that last sentence. Confidence is a textual feature. It has no necessary relationship to correctness. Every failure mode we are going to spend this book on — the invented source, the plausible-sounding number that turns out to be wrong, the paragraph that is subtly off in a way you have to look up to catch — is a direct consequence of this one fact about how the system produces output at all. Not bugs. Direct consequences. The fluent practitioner does not encounter model limitations occasionally; she works inside them constantly, and she knows what the failure shapes look like before they arrive.
+Confidence is a textual feature. It has no necessary relationship to correctness.
 
-That is the one technical fact I need you to carry. Now I want to show you what fluency with it actually looks like in practice.
+<!-- → [INFOGRAPHIC: Two-column contrast — left column "What it looks like" (fluent paragraph, confident citation, round number), right column "What is actually happening" (pattern continuation, citation-shaped placeholder, statistically plausible filler); student should see that surface features of output carry no signal about underlying truth] -->
+
+I want you to sit with that sentence for a moment. Every failure mode we are going to spend this book on — the invented source, the plausible-sounding number that turns out to be wrong, the paragraph that is subtly off in a way you have to look up to catch — is a direct consequence of this one fact about how the system produces output at all. Not bugs. Direct consequences. The fluent practitioner does not encounter these failures occasionally; she works inside them constantly, and she knows what the failure shapes look like before they arrive.
+
+That is the one technical fact I need you to carry. Now let me show you what fluency with it actually looks like in practice.
 
 ---
 
-Priya is an analyst three years out of business school. Her first real engagement just landed, and the partner has given her eight working hours to produce a memo about whether a regional bank should buy a fintech startup.
+Priya is an analyst three years out of business school. Her first real engagement has just landed, and the partner has given her eight working hours to produce a memo about whether a regional bank should buy a fintech startup.
 
 It is 10:17 AM. She opens her laptop. She does not open Claude.
 
 She opens a blank document.
 
-For seven minutes she writes — not the memo, but about the memo. Who is going to read this? The partner tonight, the team tomorrow, the client next week. What decision is the memo trying to inform — go-no-go, valuation range, structuring options? What does she already know about acquisitions of this kind, and what does she not know? What sources will the partner trust, and what will he kick back as flimsy? At the bottom of the page, in two sentences, she writes the shape of the output: six to eight pages, structured around three diligence questions, preliminary thesis, named open questions, client-facing draft.
+For seven minutes she writes — not the memo, but about the memo. Who is going to read this? The partner tonight, the engagement team tomorrow, the client next week. What decision is the memo trying to inform — go-no-go, valuation range, structuring options? What does she already know about acquisitions of this kind, and what does she not know? What sources will the partner trust, and what will he kick back as flimsy? At the bottom of the page, in two sentences, she writes the shape of the output: six to eight pages, structured around three diligence questions, preliminary thesis, named open questions, client-facing draft.
 
 Then she opens Claude.
 
@@ -53,7 +57,7 @@ The fifth was diligence. The four-line note to the partner is not bureaucratic d
 
 Specify. Delegate. Converse. Discern. Be diligent. These five steps are what I am going to call the Loop.
 
-<!-- → [INFOGRAPHIC: The Loop as a cycle diagram — five labeled nodes (Specify, Delegate, Converse, Discern, Be Diligent) arranged in a circle with bidirectional arrows between adjacent nodes and a prominent return arrow from Diligence back to Specify; student should see this is a cycle, not a checklist] -->
+<!-- → [INFOGRAPHIC: The Loop as a cycle — five labeled nodes (Specify, Delegate, Converse, Discern, Be Diligent) arranged in a circle with directional arrows between each adjacent pair; a second, heavier return arrow runs from Be Diligent back to Specify; student should see this is a cycle with a deliberate feedback path, not a linear checklist] -->
 
 ---
 
@@ -63,7 +67,7 @@ The Loop is not a checklist you run once. It is a cycle, and the steps loop back
 
 What Priya did is the easy case, and I want to be precise about why it was easy — because the precision matters for everything that follows.
 
-It was easy because she was sitting at her keyboard while the model was running. Every output crossed her eyes before it went anywhere. Every error she could catch by looking. The model did not take any actions in the world; it produced text, and Priya decided what to do with the text. The Loop was running in its most forgiving configuration: the configuration where the human is always in the room.
+It was easy because she was sitting at her keyboard while the model was running. Every output crossed her eyes before it went anywhere. Every error she could catch by looking. The model did not take any actions in the world; it produced text, and Priya decided what to do with the text. The Loop was running in its most forgiving configuration: the one where the human is always in the room.
 
 There are two harder configurations, and the book is organized around them.
 
@@ -71,21 +75,23 @@ The first harder configuration is when Priya is not there at the moment of execu
 
 The failure mode here is slow and quiet. An error in a one-off deliverable is visible immediately. An error in a recurring automated process accumulates. By the time someone notices the weekly competitive scan has been citing a source that does not exist, seventeen weeks have gone by, and the error has propagated into seventeen documents that other people used. The blast radius of a specification mistake is proportional to how many times the specification runs before someone catches the problem. I am going to call this mode Automation, and Part II is about it.
 
+<!-- → [CHART: Timeline showing error accumulation in an automated process — x-axis: weeks 1–20, y-axis: number of downstream documents affected; a single undetected specification error compounds weekly; student should see the contrast between a one-off error (visible immediately, contained) and a recurring-automation error (invisible until week 17, propagated into 17 documents)] -->
+
 The second harder configuration is when the model is taking actions in the world on Priya's behalf. Not producing text she reviews — sending emails, calling APIs, modifying files, executing transactions. The model now has hands. The blast radius of an error grows in ways text-only mistakes cannot grow, because some actions cannot be undone. Discernment now has to happen before the action, not after. Diligence now has to account for failure modes that are specific to autonomy: the model taking a locally reasonable action in a context it has misread, the model escalating in a way no one authorized, the model acting without a clear model of who the affected stakeholders are.
 
 The Ash case from Chapter 11 — the agent that reset an entire email server in order to delete one email — is this configuration's characteristic failure. The agent had a goal, available tools, no stakeholder model, no sense of proportionality, and no pause between deciding and executing. Each of those absences is a direct consequence of deploying the easy configuration's assumptions into a situation where those assumptions no longer hold. I am going to call this mode Agency, and Part III is about it.
 
 Three modes. Five Loop steps. The Loop has to run in each mode, and the steps reweight as the mode changes. Augmentation — Priya at the keyboard, Part I — is where most of a practitioner's day still happens, and it is the mode we treat first and at length. Automation and Agency are where the stakes get higher and the design discipline gets harder.
 
+The table below fixes the relationships. Not because you need to memorize it, but because having the whole picture in one place before we spend twelve chapters inside the details is the right way to start.
 
+<!-- → [TABLE: The three-mode summary table — columns: Mode, Human presence during execution, Steps that reweight, Characteristic failure mode, Where covered; rows: Augmentation / Automation / Agency; student should use this as a reference map for which part of the book addresses which operational context] -->
 
 | Mode | Human presence during execution | Steps that reweight | Characteristic failure mode | Where covered |
 |---|---|---|---|---|
-| **Augmentation** | Human is present at the keyboard; every output crosses human eyes before use. | **Conversation** and **Discernment** stay central because the human can refine, challenge, verify, and edit in real time. | Fluent but wrong output gets accepted because the user mistakes confidence for correctness. | **Part I** |
-| **Automation** | Human is not present when the task runs; the system executes on a schedule or trigger. | **Specification** and **Diligence** become heavier because problems must be anticipated and review systems designed in advance. | Small errors accumulate quietly across repeated runs before anyone notices. | **Part II** |
-| **Agency** | Human may not review each decision before action; the system can take actions in the world. | **Discernment** and **Diligence** must move before execution, with stronger boundaries, permissions, and escalation rules. | The system takes a locally reasonable but globally harmful action because it lacks context, stakeholder awareness, or proportionality. | **Part III** |
-
-*Figure 1. The distinction between Augmentation, Automation, and Agency and how the Loop changes across those modes.*
+| **Augmentation** | Human is present at the keyboard; every output crosses human eyes before use. | Conversation and Discernment stay central because the human can refine, challenge, verify, and edit in real time. | Fluent but wrong output gets accepted because the user mistakes confidence for correctness. | Part I |
+| **Automation** | Human is not present when the task runs; the system executes on a schedule or trigger. | Specification and Diligence become heavier because problems must be anticipated and review systems designed in advance. | Small errors accumulate quietly across repeated runs before anyone notices. | Part II |
+| **Agency** | Human may not review each decision before action; the system can take actions in the world. | Discernment and Diligence must move before execution, with stronger boundaries, permissions, and escalation rules. | The system takes a locally reasonable but globally harmful action because it lacks context, stakeholder awareness, or proportionality. | Part III |
 
 ---
 
@@ -109,6 +115,8 @@ Chapter 2 maps the nine cognitive capacities the Loop actually uses. Some of the
 
 ---
 
+---
+
 ## Exercises
 
 ### Warm-up
@@ -120,7 +128,7 @@ Chapter 2 maps the nine cognitive capacities the Loop actually uses. Some of the
 - She opens a browser tab to check a suspiciously round number.
 - She writes a four-line note to the partner describing what the AI did and what she did.
 
-**2. The mechanism in plain language.** In two to three sentences, explain to a colleague who has never taken this course why a language model can produce a citation that does not exist. Do not use the phrase "hallucination." Do not say the model is "confused" or "wrong" — explain the actual mechanism. *(Tests: retention of the core technical fact about prediction vs. lookup.)*
+**2. The mechanism in plain language.** In two to three sentences, explain to a colleague who has never taken this course why a language model can produce a citation that does not exist. Do not use the word "hallucination." Do not say the model is "confused" or "wrong" — explain the actual mechanism. *(Tests: retention of the core technical fact about prediction vs. lookup.)*
 
 **3. Modes at a glance.** For each scenario below, name the mode (Augmentation, Automation, or Agency) and identify the one Loop step most likely to fail if the practitioner treats it the same way they would in Augmentation mode. *(Tests: ability to distinguish the three modes and their reweighting logic.)*
 
@@ -132,11 +140,11 @@ Chapter 2 maps the nine cognitive capacities the Loop actually uses. Some of the
 
 ### Application
 
-**4. Diagnose the skip.** Here is a prompt sent to a language model: *"Write something about our Q3 results."* Which Loop step was skipped before this prompt was written? Rewrite the prompt to correct for the skip. Your rewritten prompt should be at least 80 words and should include at minimum: the intended audience, the task's purpose, the desired structure, and one explicit constraint on what the model should not do. *(Tests: ability to apply Specification in practice, not just recognize it in theory.)*
+**4. Diagnose the skip.** Here is a prompt sent to a language model: *"Write something about our Q3 results."* Which Loop step was skipped before this prompt was written? Rewrite the prompt to correct for the skip. Your rewritten prompt should be at least 80 words and must include: the intended audience, the task's purpose, the desired structure, and one explicit constraint on what the model should not do. *(Tests: ability to apply Specification in practice, not just recognize it in theory.)*
 
 **5. Identify the failure shape.** A colleague hands you a model-generated paragraph that includes the sentence: *"According to a 2021 McKinsey survey, 73% of executives reported that AI integration had reduced operational costs by an average of 34%."* Describe in concrete terms what kind of error this might be, why the model would produce it whether or not the underlying data is real, and what verification step you would take before including it in a deliverable. *(Tests: application of Discernment — recognizing the placeholder-number failure shape.)*
 
-**6. Reweight the Loop.** Priya's team wants to automate the weekly competitive scan she currently does manually. The scan pulls news and analyst reports on five competitors and produces a one-page summary. Write a brief specification (150–200 words) for the automated version. Your specification must address: what the model should produce, what sources it should and should not use, what a failure output looks like (so a downstream reviewer can catch it), and how often a human should review a sample of outputs to catch systematic error. *(Tests: ability to adapt Specification and Diligence for the Automation mode.)*
+**6. Reweight the Loop.** Priya's team wants to automate the weekly competitive scan she currently does manually. Write a brief specification (150–200 words) for the automated version. Your specification must address: what the model should produce, what sources it should and should not use, what a failure output looks like so a downstream reviewer can catch it, and how often a human should review a sample of outputs to catch systematic error. *(Tests: ability to adapt Specification and Diligence for Automation mode.)*
 
 ---
 
@@ -153,3 +161,60 @@ Chapter 2 maps the nine cognitive capacities the Loop actually uses. Some of the
 **9. Where the modes blur.** The chapter presents Augmentation, Automation, and Agency as three distinct modes. Describe a real or plausible workflow where the boundary between two of the three modes is genuinely unclear — where it is not obvious which mode's design discipline applies. What question would you ask to determine how to treat it? What would the answer tell you about how to weight the Loop steps? There is no single correct answer; the goal is a rigorous argument. *(Tests: ecosystem thinking — seeing the framework's edges and reasoning about them rather than applying it mechanically.)*
 
 **10. The Feynman test.** The chapter ends with a claim about what separates fluent from literate: the shift from *this might be wrong* to *I know what wrong looks like here.* Explain this distinction to someone who has never read this chapter, using a domain they know well (cooking, carpentry, music, medicine — your choice). Your explanation should make the distinction feel concrete and earned, not abstract. Then: what would a practitioner have to do, specifically, to make that shift in a domain they are new to? *(Tests: depth of understanding of Discernment — and whether the student can teach the concept, not just recognize it.)*
+
+---
+
+### LLM Exercise — Chapter 1: The Loop and the Three Modes
+
+**Project:** AI Fluency for [Your Role] — The Domain Field Manual
+
+**What you're building this chapter:** Section 2 of the playbook — your role's version of Priya's Tuesday. A complete narrated worked example of one typical task in your role, with all five Loop steps visible, ending in a clean handoff and an AI Use Disclosure. Plus a one-page sidebar mapping the three Modes (Augmentation / Automation / Agency) onto where each Mode actually shows up in your role's day.
+
+**Tool:** Claude Project (continue) + Cowork (write Section 2 to the playbook folder).
+
+---
+
+**The Prompt:**
+
+```
+Continuing my Domain Field Manual playbook. My Role Dossier is in the Project context.
+
+Botspeak Chapter 1 narrates Priya, a senior associate at a venture firm, running a real client task in 90 minutes. The chapter watches her execute all five Loop steps — Specification, Delegation, Conversation, Discernment, Diligence — and the three Modes (Augmentation, Automation, Agency) get named.
+
+For my playbook's Section 2, do two things:
+
+TASK 1 — A WORKED EXAMPLE FOR MY ROLE:
+Pick one typical task in my role — neither the smallest nor the most heroic — and write the worked example in Priya's voice. The task should be:
+- One a reader in my role will recognize from their own week
+- Long enough to require all five Loop steps (not a 5-minute task)
+- Bounded enough to narrate in 1,500–2,500 words
+- Real enough that the named tools, the timing, and the artifacts feel concrete
+
+Narrate the task as it actually happens (or would happen) for a fluent practitioner in my role. Show the Specification work BEFORE any prompt is typed. Show the Delegation decisions. Show 2–3 Conversation cycles with at least one adversarial move. Show the Discernment pass. Show the Diligence move (a note, a template update, a calendar item). End with the handoff and a 4-line AI Use Disclosure.
+
+Use a name for the practitioner (not Priya). Use specific role-appropriate details: the actual tools they'd use, the actual stakeholders they'd interact with, the actual artifact format their workplace expects.
+
+TASK 2 — A THREE-MODES SIDEBAR FOR MY ROLE:
+Below the worked example, add a 1-page sidebar showing where each of the three Modes actually shows up in a typical week in my role:
+- AUGMENTATION: 2–3 task types where the practitioner is in the chair while the AI works — the bulk of the day
+- AUTOMATION: 1–2 recurring tasks that have been or could be automated (the work that happens overnight or on a schedule)
+- AGENCY: 1–2 places (currently or imminently) where AI takes action in the world on the practitioner's behalf — and what the consequences would be if the action were wrong
+
+Be honest about which Modes are or aren't currently relevant in my role. If Agency isn't yet realistic, say so — "junior associates at our firm don't currently delegate to agentic systems; the frontier deployment to watch is X."
+
+Save as `02-the-loop-on-a-real-task.md` in my playbook folder.
+```
+
+---
+
+**What this produces:** Section 2 of the playbook — a 1,500–2,500-word worked example in your role's voice plus a Three-Modes sidebar. This is the section that, more than any other, will tell a junior reader of your playbook *what fluent looks like in this job*.
+
+**How to adapt this prompt:**
+- *For your own project:* If the task you pick is too narrow or too unusual, the worked example won't generalize. Pick the task that 70% of people in your role do.
+- *For ChatGPT / Gemini:* Works as-is.
+- *For Claude Code:* Not the right fit — this is narrative writing.
+- *For Cowork:* Recommended. Cowork writes Section 2 to the playbook folder alongside Section 1.
+
+**Connection to previous chapters:** Section 1 (the opening case) showed your role's failure mode. Section 2 shows the alternative — fluent execution on a typical task. Together they set up everything that follows.
+
+**Preview of next chapter:** Chapter 2 produces Section 3 — the Nine Capacities annotated with what failure looks like in your role. Each capacity gets a domain-specific example so readers recognize themselves.
