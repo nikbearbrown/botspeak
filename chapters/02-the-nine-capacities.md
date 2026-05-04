@@ -51,9 +51,17 @@ The eighth is **rapid prototyping**: treating model output as a draft to be test
 
 The ninth is **theoretical foundations**: keeping enough domain knowledge in your own head that the AI amplifies your understanding rather than substituting for it. The graduate student who hands in a literature review without reading the foundational papers has the prose without the foundation — which means he cannot tell good prose from prose with subtly wrong framing. The diagnostic question: *do I understand the underlying material well enough to judge whether this output is good?* Without that, you are not collaborating with the model. You are taking dictation from it.
 
-<!-- → [TABLE: The Nine Capacities quick-reference — columns: Capacity Name | Diagnostic Question | Primary Loop Step | Durability (Durable / Contested / Temporary). One row per capacity. Formatted for scanning; this table is the chapter's reference artifact and will be reprinted in the book's appendix.] -->
-
-*Figure 2.2*
+| Capacity | Diagnostic question | Primary loop step | Durability |
+|---|---|---|---|
+| **Strategic Delegation** | What should I give the AI, what should I keep, and why? | Delegate | Durable |
+| **Effective Communication** | Am I telling the model what it actually needs to know? | Specify | Temporary |
+| **Critical Evaluation** | Would I bet on this output, and on what evidence? | Discern | Contested |
+| **Technical Understanding** | Do I have a working model of why this system succeeds and fails? | Discern | Temporary |
+| **Ethical Reasoning** | Who could be harmed by this output or deployment, and am I tracking that? | Be Diligent | Durable |
+| **Stochastic Reasoning** | What kind of probabilistic claim is this, and what would calibrate my belief in it? | Discern | Contested |
+| **Learning by Doing** | Am I building the skill, or consuming the output? | All steps | Durable |
+| **Rapid Prototyping** | Am I testing this against reality, or just against my own approval? | Converse | Temporary |
+| **Theoretical Foundations** | Do I understand the underlying material well enough to judge whether this output is good? | Discern | Temporary |
 
 Nine. Each one a cognitive capacity. Each one a place where I have watched real practitioners fail. And — the part that took me longest to see — each one separable enough to practice on its own.
 
@@ -229,6 +237,9 @@ You are not required to be right. You are required to argue from evidence rather
 ## AI Wayback Machine
 
 The ideas in this chapter didn't appear from nowhere. **Reuven Feuerstein** was arguing that cognitive capacities are made and unmade by the quality of mediation between a learner and the world decades before anyone worried about AI-induced skill atrophy. Here's a prompt to find out more — and then make it better.
+
+![Reuven Feuerstein, c. 1970s. AI-generated portrait based on a public domain photograph.](../images/reuven-feuerstein.jpg)
+*Reuven Feuerstein, c. 1970s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).*
 
 **Run this:**
 
