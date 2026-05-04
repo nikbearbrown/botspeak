@@ -267,9 +267,12 @@ The chapter treats the four layers as independent — you can run them separatel
 
 ---
 
-## 🕰️ AI Wayback Machine
+## AI Wayback Machine
 
 The ideas in this chapter didn't appear from nowhere. **Joy Buolamwini** built the Algorithmic Justice League around catching framing and omission failures in models other people had already declared accurate — years before most teams ran any verification at all. Here's a prompt to find out more — and then make it better.
+
+![Joy Buolamwini, c. 2010s. AI-generated portrait based on a public domain photograph.](../images/joy-buolamwini.jpg)
+*Joy Buolamwini, c. 2010s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).*
 
 **Run this:**
 
