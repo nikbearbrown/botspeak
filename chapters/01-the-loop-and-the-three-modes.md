@@ -13,9 +13,11 @@ The model can produce a fluent paragraph on a topic it was never explicitly taug
 
 Confidence is a textual feature. It has no necessary relationship to correctness.
 
-<!-- → [INFOGRAPHIC: Two-column contrast — left column "What it looks like" (fluent paragraph, confident citation, round number), right column "What is actually happening" (pattern continuation, citation-shaped placeholder, statistically plausible filler); student should see that surface features of output carry no signal about underlying truth] -->
-
-*Figure 1.1*
+| What it looks like | What is actually happening |
+|---|---|
+| Fluent paragraph | Pattern continuation — the model produces coherent prose because fluency is a learned pattern, not evidence of understanding |
+| Confident citation | Citation-shaped placeholder — author, year, title, journal filled in to match the pattern of a citation, not a real source |
+| Round number | Statistically plausible filler — a number that fits the expected shape of a statistic in context, generated without any underlying data |
 
 I want you to sit with that sentence for a moment. Every failure mode we are going to spend this book on — the invented source, the plausible-sounding number that turns out to be wrong, the paragraph that is subtly off in a way you have to look up to catch — is a direct consequence of this one fact about how the system produces output at all. Not bugs. Direct consequences. The fluent practitioner does not encounter these failures occasionally; she works inside them constantly, and she knows what the failure shapes look like before they arrive.
 
@@ -91,9 +93,6 @@ Three modes. Five Loop steps. The Loop has to run in each mode, and the steps re
 
 The table below fixes the relationships. Not because you need to memorize it, but because having the whole picture in one place before we spend twelve chapters inside the details is the right way to start.
 
-<!-- → [TABLE: The three-mode summary table — columns: Mode, Human presence during execution, Steps that reweight, Characteristic failure mode, Where covered; rows: Augmentation / Automation / Agency; student should use this as a reference map for which part of the book addresses which operational context] -->
-
-*Figure 1.4*
 
 | Mode | Human presence during execution | Steps that reweight | Characteristic failure mode | Where covered |
 |---|---|---|---|---|
@@ -229,7 +228,7 @@ Save as `02-the-loop-on-a-real-task.md` in my playbook folder.
 
 ---
 
-## 🕰️ AI Wayback Machine
+## AI Wayback Machine
 
 The ideas in this chapter didn't appear from nowhere. **W. Ross Ashby** was formalizing how a controller must match the variability of the system it controls decades before most people had heard of human-AI loops. Here's a prompt to find out more — and then make it better.
 
