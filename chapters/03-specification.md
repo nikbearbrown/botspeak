@@ -49,9 +49,12 @@ Now watch what Aisha would have sent if she had specified before prompting:
 >
 > **Output format:** Five bullets, each on its own line, no sub-bullets, no preamble, no closing sentence.
 
-<!-- → [TABLE: Side-by-side comparison — left column: Aisha's three actual prompts (iteration 1, 2, 3); right column: the corresponding specification component each iteration was groping toward but never stated. Final row shows the complete specification above. Student should see exactly which component was missing at each iteration and what the omission cost.] -->
-
-*Figure 3.2*
+| Prompt as sent | Component groping toward — but never stated | What the omission cost |
+|---|---|---|
+| *"Summarize this report for my manager."* | Nothing. No component is present. | Model guessed the task. Produced a neutral 600-word summary — polished, directionless, unusable. |
+| *"Summarize this report for my manager, focusing on the parts most relevant to our coalition."* | **Intent** — partially. Adds audience and a hint of purpose, but the actual goal (slide artifact, stakeholder meeting, coalition position) remains unstated. | Model reweighted the summary slightly. Still 600 words, still not slide-ready. The polish made the near-miss hard to name. |
+| *"Summarize this report in five bullet points."* | **Output Format** — partially. Adds bullet structure but omits length per bullet, preamble rules, and hierarchy constraints. | Model produced five bullets, each three sentences long. Format was closer; content was still unfit for a slide readable from twenty feet. |
+| **Complete specification:** Intent (coalition slide for tomorrow's meeting) + Constraints (≤15 words per bullet, report only, unread audience) + Success Criteria (manager uses without rewriting; each bullet survives hostile review) + Exclusions (no editorializing, no padding, no verbatim executive summary) + Output Format (five bullets, own lines, no sub-bullets, no preamble) | **All five components present.** | Manager uses it without rewriting. |
 
 That is not a prompt. It is the thinking a prompt needs to encode. The actual prompt Aisha types may be two or three sentences long — but those sentences will carry all five components because she now knows what they are.
 
@@ -105,9 +108,13 @@ The role piece assigns the model a specific professional persona: not *act like 
 
 The rubric piece supplies explicit criteria the output will be judged against: *each bullet must be defensible against a hostile reviewer asking "where in the report is this"; no claim that goes beyond what the report supports; tone declarative, not hedged; total under a hundred words.* The rubric is the success criteria and exclusions components, made explicit in a form the model can self-check against.
 
-<!-- → [TABLE: Two-column breakdown of the role-and-rubric pattern — left column: the five specification components (Intent, Constraints, Success Criteria, Exclusions, Output Format); right column: whether role-and-rubric encodes that component well, partially, or leaves it unaddressed, with a one-line note on what still needs explicit treatment. Student should see which components the pattern compresses and which it does not.] -->
-
-*Figure 3.4*
+| Specification component | How role-and-rubric handles it |
+|---|---|
+| **Intent** | Partially. The role assignment implies a purpose ("senior policy researcher preparing a one-page brief") but does not state the goal the task serves. Still needs an explicit statement of what success looks like for this specific output. |
+| **Constraints** | Poorly. Role implies tone and register but says nothing about length, permitted sources, or audience. These must still be stated explicitly. |
+| **Success Criteria** | Well — this is what the rubric does. Explicit, testable criteria ("each bullet must be defensible against a hostile reviewer") are the rubric's native function. |
+| **Exclusions** | Well — also rubric territory. "No claim that goes beyond what the report supports" is a clean exclusion the rubric encodes directly. |
+| **Output Format** | Not addressed. Neither the role nor the rubric specifies markdown vs. plain text, bullet vs. prose, or structural details. Must still be stated separately. |
 
 Role-and-rubric is one pattern. There are others — chain-of-thought, few-shot examples, constraint stacking. Each compresses different parts of the five components into a structure the model handles well. They are scaffolds for the same five components, not alternatives to them. The mistake I see most often is reaching for a pattern before specifying. Someone reads about chain-of-thought and starts adding *think step by step* to every prompt, regardless of whether step-by-step reasoning is what the task requires. Patterns serve the specification. The specification does not serve the pattern. If you do not yet know your intent, adding *think step by step* will give you a fluent, step-by-step, wrong answer.
 
@@ -276,9 +283,12 @@ Design a 45-minute session for a team of ten that teaches the five-component spe
 
 ---
 
-## 🕰️ AI Wayback Machine
+## AI Wayback Machine
 
 The ideas in this chapter didn't appear from nowhere. **Nancy Leveson** was arguing that most failures come from incomplete specifications rather than component breakdown decades before anyone said "prompt engineering." Here's a prompt to find out more — and then make it better.
+
+![Nancy Leveson, c. 2000s. AI-generated portrait based on a public domain photograph.](../images/nancy-leveson.jpg)
+*Nancy Leveson, c. 2000s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).*
 
 **Run this:**
 
