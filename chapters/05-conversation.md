@@ -32,7 +32,7 @@ During training, human raters evaluate the model's outputs and score them. High 
 
 <!-- → [INFOGRAPHIC: Simplified RLHF feedback loop — model output → human rater scores it → score updates model weights → model produces next output. Annotated to show where "develops the user's idea" gets consistently high scores and where "tells user their premise is wrong" gets lower scores unless evidence is overwhelming. Makes the training mechanism spatially legible for readers without an ML background.] -->
 
-![Figure 5.1 — Simplified RLHF feedback loop](images/05-conversation-fig-01.jpg)
+![Figure 5.1 — Simplified RLHF feedback loop](images/05-conversation-fig-01.png)
 
 What do human raters score highly? On the whole: outputs that are helpful, responsive, and pleasant. An output that develops the user's idea scores well. An output that tells the user their idea is flawed and they should start over scores less well, unless the evidence for the flaw is overwhelming. Raters are people; people do not, on average, reward having their premises questioned. This is not a criticism — it is a fact about how the ratings work.
 
@@ -118,9 +118,6 @@ The assumption surface catches *invisible premises*: the argument is valid given
 
 The devil's advocate catches *integration failures*: the argument might survive each individual objection but collapse when the objections are pressed together in sequence. Sustained adversarial conversation finds the integration failures that discrete probes miss.
 
-<!-- → [TABLE: Quick-reference summary of the four moves — columns: Move, Failure Mode It Catches, Trigger Condition, Estimated Time. Rows: Steelman / directional error / any argument built in >20 min of AI conversation / ~5 min. Edge-case probe / scope error / argument contains "always" or "never," or recommendation is meant to generalize / ~10 min. Assumption surface / invisible premises / work going to skeptical audience / ~5 min. Devil's advocate / integration failures / high-stakes commitment, hard to back out of / 20–30+ min. Designed for readers who want to skim back to this chapter mid-project.] -->
-
-*Figure 5.3*
 
 | Move | Failure Mode It Catches | Trigger Condition | Estimated Time |
 |---|---|---|---|
@@ -305,9 +302,13 @@ Save as `06-conversation-and-adversarial-moves.md` in my playbook folder.
 
 ---
 
-## 🕰️ AI Wayback Machine
+## AI Wayback Machine
 
 The ideas in this chapter didn't appear from nowhere. **Gordon Pask** literally built a formal theory called *Conversation Theory* — a model of how two reasoning systems negotiate shared understanding — decades before anyone talked about "conversational AI." Here's a prompt to find out more — and then make it better.
+
+![Gordon Pask, c. 1970s. AI-generated portrait based on a public domain photograph.](../images/gordon-pask.jpg)
+*Gordon Pask, c. 1970s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).*
+
 
 **Run this:**
 
