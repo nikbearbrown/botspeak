@@ -232,6 +232,10 @@ Save as `02-the-loop-on-a-real-task.md` in my playbook folder.
 
 The ideas in this chapter didn't appear from nowhere. **W. Ross Ashby** was formalizing how a controller must match the variability of the system it controls decades before most people had heard of human-AI loops. Here's a prompt to find out more — and then make it better.
 
+![W. Ross Ashby, c. 1948. AI-generated illustration based on a public domain photograph.](../images/w-ross-ashby.jpg)
+*W. Ross Ashby, c. 1948. AI-generated illustration based on a public domain photograph (Wikimedia Commons).*
+
+
 **Run this:**
 
 ```
