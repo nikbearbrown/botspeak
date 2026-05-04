@@ -226,7 +226,7 @@ You are not required to be right. You are required to argue from evidence rather
 
 ---
 
-## 🕰️ AI Wayback Machine
+## AI Wayback Machine
 
 The ideas in this chapter didn't appear from nowhere. **Reuven Feuerstein** was arguing that cognitive capacities are made and unmade by the quality of mediation between a learner and the world decades before anyone worried about AI-induced skill atrophy. Here's a prompt to find out more — and then make it better.
 
