@@ -88,9 +88,16 @@ Tier six is contestable analysis. Don't delegate the call. You can delegate the 
 
 Tier seven is accountable judgment. The model can inform it. You own it entirely.
 
-<!-- → [TABLE: Seven delegation tiers quick reference — columns: Tier number, Name, One-line delegation rule, Atrophy risk (None / Low / Medium / High); rows: Mechanical Execution through Accountable Judgment; student should use this as a lookup card when building a delegation map for any real task] -->
+| Tier | Name | One-line delegation rule | Atrophy risk |
+|---|---|---|---|
+| **1** | Mechanical Execution | Delegate freely — right answer is fully determined and doing it yourself builds nothing. | None |
+| **2** | Pattern-Matching with Feedback | Delegate the generation; keep the evaluation — the check is the skill worth maintaining. | Low |
+| **3** | Synthesis from Sources | Delegate the gathering and combining; stay alert to what the synthesis is not telling you. | Medium |
+| **4** | Drafting in Your Voice | Delegate the draft; keep some work done without the model to prevent long-term voice drift. | Medium |
+| **5** | Judgment Under Structure | Delegate the application of the framework; keep the authorship of the framework itself. | Medium |
+| **6** | Contestable Analysis | Do not delegate the call; you may delegate components that feed into it. | High |
+| **7** | Accountable Judgment | The model can inform it; you own it entirely — accountability cannot be distributed. | High |
 
-*Figure 4.2*
 
 A delegation map for any non-trivial task is: decompose it, locate each component on the tiers, hand over the bottom, partner on the middle, keep the top. The map is something you can defend. It is the artifact that proves you thought about what you were doing.
 
@@ -104,7 +111,7 @@ In practice, four questions get you to the map quickly. You can run them in two 
 
 <!-- → [CHART: 2x2 matrix — x-axis: blast radius (Low to High), y-axis: verification effort required (Low to High); four quadrants labeled: Delegate and spot-check / Delegate with structured review / Verify before use / Do not delegate without explicit sign-off; student should see that verification effort scales with consequence, not with how much you trust the model] -->
 
-![Figure 4.3 — 2x2 matrix — x-axis: blast radius (Low to High), y-axis: verification effort required (Low to High)](images/04-delegation-fig-03.jpg)
+![Figure 4.3 — 2x2 matrix — x-axis: blast radius (Low to High), y-axis: verification effort required (Low to High)](images/04-delegation-fig-03.png)
 
 *Who is accountable if this is wrong, and does that person know how it was produced?* If your name is on the work, your accountability is on the work. The threshold for disclosure is lower than most practitioners currently assume. If a stakeholder would feel deceived to learn the work was AI-assisted, that is information you need to act on before the work ships, not after.
 
@@ -247,9 +254,12 @@ Save as `05-the-seven-tiers-and-delegation-worksheet.md` in my playbook folder.
 
 ---
 
-## 🕰️ AI Wayback Machine
+## AI Wayback Machine
 
 The ideas in this chapter didn't appear from nowhere. **Mary Parker Follett** was working out the "law of the situation" — that authority should follow capacity, not position — in the 1920s, decades before anyone talked about delegating to AI. Here's a prompt to find out more — and then make it better.
+
+![Mary Parker Follett, c. 1920s. AI-generated portrait based on a public domain photograph.](../images/mary-parker-follett.jpg)
+*Mary Parker Follett, c. 1920s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).*
 
 **Run this:**
 
