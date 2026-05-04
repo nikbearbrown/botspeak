@@ -203,7 +203,8 @@ Save as `01-the-[your-failure-slug].md` in my playbook folder.
 
 The ideas in this chapter didn't appear from nowhere. **Henriette Avram** was teaching computers to handle bibliographic references with structural integrity decades before most people had heard of "AI hallucinations." Here's a prompt to find out more — and then make it better.
 
-![Henriette Avram](images/henriette-avram.jpg)
+![Henriette Avram, c. 1970s. AI-generated portrait based on a public domain photograph.](../images/henriette-avram.jpg)
+*Henriette Avram, c. 1970s. AI-generated portrait based on a public domain photograph (Wikimedia Commons).*
 
 **Run this:**
 
