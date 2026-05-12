@@ -1,0 +1,35 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+    <polygon points="0 0, 8 3, 0 6" fill="#1a1714"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="700" height="420" fill="#fdfcfb"/>
+<rect x="56" y="56" width="296" height="312" fill="#f5f2ee" stroke="#1a1714" stroke-width="1"/>
+<text x="72" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-weight="bold" fill="#4a4540" letter-spacing="1.5">COMPETITIVE INTELLIGENCE BRIEF — SPECIFICATION</text>
+<line x1="72" y1="86" x2="336" y2="86" stroke="#8a8480" stroke-width="0.75"/>
+<text x="72" y="106" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-weight="bold" fill="#4a4540" letter-spacing="1">AUDIENCE</text>
+<text x="72" y="122" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1a1714">Investment committee.</text>
+<text x="72" y="138" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1a1714">Three partners; will read once; will ask hard questions.</text>
+<line x1="72" y1="150" x2="336" y2="150" stroke="#c8c4c0" stroke-width="0.75" stroke-dasharray="4 3"/>
+<text x="72" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-weight="bold" fill="#4a4540" letter-spacing="1">SUCCESS CRITERIA</text>
+<text x="72" y="186" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1a1714">Defensible recommendation by Friday 9am.</text>
+<text x="72" y="202" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1a1714">Each claim must trace to a primary source.</text>
+<line x1="72" y1="214" x2="336" y2="214" stroke="#c8c4c0" stroke-width="0.75" stroke-dasharray="4 3"/>
+<text x="72" y="234" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-weight="bold" fill="#4a4540" letter-spacing="1">EXCLUSIONS</text>
+<text x="72" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1a1714">No outside-source claims unless flagged.</text>
+<text x="72" y="266" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1a1714">No model speculation. No padded context.</text>
+<line x1="72" y1="278" x2="336" y2="278" stroke="#c8c4c0" stroke-width="0.75" stroke-dasharray="4 3"/>
+<text x="72" y="298" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-weight="bold" fill="#4a4540" letter-spacing="1">OUTPUT FORMAT</text>
+<text x="72" y="314" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1a1714">Five sections; ≤3 pages; appendix with</text>
+<text x="72" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#1a1714">filings list; one-sentence executive summary.</text>
+<text x="204.0" y="390" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-style="italic" fill="#4a4540" text-anchor="middle">Written first — on paper, before the tool opens.</text>
+<rect x="416" y="168" width="224" height="152" fill="#f5f2ee" stroke="#1a1714" stroke-width="1"/>
+<circle cx="528.0" cy="244.0" r="22" fill="none" stroke="#8a8480" stroke-width="1"/>
+<circle cx="528.0" cy="244.0" r="6" fill="#8a8480"/>
+<rect x="404" y="320" width="248" height="14" fill="#c8c4c0" stroke="#1a1714" stroke-width="1"/>
+<line x1="416" y1="320" x2="640" y2="320" stroke="#1a1714" stroke-width="1"/>
+<line x1="436" y1="334" x2="620" y2="334" stroke="#4a4540" stroke-width="0.75"/>
+<text x="528.0" y="366" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-style="italic" fill="#4a4540" text-anchor="middle">Closed — the tool is the second move, not the first.</text>
+<text x="350.0" y="36" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#1a1714" text-anchor="middle">Specification first. Tool second.</text>
+</svg>

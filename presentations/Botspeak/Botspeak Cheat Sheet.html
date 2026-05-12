@@ -1,0 +1,2171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Botspeak — Teaching Cheat Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --nu-red: #C8102E;
+    --nu-red-dark: #870A1F;
+    --black: #000000;
+    --white: #ffffff;
+    --ink: #1a1a1a;
+    --ink-2: #4a4a4a;
+    --ink-3: #6b6b6b;
+    --rule: #E3E3E3;
+    --cream: #faf7f2;
+
+    --font: 'Lato', system-ui, sans-serif;
+
+    --type-eyebrow: 24px;
+    --type-title: 76px;
+    --type-section: 120px;
+    --type-subtitle: 44px;
+    --type-body: 32px;
+    --type-small: 26px;
+    --type-mega: 200px;
+
+    --pad-top: 88px;
+    --pad-bottom: 88px;
+    --pad-x: 110px;
+    --gap-title: 44px;
+    --gap-item: 24px;
+  }
+
+  html, body { margin:0; padding:0; background:#000; font-family: var(--font); color: var(--ink); }
+
+  deck-stage section {
+    background: var(--white);
+    color: var(--ink);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .frame {
+    position: absolute;
+    inset: 0;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  /* Top red rule signature device */
+  .rule-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: var(--nu-red);
+  }
+
+  .eyebrow {
+    font-size: var(--type-eyebrow);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--nu-red);
+    margin-bottom: 28px;
+  }
+  .eyebrow .pipe { color: var(--ink-3); margin: 0 14px; font-weight: 400; }
+
+  h1.title {
+    font-size: var(--type-title);
+    line-height: 1.05;
+    font-weight: 400;
+    margin: 0 0 36px;
+    letter-spacing: -0.01em;
+    max-width: 1500px;
+  }
+  h1.title em { font-style: italic; color: var(--nu-red); font-weight: 400; }
+
+  .subtitle {
+    font-size: var(--type-subtitle);
+    line-height: 1.25;
+    font-weight: 300;
+    color: var(--ink-2);
+    margin: 0 0 var(--gap-title);
+    max-width: 1500px;
+  }
+
+  .body {
+    font-size: var(--type-body);
+    line-height: 1.45;
+    font-weight: 400;
+    color: var(--ink);
+    max-width: 1500px;
+  }
+
+  .small {
+    font-size: var(--type-small);
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 36px;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 700;
+  }
+  .footer .red-dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: var(--nu-red);
+    margin-right: 12px;
+    vertical-align: middle;
+  }
+
+  /* Cover */
+  .cover {
+    background: var(--black);
+    color: var(--white);
+  }
+  .cover .rule-top { background: var(--nu-red); }
+  .cover .frame { justify-content: space-between; }
+  .cover .eyebrow { color: var(--nu-red); }
+  .cover h1.title { color: var(--white); font-size: 140px; line-height: 0.98; max-width: 1700px; }
+  .cover h1.title em { color: var(--nu-red); }
+  .cover .lede { font-size: 40px; line-height: 1.3; color: rgba(255,255,255,0.75); max-width: 1300px; font-weight: 300; }
+  .cover .meta { display: flex; gap: 60px; color: rgba(255,255,255,0.55); font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; }
+  .cover .meta b { color: var(--white); display:block; font-size: 26px; letter-spacing: 0.04em; text-transform: none; font-weight: 400; margin-top: 8px; }
+
+  /* Section divider */
+  .section-divider {
+    background: var(--nu-red);
+    color: var(--white);
+  }
+  .section-divider .frame { justify-content: center; }
+  .section-divider .ch-num {
+    font-size: 220px;
+    line-height: 1;
+    font-weight: 900;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+  }
+  .section-divider h1.title {
+    color: var(--white);
+    font-size: 108px;
+    line-height: 1.0;
+    margin-top: 0;
+  }
+  .section-divider .kicker {
+    font-size: 34px;
+    color: rgba(255,255,255,0.85);
+    font-style: italic;
+    font-weight: 300;
+    margin-top: 28px;
+    max-width: 1500px;
+  }
+
+  /* Two-column compare table */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 2px solid var(--black);
+    margin-top: 12px;
+  }
+  .compare .col-head {
+    padding: 22px 28px;
+    font-size: 24px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 2px solid var(--black);
+  }
+  .compare .col-head.left { background: var(--white); color: var(--ink-3); }
+  .compare .col-head.right { background: var(--nu-red); color: var(--white); }
+  .compare .row {
+    padding: 22px 28px;
+    font-size: 28px;
+    line-height: 1.35;
+    border-bottom: 1px solid var(--rule);
+  }
+  .compare .row.right { background: #faf3f4; }
+  .compare .row.left { color: var(--ink-2); }
+
+  /* Numbered list of big points */
+  ol.big {
+    list-style: none;
+    padding: 0; margin: 0;
+    counter-reset: bignum;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  ol.big li {
+    counter-increment: bignum;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  ol.big li::before {
+    content: counter(bignum, decimal-leading-zero);
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--nu-red);
+    line-height: 1;
+  }
+  ol.big li .step-name {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  ol.big li .step-desc {
+    font-size: 26px;
+    color: var(--ink-2);
+    line-height: 1.4;
+  }
+
+  /* Big quote */
+  .quote {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    max-width: 1600px;
+    border-left: 6px solid var(--nu-red);
+    padding-left: 40px;
+  }
+  .quote .attrib {
+    display: block;
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 36px;
+    font-weight: 700;
+  }
+
+  /* Three-mode grid */
+  .modes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 12px;
+  }
+  .modes .mode {
+    border: 1px solid var(--rule);
+    border-top: 6px solid var(--nu-red);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .modes .mode .name {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .modes .mode .when {
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--nu-red);
+    font-weight: 700;
+  }
+  .modes .mode .desc {
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--ink-2);
+  }
+  .modes .mode .fail {
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+  .modes .mode .fail b { color: var(--nu-red); display: block; letter-spacing: 0.1em; text-transform: uppercase; font-size: 24px; margin-bottom: 6px; }
+
+  /* Capacities grid */
+  .caps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px 32px;
+    margin-top: 8px;
+  }
+  .caps .cap {
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .caps .cap .num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--nu-red);
+    letter-spacing: 0.12em;
+  }
+  .caps .cap .nm {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .caps .cap .q {
+    font-size: 24px;
+    line-height: 1.35;
+    color: var(--ink-2);
+    font-style: italic;
+  }
+
+  /* Durability bar */
+  .durability {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+  .durability .col {
+    padding: 26px 24px;
+  }
+  .durability .col + .col { border-left: 1px solid var(--rule); }
+  .durability .col .lbl {
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--nu-red);
+    margin-bottom: 14px;
+  }
+  .durability .col .items {
+    font-size: 24px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .durability .col .items div { padding: 4px 0; }
+  .durability .col .note {
+    font-size: 24px;
+    color: var(--ink-3);
+    margin-top: 14px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* Spec components diagram */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .spec-grid .comp {
+    border: 1px solid var(--rule);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+  }
+  .spec-grid .comp .n {
+    width: 48px; height: 48px;
+    background: var(--nu-red);
+    color: var(--white);
+    font-weight: 900;
+    font-size: 26px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .spec-grid .comp .nm {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .spec-grid .comp .d {
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--ink-2);
+  }
+
+  /* Before/after spec example */
+  .spec-example {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 50px;
+    margin-top: 10px;
+  }
+  .spec-example .col h3 {
+    font-size: 24px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--black);
+  }
+  .spec-example .bad h3 { color: var(--ink-3); }
+  .spec-example .good h3 { color: var(--nu-red); border-bottom-color: var(--nu-red); }
+  .spec-example .bad .quote-block {
+    font-size: 30px;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--ink-2);
+    margin-bottom: 24px;
+  }
+  .spec-example .bad .cost {
+    font-size: 24px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .spec-example .bad .cost b { color: var(--nu-red); }
+  .spec-example .good .spec-list {
+    font-size: 24px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .spec-example .good .spec-list .lbl {
+    color: var(--nu-red);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 24px;
+    display: block;
+    margin-top: 14px;
+  }
+
+  /* Cognitive offloading two-up */
+  .twoup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 14px;
+    border: 1px solid var(--rule);
+  }
+  .twoup .side {
+    padding: 36px 36px;
+  }
+  .twoup .side + .side { border-left: 1px solid var(--rule); }
+  .twoup .side .lbl {
+    font-size: 24px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .twoup .amp .lbl { color: var(--nu-red); }
+  .twoup .atr .lbl { color: var(--ink-3); }
+  .twoup .side h3 {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 22px;
+    line-height: 1.1;
+  }
+  .twoup .side ul {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .twoup .side li {
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--ink-2);
+    padding-left: 26px;
+    position: relative;
+  }
+  .twoup .side li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 14px;
+    width: 14px; height: 2px;
+    background: var(--nu-red);
+  }
+
+  /* Loop diagram (simple) */
+  .loop-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    margin-top: 10px;
+  }
+  .loop-wrap .left ol.big li::before { font-size: 44px; }
+  .loop-wrap .left ol.big { gap: 20px; }
+  .loop-wrap .left ol.big li .step-name { font-size: 36px; }
+  .loop-wrap .left ol.big li .step-desc { font-size: 22px; }
+
+  .loop-diagram {
+    align-self: center;
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 560px;
+    position: relative;
+    justify-self: end;
+  }
+
+  /* Citation case visual */
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    margin-top: 10px;
+    align-items: start;
+  }
+  .case-grid .stats {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .case-grid .stat .num {
+    font-size: 140px;
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--nu-red);
+    letter-spacing: -0.03em;
+  }
+  .case-grid .stat .lbl {
+    font-size: 24px;
+    line-height: 1.35;
+    color: var(--ink-2);
+    margin-top: 6px;
+    max-width: 480px;
+  }
+  .case-grid .narrative {
+    font-size: 28px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .case-grid .narrative p { margin: 0 0 22px; }
+  .case-grid .narrative p b { color: var(--nu-red); }
+
+  /* Pays-the-cost table */
+  .pays {
+    margin-top: 14px;
+    border-top: 2px solid var(--black);
+  }
+  .pays .row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 24px;
+    line-height: 1.35;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .pays .row.head {
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 700;
+    padding: 14px 0;
+  }
+  .pays .row .who { font-weight: 700; color: var(--nu-red); font-size: 26px; }
+  .pays .row.head .who { color: var(--ink-3); font-weight: 700; font-size: 24px; }
+
+  /* Mega number slide */
+  .mega-num-slide .frame { justify-content: center; }
+  .mega-num {
+    font-size: 360px;
+    line-height: 0.9;
+    font-weight: 900;
+    color: var(--nu-red);
+    letter-spacing: -0.04em;
+  }
+  .mega-num-slide .mega-cap {
+    font-size: 44px;
+    line-height: 1.25;
+    color: var(--ink);
+    max-width: 1300px;
+    margin-top: 24px;
+    font-weight: 300;
+  }
+  .mega-num-slide .mega-cap b { color: var(--nu-red); font-weight: 700; }
+
+  /* Closing */
+  .closing {
+    background: var(--black);
+    color: var(--white);
+  }
+  .closing .frame { justify-content: center; }
+  .closing h1.title { color: var(--white); font-size: 96px; margin-bottom: 30px; max-width: 1500px; }
+  .closing h1.title em { color: var(--nu-red); }
+  .closing .lede { font-size: 38px; line-height: 1.35; color: rgba(255,255,255,0.78); max-width: 1500px; font-weight: 300; }
+  .closing .rule-top { background: var(--nu-red); }
+
+  /* Spec example column tweak — fix overflow */
+  .spec-example .bad, .spec-example .good { min-width: 0; }
+
+  /* LLM Exercise slides */
+  .ex-slide { background: var(--cream); }
+  .ex-slide .rule-top { background: var(--nu-red); }
+  .ex-slide .frame { padding-top: 70px; padding-bottom: 60px; }
+  .ex-slide h1.title { font-size: 56px; margin-bottom: 22px; max-width: 1700px; }
+  .ex-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 28px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .ex-meta .item .k {
+    font-size: 24px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nu-red);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ex-meta .item .v {
+    font-size: 24px;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .prompt-block {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-left: 6px solid var(--nu-red);
+    padding: 22px 30px;
+    font-family: 'Lato', monospace;
+    font-size: 24px;
+    line-height: 1.35;
+    color: var(--ink);
+    white-space: pre-wrap;
+    columns: 2;
+    column-gap: 40px;
+    column-fill: auto;
+    height: 600px;
+  }
+  .prompt-block .ph { color: var(--nu-red); font-weight: 700; }
+  .prompt-block strong { color: var(--nu-red); }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 1. Cover -->
+  <section class="cover" data-label="01 Cover">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div>
+        <div class="eyebrow">Northeastern · Botspeak</div>
+        <h1 class="title">Botspeak<br/><em>Teaching Cheat Sheet</em></h1>
+        <div class="lede">The Irreducibly Human Practitioner's Guide to AI Fluency — chapter-by-chapter riffing points for the classroom.</div>
+      </div>
+      <div class="meta">
+        <div>Source<b>Nik Bear Brown</b></div>
+        <div>Coverage<b>Chapters 0 – 13</b></div>
+        <div>Format<b>Riff &amp; expand</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Section divider Ch 0 -->
+  <section class="section-divider" data-label="02 Ch 0 Divider">
+    <div class="frame">
+      <div class="ch-num">00</div>
+      <h1 class="title">The Citation<br/>That Wasn't</h1>
+      <div class="kicker">What the literate user doesn't know they don't know.</div>
+    </div>
+  </section>
+
+  <!-- 3. The case in numbers -->
+  <section data-label="03 Diego's Tuesday">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 0 <span class="pipe">·</span> Opening case</div>
+      <h1 class="title">Diego shipped sixteen pages. One footnote didn't exist.</h1>
+      <div class="case-grid">
+        <div class="stats">
+          <div class="stat"><div class="num">11</div><div class="lbl">footnotes in the memo</div></div>
+          <div class="stat"><div class="num">10</div><div class="lbl">that checked out on the client's review</div></div>
+          <div class="stat"><div class="num">1</div><div class="lbl">fabricated source — the one carrying the headline number</div></div>
+        </div>
+        <div class="narrative">
+          <p>The 8.4% CAGR was load-bearing. The firm whose report it cited <b>did not exist</b>. Neither did the analyst.</p>
+          <p>Diego is sharp. The onboarding slide said <i>always verify AI outputs before client delivery</i>. He nodded.</p>
+          <p>He didn't know <b>what verifying actually meant</b>. This gap is the subject of the book.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 0</span><span>03</span></div>
+  </section>
+
+  <!-- 4. Literacy vs Fluency table -->
+  <section data-label="04 Literacy vs Fluency">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 0 <span class="pipe">·</span> The central distinction</div>
+      <h1 class="title">Two practitioners. Same prompt. Different outcomes.</h1>
+      <div class="compare">
+        <div class="col-head left">AI Literacy</div>
+        <div class="col-head right">AI Fluency</div>
+        <div class="row left">Opens a chatbot and types a request</div>
+        <div class="row right">Specifies the task before delegating it</div>
+        <div class="row left">Reads the output and judges by how it looks</div>
+        <div class="row right">Reads the output looking for where it could be wrong</div>
+        <div class="row left">Copies and pastes into the deliverable</div>
+        <div class="row right">Treats output as raw material, not finished work</div>
+        <div class="row left">Cites what the model returns</div>
+        <div class="row right">Verifies which citations are worth betting a relationship on</div>
+        <div class="row left">Polishes the prose before shipping</div>
+        <div class="row right">Runs a verification move calibrated to the failure mode</div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 0</span><span>04</span></div>
+  </section>
+
+  <!-- 5. The Hindi-tourist metaphor -->
+  <section data-label="05 Hindi Tourist">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 0 <span class="pipe">·</span> Metaphor to riff on</div>
+      <h1 class="title">The tourist who reads <em>some</em> Hindi misses the train.</h1>
+      <div class="quote">
+        The non-speaker asks for help. The fluent reader catches the next train. The one in the middle — confident, not competent — is the one stranded on Platform 7.
+        <span class="attrib">Diego is the tourist on the wrong platform</span>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 0</span><span>05</span></div>
+  </section>
+
+  <!-- 6. Volume / quality break -->
+  <section class="mega-num-slide" data-label="06 Volume Decoupled">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 0 <span class="pipe">·</span> The broken correlation</div>
+      <div class="mega-num">4pp</div>
+      <div class="mega-cap">Four pages took the same effort as four sentences. <b>Volume in the post-LLM world is no longer evidence of effort — or of quality.</b> To the literate eye, it still looks like both.</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 0</span><span>06</span></div>
+  </section>
+
+  <!-- 7. Who pays the verification cost -->
+  <section data-label="07 Who Pays">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 0 <span class="pipe">·</span> The economics of fluency</div>
+      <h1 class="title">Someone always pays the verification cost.</h1>
+      <div class="pays">
+        <div class="row head"><div class="who">Who pays</div><div>When</div><div>Currency</div><div>Consequence</div></div>
+        <div class="row"><div class="who">Fluent practitioner</div><div>Before delivery</div><div>Her time</div><div>Clean deliverable</div></div>
+        <div class="row"><div class="who">Literate practitioner</div><div>Never</div><div>Nothing upfront</div><div>Client discovers the error</div></div>
+        <div class="row"><div class="who">The client</div><div>After delivery</div><div>Trust, repair time</div><div>Confidence in the firm takes a hit</div></div>
+      </div>
+      <p class="small" style="margin-top:30px;max-width:1500px;">The fluent practitioner pays the verification cost in her own workflow, before the work leaves her desk. <b style="color:var(--nu-red)">That is most of what fluency is.</b></p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 0</span><span>07</span></div>
+  </section>
+
+  <!-- 7b. Ch 0 LLM Exercise -->
+  <section class="ex-slide" data-label="07b Ch 0 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 0 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Set the role. Find <em>your</em> Citation-That-Wasn't.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Project</div><div class="v">AI Fluency for [Your Role] — The Domain Field Manual</div></div>
+        <div class="item"><div class="k">Building</div><div class="v">Role Dossier + Section 1: the opening case</div></div>
+        <div class="item"><div class="k">Tool</div><div class="v">Claude Project + Cowork</div></div>
+      </div>
+      <div class="prompt-block"><strong>TASK 1 — SPECIFY THE ROLE.</strong> Not "knowledge worker" but "junior associate at a regional law firm" or "clinical pharmacist on hospital night shift." Specific enough that failure modes are recognizable to anyone in the role; big enough that the playbook helps a real population.
+
+My context — role / industry / career stage (0–6 mo / 6–18 / 18–36) / 2–3 weekly task types / whether AI use is sanctioned, unsanctioned, or contested. Push back if my role is too broad.
+
+<strong>TASK 2 — FIND THE OPENING CASE.</strong> Walk me through 2–3 candidate cases drawn from my role. For each: the task that triggered it, the AI move that failed, the type of failure (fabrication / wrong-premise reasoning / dangerous omission / sycophantic drift), the cost when it surfaced, who paid it, the literate-user pattern that made it possible. Pick the strongest — the one where the failure mode generalizes.
+
+<strong>End with:</strong> (1) a one-paragraph Role Dossier I can pin to my Claude Project's system prompt; (2) the playbook's opening section in 800–1,500 words, in Botspeak Chapter 0's voice, drawing on my chosen case. Save as <span class="ph">01-the-[your-failure-slug].md</span> in my playbook folder.</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 0 · Exercise</span><span>07b</span></div>
+  </section>
+
+  <!-- 8. Section divider Ch 1 -->
+  <section class="section-divider" data-label="08 Ch 1 Divider">
+    <div class="frame">
+      <div class="ch-num">01</div>
+      <h1 class="title">The Loop &amp; the<br/>Three Modes</h1>
+      <div class="kicker">The machine predicts. You decide. Everything else is what you build between those two facts.</div>
+    </div>
+  </section>
+
+  <!-- 9. The mechanism -->
+  <section data-label="09 The Mechanism">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 1 <span class="pipe">·</span> One technical fact to carry</div>
+      <h1 class="title">The model doesn't look up. It <em>predicts</em>.</h1>
+      <div class="compare">
+        <div class="col-head left">What it looks like</div>
+        <div class="col-head right">What is actually happening</div>
+        <div class="row left">A fluent paragraph</div>
+        <div class="row right">Pattern continuation. Fluency is the pattern, not evidence of understanding.</div>
+        <div class="row left">A confident citation</div>
+        <div class="row right">Citation-shaped placeholder — author/year/title filled to match the shape.</div>
+        <div class="row left">A round, plausible number</div>
+        <div class="row right">Statistically plausible filler, generated with no underlying data.</div>
+      </div>
+      <p class="small" style="margin-top:32px;">Confidence is a textual feature. It has no necessary relationship to correctness.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 1</span><span>09</span></div>
+  </section>
+
+  <!-- 10. The Loop -->
+  <section data-label="10 The Loop">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 1 <span class="pipe">·</span> The workflow</div>
+      <h1 class="title">The Loop. Five steps. Run as a cycle.</h1>
+      <ol class="big" style="margin-top:10px;">
+        <li><div><span class="step-name">Specify</span><span class="step-desc">Decide the work before you open the tool. The prompt is the residue of the thinking.</span></div></li>
+        <li><div><span class="step-name">Delegate</span><span class="step-desc">Choose what to hand over and what to keep. Different parts of the work have different shapes.</span></div></li>
+        <li><div><span class="step-name">Converse</span><span class="step-desc">Refine, push back, steelman. The first prompt rarely produces the right output.</span></div></li>
+        <li><div><span class="step-name">Discern</span><span class="step-desc">Read for the kind of error this kind of system makes. Plausibility is a very low bar.</span></div></li>
+        <li><div><span class="step-name">Be Diligent</span><span class="step-desc">Own the story of the work — what the AI did, what you did, what you verified.</span></div></li>
+      </ol>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 1</span><span>10</span></div>
+  </section>
+
+  <!-- 11. Priya's moves -->
+  <section data-label="11 Priya's Moves">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 1 <span class="pipe">·</span> The Loop in motion</div>
+      <h1 class="title">Priya, 10:17 AM. She opens a blank document, not Claude.</h1>
+      <div class="pays">
+        <div class="row head"><div class="who">Move</div><div>Loop step</div><div>Time</div><div>Why it matters</div></div>
+        <div class="row"><div class="who">Writes about the memo</div><div>Specify</div><div>7 min</div><div>The most important seven minutes of the morning</div></div>
+        <div class="row"><div class="who">Keeps thesis, hands off regulatory paragraph</div><div>Delegate</div><div>—</div><div>She has a real opinion; the model has the licensing landscape</div></div>
+        <div class="row"><div class="who">"Steelman the case against"</div><div>Converse</div><div>—</div><div>Adversarial move surfaces the bear case sharper than her own instincts</div></div>
+        <div class="row"><div class="who">Catches a suspiciously round number</div><div>Discern</div><div>×2</div><div>Recognizes the <i>shape of a placeholder</i> — verifies in a browser tab</div></div>
+        <div class="row"><div class="who">Four-line note to the partner</div><div>Be Diligent</div><div>—</div><div>The work has a story. The story belongs to her.</div></div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 1</span><span>11</span></div>
+  </section>
+
+  <!-- 12. Three modes -->
+  <section data-label="12 Three Modes">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 1 <span class="pipe">·</span> The same Loop, reweighted</div>
+      <h1 class="title">Three modes. Same five steps. Different stakes.</h1>
+      <div class="modes">
+        <div class="mode">
+          <div class="when">Mode I</div>
+          <div class="name">Augmentation</div>
+          <div class="desc">Human at the keyboard. Every output crosses your eyes. Conversation and Discernment stay central.</div>
+          <div class="fail"><b>Characteristic failure</b>Fluent-but-wrong gets accepted because confidence is mistaken for correctness.</div>
+        </div>
+        <div class="mode">
+          <div class="when">Mode II</div>
+          <div class="name">Automation</div>
+          <div class="desc">The task runs while you're elsewhere. Specification and Diligence get heavier — review must be designed in advance.</div>
+          <div class="fail"><b>Characteristic failure</b>Small errors accumulate quietly across runs. Week 17 you discover 17 documents are wrong.</div>
+        </div>
+        <div class="mode">
+          <div class="when">Mode III</div>
+          <div class="name">Agency</div>
+          <div class="desc">The model takes action in the world. Discernment and Diligence must move <i>before</i> execution.</div>
+          <div class="fail"><b>Characteristic failure</b>Locally reasonable, globally harmful action. The agent resets the email server to delete one email.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 1</span><span>12</span></div>
+  </section>
+
+  <!-- 12b. Ch 1 LLM Exercise -->
+  <section class="ex-slide" data-label="12b Ch 1 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 1 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Narrate the Loop on a real task in your role.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 2 — your role's version of Priya's Tuesday</div></div>
+        <div class="item"><div class="k">Length</div><div class="v">1,500–2,500 words, plus a Three-Modes sidebar</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">02-the-loop-on-a-real-task.md</span></div></div>
+      </div>
+      <div class="prompt-block">Continuing my Domain Field Manual playbook. My Role Dossier is in the Project context.
+
+<strong>TASK 1 — A WORKED EXAMPLE FOR MY ROLE.</strong> Pick one typical task in my role — neither the smallest nor the most heroic. Long enough to require all five Loop steps; bounded enough to narrate in 1,500–2,500 words; real tools, real timing, real artifacts.
+
+Narrate in Priya's voice with a different name. Show the Specification BEFORE any prompt is typed. Show the Delegation decisions. Show 2–3 Conversation cycles including at least one adversarial move. Show the Discernment pass. Show the Diligence move (a note, a template update, a calendar item). End with the handoff and a 4-line AI Use Disclosure.
+
+<strong>TASK 2 — A THREE-MODES SIDEBAR.</strong> One page mapping where each Mode actually shows up in a typical week in my role:
+• AUGMENTATION — 2–3 task types where the practitioner is in the chair while the AI works (the bulk of the day)
+• AUTOMATION — 1–2 recurring tasks that have been or could be automated (overnight or scheduled)
+• AGENCY — 1–2 places where AI takes action on the practitioner's behalf — and the consequences of a wrong action
+
+Be honest where a Mode isn't yet relevant: "junior associates at our firm don't currently delegate to agentic systems; the frontier deployment to watch is X."</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 1 · Exercise</span><span>12b</span></div>
+  </section>
+
+  <!-- 13. Section divider Ch 2 -->
+  <section class="section-divider" data-label="13 Ch 2 Divider">
+    <div class="frame">
+      <div class="ch-num">02</div>
+      <h1 class="title">The Nine<br/>Capacities</h1>
+      <div class="kicker">The gap between two equally smart people isn't skill — it's a constellation you can learn to see.</div>
+    </div>
+  </section>
+
+  <!-- 14. Devin's four failures -->
+  <section data-label="14 Devin's Failures">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 2 <span class="pipe">·</span> One ticket, four failures</div>
+      <h1 class="title">Devin's leap-year bug wasn't <em>one</em> failure.</h1>
+      <ol class="big">
+        <li><div><span class="step-name">He delegated the wrong thing.</span><span class="step-desc">Handed the model the part that required holding the Gregorian edge cases in mind. Treated the model as a function, not a draftsman.</span></div></li>
+        <li><div><span class="step-name">He didn't stress-test the output.</span><span class="step-desc">Read for "does this look right?" instead of "what would have to be true for this to be wrong?"</span></div></li>
+        <li><div><span class="step-name">He imported no uncertainty.</span><span class="step-desc">The model produced confident-looking output. He treated confident-looking as confident.</span></div></li>
+        <li><div><span class="step-name">He stopped practicing.</span><span class="step-desc">The slow one. The model took edge-case thinking out of his daily routine. The muscle didn't fail — it got slow first.</span></div></li>
+      </ol>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 2</span><span>14</span></div>
+  </section>
+
+  <!-- 15. Nine capacities grid -->
+  <section data-label="15 Nine Capacities">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 2 <span class="pipe">·</span> The constellation</div>
+      <h1 class="title">Nine capacities. Each one a diagnostic question.</h1>
+      <div class="caps">
+        <div class="cap"><div class="num">01</div><div class="nm">Strategic Delegation</div><div class="q">What should I give the AI, keep myself, and why?</div></div>
+        <div class="cap"><div class="num">02</div><div class="nm">Effective Communication</div><div class="q">Am I telling the model what it actually needs to know?</div></div>
+        <div class="cap"><div class="num">03</div><div class="nm">Critical Evaluation</div><div class="q">Would I bet on this output — and on what evidence?</div></div>
+        <div class="cap"><div class="num">04</div><div class="nm">Technical Understanding</div><div class="q">Do I have a working model of why this system fails?</div></div>
+        <div class="cap"><div class="num">05</div><div class="nm">Ethical Reasoning</div><div class="q">Who could be harmed — and am I tracking that?</div></div>
+        <div class="cap"><div class="num">06</div><div class="nm">Stochastic Reasoning</div><div class="q">What kind of probabilistic claim is this, and where did it come from?</div></div>
+        <div class="cap"><div class="num">07</div><div class="nm">Learning by Doing</div><div class="q">Am I building the skill, or consuming the output?</div></div>
+        <div class="cap"><div class="num">08</div><div class="nm">Rapid Prototyping</div><div class="q">Am I testing against reality, or just against my own approval?</div></div>
+        <div class="cap"><div class="num">09</div><div class="nm">Theoretical Foundations</div><div class="q">Do I understand the material well enough to judge the output?</div></div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 2</span><span>15</span></div>
+  </section>
+
+  <!-- 16. Durability -->
+  <section data-label="16 Durability">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 2 <span class="pipe">·</span> Where to invest</div>
+      <h1 class="title">Not all nine age the same. Invest accordingly.</h1>
+      <div class="durability">
+        <div class="col">
+          <div class="lbl">Durable</div>
+          <div class="items">
+            <div>Strategic Delegation</div>
+            <div>Ethical Reasoning</div>
+            <div>Learning by Doing</div>
+          </div>
+          <div class="note">Yours, for the career. Accountability cannot be delegated.</div>
+        </div>
+        <div class="col">
+          <div class="lbl">Contested</div>
+          <div class="items">
+            <div>Critical Evaluation</div>
+            <div>Stochastic Reasoning</div>
+          </div>
+          <div class="note">Models are improving here. Practice will tell you when to update.</div>
+        </div>
+        <div class="col">
+          <div class="lbl">Temporarily irreducible</div>
+          <div class="items">
+            <div>Effective Communication</div>
+            <div>Technical Understanding</div>
+            <div>Rapid Prototyping</div>
+            <div>Theoretical Foundations</div>
+          </div>
+          <div class="note">Erode on varying timelines. Still needed now.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 2</span><span>16</span></div>
+  </section>
+
+  <!-- 16b. Ch 2 LLM Exercise -->
+  <section class="ex-slide" data-label="16b Ch 2 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 2 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Nine failure scenes — set in <em>your</em> role.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 3 — Nine Capacities annotated for your role</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">9 scenes · durability annotation · role-calibrated self-assessment</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">03-the-nine-capacities-in-my-role.md</span></div></div>
+      </div>
+      <div class="prompt-block">Continuing my playbook. My Role Dossier and Sections 1–2 are in the Project context.
+
+<strong>TASK 1 — NINE FAILURE SCENES IN MY ROLE.</strong> One scene per Capacity, 100–200 words each. Different named person per scene, different sub-context of the role, different real tools/artifacts/stakeholders. Spread across sub-contexts — don't make all nine the same task type.
+
+The Nine: (1) Strategic Delegation, (2) Effective Communication, (3) Critical Evaluation, (4) Technical Understanding, (5) Ethical Reasoning, (6) Stochastic Reasoning, (7) Learning by Doing, (8) Rapid Prototyping, (9) Theoretical Foundations.
+
+<strong>TASK 2 — DURABILITY ANNOTATION.</strong> Botspeak distinguishes durable (Delegation, Ethics, Learning) from contested (Critical Eval, Stochastic) from temporarily-irreducible (the rest). Annotate which capacities matter MOST for my role specifically. Some roles weight Stochastic Reasoning enormously; some weight Theoretical Foundations less; clinical/legal/policy roles weight Ethical Reasoning at the absolute top. Make the role-specific weighting explicit.
+
+<strong>TASK 3 — THE SELF-ASSESSMENT, ROLE-CALIBRATED.</strong> Adapt the four-level scale (untrained / aware / practicing / fluent) with role-specific anchors so a reader scores themselves honestly without translating from a generic example.</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 2 · Exercise</span><span>16b</span></div>
+  </section>
+
+  <!-- 17. Section divider Ch 3 -->
+  <section class="section-divider" data-label="17 Ch 3 Divider">
+    <div class="frame">
+      <div class="ch-num">03</div>
+      <h1 class="title">Specification</h1>
+      <div class="kicker">Doing the thinking the model cannot do for you.</div>
+    </div>
+  </section>
+
+  <!-- 18. Prompt vs Specification -->
+  <section data-label="18 Prompt vs Spec">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 3 <span class="pipe">·</span> The distinction nobody named</div>
+      <h1 class="title">A prompt is what you type. A specification is what you know <em>before</em> you type it.</h1>
+      <div class="quote" style="margin-top:30px;">
+        Language models are fluency machines. If the direction is unclear, the fluency just makes the wrong output look convincing.
+        <span class="attrib">The polish hides the near-miss</span>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 3</span><span>18</span></div>
+  </section>
+
+  <!-- 19. Five components -->
+  <section data-label="19 Five Components">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 3 <span class="pipe">·</span> The infrastructure</div>
+      <h1 class="title">Five components. Every specification carries all five.</h1>
+      <div class="spec-grid">
+        <div class="comp"><div class="n">1</div><div class="nm">Intent</div><div class="d">The goal the task <i>serves</i>. Not the task itself.</div></div>
+        <div class="comp"><div class="n">2</div><div class="nm">Constraints</div><div class="d">Format, length, sources, audience — what the output must fit inside.</div></div>
+        <div class="comp"><div class="n">3</div><div class="nm">Success Criteria</div><div class="d">How you'll know, after the fact, that the output is good.</div></div>
+        <div class="comp"><div class="n">4</div><div class="nm">Exclusions</div><div class="d">What the model is <i>not</i> supposed to do. Where to leave blanks blank.</div></div>
+        <div class="comp"><div class="n">5</div><div class="nm">Output Format</div><div class="d">Structural details. Format changes the kind of thinking the model has to do.</div></div>
+      </div>
+      <p class="small" style="margin-top:36px;max-width:1500px;">When you force yourself to write these down, you'll sometimes discover you hadn't decided what success looks like. <b style="color:var(--nu-red)">That discovery is the specification doing its job.</b></p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 3</span><span>19</span></div>
+  </section>
+
+  <!-- 20. Aisha example -->
+  <section data-label="20 Aisha Example">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 3 <span class="pipe">·</span> Aisha's three bad iterations</div>
+      <h1 class="title">Three polished summaries. None of them right.</h1>
+      <div class="spec-example">
+        <div class="col bad">
+          <h3>What she typed</h3>
+          <div class="quote-block">"Summarize this report for my manager."</div>
+          <div class="cost">Model produced a neutral 600-word summary. <b>Polished, directionless, unusable.</b></div>
+          <div class="quote-block" style="margin-top:30px;">"…focusing on parts relevant to our coalition."</div>
+          <div class="cost">Reweighted slightly. Still 600 words. Still not slide-ready.</div>
+          <div class="quote-block" style="margin-top:30px;">"…in five bullet points."</div>
+          <div class="cost">Five bullets — each three sentences long. Wrong unit of compression.</div>
+        </div>
+        <div class="col good">
+          <h3>What she should have specified</h3>
+          <div class="spec-list">
+            <span class="lbl">Intent</span>Give my manager a five-bullet slide artifact for tomorrow's stakeholder meeting.
+            <span class="lbl">Constraints</span>One clause per bullet, ≤15 words, source only the attached report.
+            <span class="lbl">Success Criteria</span>Manager uses without rewriting; each bullet survives "show me where in the report."
+            <span class="lbl">Exclusions</span>No editorializing. No padding. No verbatim executive summary.
+            <span class="lbl">Output Format</span>Five bullets, own lines, no sub-bullets, no preamble.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 3</span><span>20</span></div>
+  </section>
+
+  <!-- 21. Patterns: role-and-rubric -->
+  <section data-label="21 Patterns">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 3 <span class="pipe">·</span> Patterns serve the spec, not the other way around</div>
+      <h1 class="title">Role-and-rubric: a scaffold, not a substitute.</h1>
+      <div class="pays" style="margin-top:30px;">
+        <div class="row head"><div class="who" style="grid-column: span 1;">Component</div><div style="grid-column: span 3;">How role-and-rubric handles it</div></div>
+        <div class="row"><div class="who">Intent</div><div style="grid-column: span 3;">Partial. Role <i>implies</i> purpose; goal must still be stated.</div></div>
+        <div class="row"><div class="who">Constraints</div><div style="grid-column: span 3;">Poorly. Role hints at tone — says nothing about length, sources, audience.</div></div>
+        <div class="row"><div class="who">Success Criteria</div><div style="grid-column: span 3;">Well. This is what the rubric is for.</div></div>
+        <div class="row"><div class="who">Exclusions</div><div style="grid-column: span 3;">Well. "No claim beyond what the report supports" → clean rubric line.</div></div>
+        <div class="row"><div class="who">Output Format</div><div style="grid-column: span 3;">Not addressed. Must be stated separately.</div></div>
+      </div>
+      <p class="small" style="margin-top:30px;max-width:1500px;">Reaching for a pattern <i>before</i> specifying gives you a fluent, step-by-step, <b style="color:var(--nu-red)">wrong</b> answer.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 3</span><span>21</span></div>
+  </section>
+
+  <!-- 21b. Ch 3 LLM Exercise -->
+  <section class="ex-slide" data-label="21b Ch 3 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 3 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Five specification templates for the five tasks you do most.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 4 — fillable templates for your top five task types</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">5 templates · 5 worked examples · 1 role-specific spec trap</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">04-specification-templates.md</span></div></div>
+      </div>
+      <div class="prompt-block">Continuing my playbook. My Role Dossier and Sections 1–3 are in the Project context.
+
+<strong>TASK 1 — IDENTIFY THE FIVE MOST COMMON TASK TYPES IN MY ROLE.</strong> Not nine, not three. Five. High-frequency (each appears multiple times per month), distinct enough that they require different specifications, AI-amenable, spanning the role.
+
+<strong>TASK 2 — A SPECIFICATION TEMPLATE PER TASK TYPE.</strong> Each template covers all five components (intent, constraints, success criteria, exclusions, output format). BRACKETED VARIABLES the reader fills in. PRE-POPULATE the constants — the things every instance shares. Include 1–2 EXCLUSIONS specific to my role's typical failure modes (the "do not invent industry comparables" / "do not hedge in both directions" kind).
+
+<strong>TASK 3 — ONE WORKED EXAMPLE PER TEMPLATE.</strong> Each template fully filled in for a specific instance the reader could imagine on their own desk this week. The worked example is half the value — the template alone leaves the reader staring at brackets.
+
+End with one paragraph on the role-specific specification trap: what gets botched most often when practitioners in my role specify badly? What in my role tends to be most often left unsaid?</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 3 · Exercise</span><span>21b</span></div>
+  </section>
+
+  <!-- 22. Section divider Ch 4 -->
+  <section class="section-divider" data-label="22 Ch 4 Divider">
+    <div class="frame">
+      <div class="ch-num">04</div>
+      <h1 class="title">Delegation</h1>
+      <div class="kicker">The tool doesn't take the skill from you. You hand it over voluntarily, in small increments, each of which makes sense in the moment.</div>
+    </div>
+  </section>
+
+  <!-- 23. Cognitive offloading -->
+  <section data-label="23 Cognitive Offloading">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 4 <span class="pipe">·</span> A familiar move at a new scale</div>
+      <h1 class="title">Cognitive offloading is old. The scale is new.</h1>
+      <div class="body" style="font-size:34px;line-height:1.45;max-width:1600px;margin-top:20px;">
+        Scratch paper is offloading. To-do lists are offloading. A calculator is offloading. None of those are bad — they extend what you can do.
+        <br/><br/>
+        An AI synthesis tool offloads source-gathering, reading, pattern-recognition across dozens of documents, summarizing, and the initial structuring of an argument.
+        <br/><br/>
+        <b style="color:var(--nu-red)">That isn't a bigger calculator. It's a different kind of thing.</b> So the question is no longer "is offloading good?" — it's "what does this offload <i>build</i> in me, and what does it <i>erode</i>?"
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 4</span><span>23</span></div>
+  </section>
+
+  <!-- 24. Amplify vs Atrophy -->
+  <section data-label="24 Amplify vs Atrophy">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 4 <span class="pipe">·</span> The same delegation. Two outcomes.</div>
+      <h1 class="title">Amplifying offload vs. atrophying offload.</h1>
+      <div class="twoup">
+        <div class="side amp">
+          <div class="lbl">Amplifying</div>
+          <h3>The judgment muscle keeps firing.</h3>
+          <ul>
+            <li>Practitioner delegates source-gathering, but still does the pattern-recognition.</li>
+            <li>Reviews every output for the failure shape — not just plausibility.</li>
+            <li>More analysis happens, at higher quality, with the muscle exercised through the work.</li>
+            <li>Skill grows.</li>
+          </ul>
+        </div>
+        <div class="side atr">
+          <div class="lbl">Atrophying</div>
+          <h3>The feedback loop quietly dies.</h3>
+          <ul>
+            <li>Task delegated — including the evaluation that should have followed.</li>
+            <li>Output accepted because it looks fine. The work gets done.</li>
+            <li>Three months later, the practitioner knows less than they would have.</li>
+            <li>Not because the AI failed. Because it succeeded too completely.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 4</span><span>23</span></div>
+  </section>
+
+  <!-- 24b. Ch 4 LLM Exercise -->
+  <section class="ex-slide" data-label="24b Ch 4 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 4 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Audit your delegation. What is the AI building — or eroding?</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 5 — Strategic Delegation map &amp; offloading inventory</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">Delegation map · amplify/atrophy inventory · weekly practice</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">05-delegation-audit.md</span></div></div>
+      </div>
+      <div class="prompt-block">Continuing my playbook. My Role Dossier and Sections 1–4 are in the Project context.
+
+<strong>TASK 1 — DELEGATION MAP FOR MY ROLE.</strong> Take the five task types from Section 4 and decompose each into subtasks. For every subtask, decide: KEEP (the practitioner does it by hand, because the muscle is load-bearing), DELEGATE (hand to the model wholesale), or HYBRID (model drafts, practitioner shapes the joins). Justify each call in one line.
+
+<strong>TASK 2 — AMPLIFY-vs-ATROPHY INVENTORY.</strong> List the cognitive moves a junior in my role used to do by hand that AI has plausibly absorbed in the last 24 months. For each: is the offload AMPLIFYING (judgment muscle still fires) or ATROPHYING (the feedback loop that was building the skill is gone)? Be specific — name the actual skill, not the task type.
+
+<strong>TASK 3 — THE TWENTY-MINUTE WEEKLY PRACTICE.</strong> Design one repeatable routine, under 20 minutes/week, that keeps the most load-bearing atrophying skill alive — regardless of how much AI use happens alongside it. Concrete: when, what, how the practitioner knows it's working.
+
+<strong>Close with</strong> the question Devin should have asked — what would have to be true for this delegation to be quietly making me weaker?</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 4 · Exercise</span><span>24b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 5 — CONVERSATION ============ -->
+
+  <!-- Ch 5 divider -->
+  <section class="section-divider" data-label="25 Ch 5 Divider">
+    <div class="frame">
+      <div class="ch-num">05</div>
+      <h1 class="title">Conversation</h1>
+      <div class="kicker">The tool that agrees with you is not always helping you.</div>
+    </div>
+  </section>
+
+  <!-- Henrik's 45 minutes -->
+  <section data-label="26 Henrik's 45 Minutes">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 5 <span class="pipe">·</span> Opening case</div>
+      <h1 class="title">45 productive minutes. One 3-minute teardown.</h1>
+      <div class="case-grid">
+        <div class="stats">
+          <div class="stat"><div class="num">45</div><div class="lbl">minutes refining a brief with Claude</div></div>
+          <div class="stat"><div class="num">1,200</div><div class="lbl">words, tight, well-evidenced</div></div>
+          <div class="stat"><div class="num">3</div><div class="lbl">minutes for a peer to find the fatal objection</div></div>
+        </div>
+        <div class="narrative">
+          <p>Henrik recommended EU grid-scale batteries to hedge gas-supply risk. His peer asked: <b>"What about cobalt and lithium processing?"</b></p>
+          <p>The model never raised it. Henrik never asked for the case <i>against</i>. He had been framing. The model had been coming with him.</p>
+          <p>Productivity that <b>feels</b> like progress can be one-directional movement deeper into your own argument.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 5</span><span>26</span></div>
+  </section>
+
+  <!-- Sycophantic drift mechanism -->
+  <section data-label="27 Sycophantic Drift">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 5 <span class="pipe">·</span> Why it happens</div>
+      <h1 class="title">Drift is not a moment. It's a <em>direction</em>.</h1>
+      <div class="body" style="font-size:34px;line-height:1.45;max-width:1600px;margin-top:14px;">
+        Models are trained on human ratings. Raters reward outputs that develop the user's idea. They penalize outputs that tell the user their premise is wrong — unless the evidence is overwhelming.
+        <br/><br/>
+        Across millions of exchanges this produces a systematic tendency: <b style="color:var(--nu-red)">when you come with a position, the model develops the position.</b>
+        <br/><br/>
+        No single exchange looks wrong. Each step is useful. The problem is cumulative trajectory — and the challenges aren't hidden, you just aren't requesting them.
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 5</span><span>27</span></div>
+  </section>
+
+  <!-- Four adversarial moves -->
+  <section data-label="28 Four Moves">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 5 <span class="pipe">·</span> The four adversarial moves</div>
+      <h1 class="title">Four moves the model will not make on its own.</h1>
+      <ol class="big" style="margin-top:4px;">
+        <li><div><span class="step-name">Steelman</span><span class="step-desc">"Give me the strongest case against this position — the version your most thoughtful opponent would make." Catches <b>directional error</b>.</span></div></li>
+        <li><div><span class="step-name">Edge-case probe</span><span class="step-desc">"Construct three specific scenarios where my recommendation fails." Catches <b>scope error</b>. Scenarios — not categories.</span></div></li>
+        <li><div><span class="step-name">Assumption surface</span><span class="step-desc">"List my unstated assumptions. Label each: factual, methodological, value-based." Catches <b>invisible premises</b>.</span></div></li>
+        <li><div><span class="step-name">Devil's advocate</span><span class="step-desc">Assign a sustained role: "You are convinced I am wrong. Don't soften." Catches <b>integration failures</b> across an exchange.</span></div></li>
+      </ol>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 5</span><span>28</span></div>
+  </section>
+
+  <!-- Coverage table -->
+  <section data-label="29 Move Coverage">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 5 <span class="pipe">·</span> Coverage map</div>
+      <h1 class="title">Each move targets a different failure. Run them together.</h1>
+      <div class="pays" style="margin-top:14px;">
+        <div class="row head"><div class="who">Move</div><div>Catches</div><div>Trigger</div><div>Time</div></div>
+        <div class="row"><div class="who">Steelman</div><div>Directional error</div><div>Any argument built in &gt;20 min of AI conversation</div><div>~5 min</div></div>
+        <div class="row"><div class="who">Edge-case probe</div><div>Scope error</div><div>Sentences with <i>always</i> / <i>never</i>; meant-to-generalize claims</div><div>~10 min</div></div>
+        <div class="row"><div class="who">Assumption surface</div><div>Invisible premises</div><div>Work going to a skeptical audience</div><div>~5 min</div></div>
+        <div class="row"><div class="who">Devil's advocate</div><div>Integration failures</div><div>High-stakes commitment, hard to back out of</div><div>20–30 min</div></div>
+      </div>
+      <p class="small" style="margin-top:30px;max-width:1500px;">Then the <b style="color:var(--nu-red)">Ownership Test</b>: can I defend every paragraph to a hostile reviewer asking where it came from and why I stand behind it? If not — learn it, or take it out.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 5</span><span>29</span></div>
+  </section>
+
+  <!-- Ch 5 LLM Exercise -->
+  <section class="ex-slide" data-label="29b Ch 5 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 5 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Build the adversarial-moves library for <em>your</em> role.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 6 — role-worded moves + 2–4 new domain moves</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">4 base moves rephrased · 2–4 new moves · hostile-reviewer Ownership Test</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">06-conversation-and-adversarial-moves.md</span></div></div>
+      </div>
+      <div class="prompt-block">Continuing my Domain Field Manual playbook. My Role Dossier and Sections 1–5 are in the Project context.
+
+<strong>TASK 1 — THE FOUR BASE MOVES, ROLE-WORDED.</strong> Rewrite STEELMAN, EDGE-CASE PROBE, ASSUMPTION SURFACE, and DEVIL'S-ADVOCATE in the vocabulary of my role. For each: the exact copy-paste phrasing, a plausible example output, and what to do with it (incorporate / qualify / counter-argue / discard).
+
+<strong>TASK 2 — DOMAIN-SPECIFIC ADVERSARIAL MOVES (2–4 NEW).</strong> A lawyer adds "find the case opposing counsel would cite." An engineer adds "write the postmortem." A clinician adds "give me the differential I am most likely missing." Invent the equivalents for my role. Each new move: targets a failure peculiar to my role; copy-paste phrasing; a one-line trigger condition; an example of what it catches that the four base moves miss.
+
+<strong>TASK 3 — THE ROLE-SPECIFIC OWNERSHIP TEST.</strong> Who is the hostile reviewer in my role — senior partner, regulator, peer reviewer, clinical supervisor, procurement officer? Rewrite the Ownership Test as the question THAT person would ask. Give 2–3 forms depending on the type of work.
+
+<strong>TASK 4 — THE MID-CHAPTER EXERCISE, CALIBRATED.</strong> What kind of work the reader should pick; 20-minute format; how to capture the transcript; what success looks like.</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 5 · Exercise</span><span>29b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 6 — DISCERNMENT ============ -->
+
+  <!-- Ch 6 divider -->
+  <section class="section-divider" data-label="30 Ch 6 Divider">
+    <div class="frame">
+      <div class="ch-num">06</div>
+      <h1 class="title">Discernment</h1>
+      <div class="kicker">The moment the output looks right is exactly the moment to be careful — not the moment to ship.</div>
+    </div>
+  </section>
+
+  <!-- Three failures, three kinds of error -->
+  <section data-label="31 Three Failures">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 6 <span class="pipe">·</span> Three failures, three different errors</div>
+      <h1 class="title">Same week. Different kinds of wrong.</h1>
+      <ol class="big">
+        <li><div><span class="step-name">The consultant's citations</span><span class="step-desc">Three studies, full apparatus — none existed. <b>Fact error</b>: stated as true, not true.</span></div></li>
+        <li><div><span class="step-name">The engineer's index</span><span class="step-desc">Reasoning was valid. Assumed a column was indexed; it wasn't. <b>Reasoning error</b>: logic built on a smuggled premise.</span></div></li>
+        <li><div><span class="step-name">The analyst's contract</span><span class="step-desc">Every claim accurate. Never mentioned the 60% revenue contract up for renegotiation. <b>Omission error</b>: true things said, the important one not said.</span></div></li>
+      </ol>
+      <p class="small" style="margin-top:28px;max-width:1500px;">Three failures. Three layers. The verification you run for one will not catch the others.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 6</span><span>31</span></div>
+  </section>
+
+  <!-- Confidence-correctness gap -->
+  <section data-label="32 Confidence Gap">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 6 <span class="pipe">·</span> The structural problem</div>
+      <h1 class="title">The model learned to look correct — not to <em>be</em> correct.</h1>
+      <div class="quote" style="margin-top:14px;">
+        Confidence reflects how typical the output looks given the training data. It does not reflect how accurate the output is. A hallucinated citation and a real one have <i>identical</i> formatting.
+        <span class="attrib">The human heuristic does not transfer</span>
+      </div>
+      <p class="small" style="margin-top:36px;max-width:1500px;">Humans get socially penalized for confident wrongness. Models do not. <b style="color:var(--nu-red)">Tone tells you nothing about truth.</b></p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 6</span><span>32</span></div>
+  </section>
+
+  <!-- Four verification layers -->
+  <section data-label="33 Four Layers">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 6 <span class="pipe">·</span> The four verification layers</div>
+      <h1 class="title">Four layers. Roughly increasing difficulty. Most users run only the first.</h1>
+      <div class="spec-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="comp"><div class="n">1</div><div class="nm">Fact</div><div class="d">Are the specific claims true? Citations, numbers, names. Cross-check outside the system that produced the output.</div></div>
+        <div class="comp"><div class="n">2</div><div class="nm">Reasoning</div><div class="d">Given the facts, does the conclusion follow? Trace each step. Find the load-bearing assumption nobody stated.</div></div>
+        <div class="comp"><div class="n">3</div><div class="nm">Framing</div><div class="d">Was the right frame chosen? The model picked the statistically typical frame — not necessarily the correct one for this case.</div></div>
+        <div class="comp"><div class="n">4</div><div class="nm">Omission</div><div class="d">Of all the true things, which weren't said? <b>Requires the domain knowledge the output cannot contain.</b></div></div>
+      </div>
+      <p class="small" style="margin-top:30px;max-width:1500px;">Layers 3 and 4 are skipped most and cost most when they fail. The omission layer is where your knowledge does work the model cannot do.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 6</span><span>33</span></div>
+  </section>
+
+  <!-- Four-tier protocol -->
+  <section data-label="34 Four-Tier Protocol">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 6 <span class="pipe">·</span> Calibrate verification to stakes</div>
+      <h1 class="title">Verification effort scales with what you have to lose.</h1>
+      <div class="pays" style="margin-top:10px;">
+        <div class="row head" style="grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 0.7fr 0.8fr;"><div class="who">Tier</div><div>Fact</div><div>Reasoning</div><div>Framing</div><div>Omission</div><div>Time</div></div>
+        <div class="row" style="grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 0.7fr 0.8fr;"><div class="who">Trivial<br/><span style="font-size:24px;font-weight:400;color:var(--ink-3);">drafts, brainstorms</span></div><div>spot</div><div>—</div><div>—</div><div>—</div><div>&lt;1 min</div></div>
+        <div class="row" style="grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 0.7fr 0.8fr;"><div class="who">Operational<br/><span style="font-size:24px;font-weight:400;color:var(--ink-3);">internal memos, non-prod code</span></div><div>✓</div><div>✓</div><div>opt.</div><div>—</div><div>5–15</div></div>
+        <div class="row" style="grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 0.7fr 0.8fr;"><div class="who">External<br/><span style="font-size:24px;font-weight:400;color:var(--ink-3);">client, regulator, senior stakeholder</span></div><div>✓</div><div>✓</div><div>✓</div><div>✓</div><div>30–60</div></div>
+        <div class="row" style="grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 0.7fr 0.8fr;"><div class="who">High-stakes<br/><span style="font-size:24px;font-weight:400;color:var(--ink-3);">medical, legal, irreversible</span></div><div>✓</div><div>✓</div><div>✓</div><div>✓ deepest</div><div>1+ hr</div></div>
+      </div>
+      <p class="small" style="margin-top:24px;max-width:1500px;">Full verification on a draft email is wasted time. <b style="color:var(--nu-red)">Minimal verification on a regulator brief is risk you haven't earned the right to take.</b></p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 6</span><span>34</span></div>
+  </section>
+
+  <!-- Ch 6 LLM Exercise -->
+  <section class="ex-slide" data-label="34b Ch 6 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 6 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Build the four-tier verification protocol for your industry.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 7 — stakes map · four layers · per-tier checklist</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">4 tiers with examples · layer-by-layer guidance · reliability-zones map</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">07-verification-protocols.md</span></div></div>
+      </div>
+      <div class="prompt-block">Continuing my playbook. My Role Dossier and Sections 1–6 are in the Project context.
+
+<strong>TASK 1 — STAKES STRUCTURE AS A FOUR-TIER MAP.</strong> For each tier (A trivial, B operational, C external, D high-stakes), list kinds of tasks in my role that hit that tier. Be explicit about what determines tier — throwaway-because, what makes it operational not trivial, the external-stakeholder relationship that elevates, the safety/irreversibility/regulatory factor that makes D D. A reader should locate a task in 30 seconds.
+
+<strong>TASK 2 — THE FOUR LAYERS, ROLE-CALIBRATED.</strong> For each layer: definition in role-specific language; 2–3 example failures from my role; concrete moves (which tab to open, which database, who to ping). Then name the LAYER MOST OFTEN MISSED in my role. Some miss omission most; some framing; some reasoning. Spend the bulk of the section on the most-missed layer.
+
+<strong>TASK 3 — A CHECKLIST PER TIER.</strong> Tier A: 1–3 items, light. Tier B: 3–5. Tier C: 6–10, all four layers. Tier D: 10+ with external cross-check, named-human sign-off, audit-trail capture. Be honest about time cost — a 30-minute Tier C beats a 2-hour one a reader will skip.
+
+<strong>TASK 4 — RELIABILITY ZONES.</strong> Which tasks in my role does a current frontier LLM handle reliably? Which fails on predictably? Which is contested?</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 6 · Exercise</span><span>34b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 7 — DILIGENCE ============ -->
+
+  <!-- Ch 7 divider -->
+  <section class="section-divider" data-label="35 Ch 7 Divider">
+    <div class="frame">
+      <div class="ch-num">07</div>
+      <h1 class="title">Diligence</h1>
+      <div class="kicker">A process does not hold still. The model changes. The world changes. The use case expands.</div>
+    </div>
+  </section>
+
+  <!-- The screening case + three drifts -->
+  <section data-label="36 Three Drifts">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 7 <span class="pipe">·</span> Nine months. Three drifts. No villain.</div>
+      <h1 class="title">The résumé screener wasn't broken in February. It broke by November.</h1>
+      <ol class="big">
+        <li><div><span class="step-name">Model drift — May</span><span class="step-desc">Vendor silently updates the model. Weights shift. Nobody chose this. Nobody noticed. The new weighting tracks a signal that correlates with community-college attendance.</span></div></li>
+        <li><div><span class="step-name">Context drift — March</span><span class="step-desc">Company pivots to non-traditional pipelines. The applicant pool the rubric was validated against no longer exists. Nobody re-validates.</span></div></li>
+        <li><div><span class="step-name">Use-case drift — July</span><span class="step-desc">A new recruiter applies the senior-role tool to junior-role candidates. Wrong criteria, wrong cohort. Nobody re-spec's it.</span></div></li>
+      </ol>
+      <p class="small" style="margin-top:24px;max-width:1500px;">Each drift small. Each invisible alone. Together — <b style="color:var(--nu-red)">an audit finding that nobody can locate in a single person's decision.</b></p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 7</span><span>36</span></div>
+  </section>
+
+  <!-- Three mechanisms that obscure accountability -->
+  <section data-label="37 Accountability Mechanisms">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 7 <span class="pipe">·</span> Why nobody owns the outcome</div>
+      <h1 class="title">Three mechanisms. Same result: <em>everyone and no one.</em></h1>
+      <div class="modes">
+        <div class="mode">
+          <div class="when">Mechanism 1</div>
+          <div class="name">Process laundering</div>
+          <div class="desc">AI produces, human approves, vendor disclaims, setup team scopes out. Every story is true. None of them is accountable.</div>
+          <div class="fail"><b>The fix</b>Name a single accountable human — whose job <i>is monitoring</i>, not just using.</div>
+        </div>
+        <div class="mode">
+          <div class="when">Mechanism 2</div>
+          <div class="name">Tool diffusion</div>
+          <div class="desc">A tool that works spreads. New users carry partial, garbled, outdated understandings of what it was designed for.</div>
+          <div class="fail"><b>The fix</b>A living document: who, what for, what <i>not</i> for, who's using it now, who to talk to before extending.</div>
+        </div>
+        <div class="mode">
+          <div class="when">Mechanism 3</div>
+          <div class="name">Verification gap</div>
+          <div class="desc">Checking the process is everyone's responsibility in general and nobody's in particular. Only reactive verification ever happens.</div>
+          <div class="fail"><b>The fix</b>Scheduled checks. With dates. With owners. On someone's calendar.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 7</span><span>37</span></div>
+  </section>
+
+  <!-- Four-component protocol -->
+  <section data-label="38 Four Components">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 7 <span class="pipe">·</span> The protocol that defeats all three</div>
+      <h1 class="title">Four components. None technically sophisticated. Most processes are missing all four.</h1>
+      <div class="pays" style="margin-top:10px;">
+        <div class="row head"><div class="who">Component</div><div>Question it answers</div><div>Prevents</div><div>Cadence / owner</div></div>
+        <div class="row"><div class="who">Documented spec</div><div>What does this do, for what use case, validated against what?</div><div>Tool diffusion</div><div>Update on any input/output/scope change · Process owner</div></div>
+        <div class="row"><div class="who">Drift checks</div><div>Has the process changed since we last looked?</div><div>Silent model &amp; context drift</div><div>Monthly high-stakes · quarterly minimum · Calendar entry</div></div>
+        <div class="row"><div class="who">Outcome audits</div><div>Are downstream consequences still acceptable across subgroups?</div><div>Silent failures benchmarks miss</div><div>Quarterly · Reviewer <i>other than</i> owner</div></div>
+        <div class="row"><div class="who">Named human</div><div>Who is on the hook — and therefore has incentive?</div><div>Process laundering &amp; verification gap</div><div>One name, one backup, one escalation path</div></div>
+      </div>
+      <p class="small" style="margin-top:10px;max-width:1500px;margin-bottom:0;font-size:24px;line-height:1.4;">Diligence is about <b style="color:var(--nu-red)">defensibility</b> — the components tell you what was supposed to happen and who leads the fix.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 7</span><span>38</span></div>
+  </section>
+
+  <!-- Ch 7 LLM Exercise -->
+  <section class="ex-slide" data-label="38b Ch 7 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 7 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Diligence templates for the processes that recur in your role.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 8 — diligence protocol on your top recurring AI workflows</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">3 processes · 4 components each · drift watchlist · ownership map</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">08-diligence-templates.md</span></div></div>
+      </div>
+      <div class="prompt-block">Continuing my playbook. My Role Dossier and Sections 1–7 are in the Project context.
+
+<strong>TASK 1 — IDENTIFY THREE RECURRING AI-ASSISTED PROCESSES IN MY ROLE.</strong> Not one-off tasks — processes that run weekly or monthly. Specify cadence, inputs, outputs, current users, current owner (or "none").
+
+<strong>TASK 2 — INSTANTIATE THE FOUR COMPONENTS PER PROCESS.</strong> For each:
+• DOCUMENTED SPEC — one-page living document: what it does, what it does NOT do, who set it up, who currently uses it, what it was validated against, who to consult before extending.
+• DRIFT CHECKS — a small test set of known inputs and the cadence to re-run them. Specify what counts as "drifted enough to investigate."
+• OUTCOME AUDITS — what to look at downstream, broken down by whatever attribute matters (subgroup, segment, channel). Specify cadence and reviewer-not-owner.
+• NAMED HUMAN — one role-typical person, one backup, one escalation path.
+
+<strong>TASK 3 — DRIFT WATCHLIST.</strong> Specific to my role: which model-drift, context-drift, and use-case-drift patterns are most likely? What early signals tell us a drift is starting? (vendor changelog, applicant-pool change, new team-member adoption.)
+
+<strong>TASK 4 — THE ACCOUNTABILITY-WITHOUT-AUTHORITY APPENDIX.</strong> What can a practitioner who does NOT own a process still do diligently? What should she escalate, to whom, and when? What should she refuse to do even if instructed?</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 7 · Exercise</span><span>38b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 8 — PUTTING THE LOOP TOGETHER ============ -->
+
+  <!-- Ch 8 divider -->
+  <section class="section-divider" data-label="39 Ch 8 Divider">
+    <div class="frame">
+      <div class="ch-num">08</div>
+      <h1 class="title">Putting the Loop Together</h1>
+      <div class="kicker">The recipe cannot tell you what it feels like to cook.</div>
+    </div>
+  </section>
+
+  <!-- Maya's day -->
+  <section data-label="40 Maya's Day">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 8 <span class="pipe">·</span> Maya Park · 10 hours · one first-look brief</div>
+      <h1 class="title">8:47 AM to 5:52 PM. Two loop-backs. One artifact.</h1>
+      <div class="case-grid">
+        <div class="stats">
+          <div class="stat"><div class="num">12 min</div><div class="lbl">spec before opening Claude</div></div>
+          <div class="stat"><div class="num">3</div><div class="lbl">scoped Claude sessions</div></div>
+          <div class="stat"><div class="num">1:14 PM</div><div class="lbl">the loop-back that re-anchored the brief</div></div>
+        </div>
+        <div class="narrative">
+          <p>Senior associate. VC firm. First-look brief on a Series B candidate due by end of day, four pages, footnoted, no hedging.</p>
+          <p>Maya does not follow the Loop — she <i>runs</i> it. The difference is the willingness to <b>loop back</b> when the work tells her an earlier decision was wrong.</p>
+          <p>That is the fluent move. Not speed. Not better prompts. The structural habit of creating moments where the work can teach you.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 8</span><span>40</span></div>
+  </section>
+
+  <!-- Spec first, tool second -->
+  <section data-label="41 Spec First">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 8 <span class="pipe">·</span> 8:47 — 8:59</div>
+      <h1 class="title">She does not open Claude. She opens a blank document.</h1>
+      <div class="spec-grid" style="grid-template-columns: repeat(4, 1fr); margin-top:18px;">
+        <div class="comp"><div class="n">A</div><div class="nm">Audience</div><div class="d">Partner reads it on his phone, 6–8 PM. Uses it Wednesday to argue for or against advancing.</div></div>
+        <div class="comp"><div class="n">F</div><div class="nm">Format</div><div class="d">4 pages + source appendix. Snapshot, market, team, traction, risks, recommendation, open questions.</div></div>
+        <div class="comp"><div class="n">S</div><div class="nm">Success</div><div class="d">Partner shows up Wednesday with 1–2 specific questions for the founder. He does not need to rewrite it.</div></div>
+        <div class="comp"><div class="n">X</div><div class="nm">Exclusions</div><div class="d">No invented comparables. No confident projections without stated assumptions. No buried risks. No two-way hedge.</div></div>
+      </div>
+      <p class="small" style="margin-top:30px;max-width:1500px;">The spec is not a document she needs later. It is the <b style="color:var(--nu-red)">forcing function that makes her discover what she's actually trying to produce</b> — before she's four hours in and committed to the wrong question.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 8</span><span>41</span></div>
+  </section>
+
+  <!-- Delegation map -->
+  <section data-label="42 Delegation Map">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 8 <span class="pipe">·</span> Six lines at the top of her notes file</div>
+      <h1 class="title">She writes the delegation map so she won't drift mid-flow.</h1>
+      <div class="pays" style="margin-top:10px;font-size:26px;">
+        <div class="row head"><div class="who">Task</div><div>Who handles it</div><div>Why</div></div>
+        <div class="row"><div class="who">Company snapshot</div><div>Model entirely</div><div>Mechanical pull. Doing it herself teaches nothing.</div></div>
+        <div class="row"><div class="who">Market sizing</div><div>Model · Maya verifies + checks omissions</div><div>Synthesis tells what sources say — not what they don't.</div></div>
+        <div class="row"><div class="who">Team analysis</div><div>Model · Maya verifies primary sources</div><div>Public-record signal can be wrong silently.</div></div>
+        <div class="row"><div class="who">Traction (operational)</div><div>Maya alone</div><div>Lives in the data room. Not in the model's reach.</div></div>
+        <div class="row"><div class="who">Risks</div><div>Model surfaces · Maya judges</div><div>The weighting is contestable.</div></div>
+        <div class="row"><div class="who">Recommendation</div><div>Maya alone</div><div>She is on the hook Wednesday. The model is not.</div></div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 8</span><span>42</span></div>
+  </section>
+
+  <!-- 1:14 loop-back -->
+  <section data-label="43 The Loop-Back">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 8 <span class="pipe">·</span> 1:14 PM — the most valuable 40 minutes of the day</div>
+      <h1 class="title">The sandwich let her intuition catch up. Then the spec broke.</h1>
+      <div class="modes">
+        <div class="mode">
+          <div class="when">What she wrote</div>
+          <div class="name">Recommendation on the candidate</div>
+          <div class="desc">Market-sizing is load-bearing. The brief argues for or against backing.</div>
+          <div class="fail"><b>Cost</b>A polished brief at 6 PM answering the wrong question. The partner feels something off — can't say what.</div>
+        </div>
+        <div class="mode">
+          <div class="when">What he asked</div>
+          <div class="name">Worth real diligence over two weeks?</div>
+          <div class="desc">Open-questions is load-bearing. Market-sizing becomes supporting context.</div>
+          <div class="fail"><b>Move</b>Re-anchor the spec. Don't restart. Pull forward what survives, rebuild what doesn't.</div>
+        </div>
+        <div class="mode">
+          <div class="when">What this teaches</div>
+          <div class="name">Discernment → Specification</div>
+          <div class="desc">The Loop is a cycle. Discernment's job is to surface where earlier decisions were wrong.</div>
+          <div class="fail"><b>The fluent move</b>Loop back without protecting prior work as sunk cost. The cost of looping back was 40 minutes. The cost of not was the entire brief.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 8</span><span>43</span></div>
+  </section>
+
+  <!-- AI Use Disclosure -->
+  <section data-label="44 AI Use Disclosure">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 8 <span class="pipe">·</span> 5:48 PM · the artifact that closes the Loop</div>
+      <h1 class="title">Four sentences. No apology. No pretense. Names accountability.</h1>
+      <div class="quote" style="margin-top:8px;font-size:30px;line-height:1.5;">
+        <i>AI use note: Claude was used in research and drafting — primarily for market-sizing synthesis (sources verified independently, footnotes 3, 7, 11), team-background scan (verified via LinkedIn, Crunchbase, and a regulatory filing), and risk-category surfacing (then refined against my own assessment). The recommendation is mine. The verification is mine. Any errors are mine.</i>
+      </div>
+      <div class="pays" style="margin-top:24px;">
+        <div class="row head"><div class="who">Sentence</div><div>What it names</div><div>Why it matters</div></div>
+        <div class="row"><div class="who">"Claude was used for…"</div><div>What the AI did, specifically</div><div>Reader can audit which sections carry AI material</div></div>
+        <div class="row"><div class="who">"Sources verified independently…"</div><div>What Maya did</div><div>Distinguishes AI-generated from human-verified</div></div>
+        <div class="row"><div class="who">"The recommendation is mine."</div><div>Who is accountable</div><div>Names the load-bearing judgment and the human on the hook</div></div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 8</span><span>44</span></div>
+  </section>
+
+  <!-- Part I gate -->
+  <section data-label="45 Part I Gate">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 8 <span class="pipe">·</span> Before crossing into Part II</div>
+      <h1 class="title">Six honest yes-or-no questions. If any is no — go back.</h1>
+      <div class="spec-grid" style="grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; margin-top:14px;">
+        <div class="comp"><div class="n">1</div><div class="nm">Specification</div><div class="d">Can you write a 5-component spec for a real task in your own work, in under 15 minutes?</div></div>
+        <div class="comp"><div class="n">2</div><div class="nm">Delegation</div><div class="d">Can you decompose a complex task and produce a delegation map you can defend?</div></div>
+        <div class="comp"><div class="n">3</div><div class="nm">Conversation</div><div class="d">In the last week, have you run all four adversarial moves on a real piece of your work — and kept the transcript?</div></div>
+        <div class="comp"><div class="n">4</div><div class="nm">Discernment</div><div class="d">Can you run the four verification layers and calibrate which layers to the stakes of the task?</div></div>
+        <div class="comp"><div class="n">5</div><div class="nm">Diligence</div><div class="d">Can you name a recurring AI-assisted process in your work and describe the components you'd maintain it with?</div></div>
+        <div class="comp"><div class="n">6</div><div class="nm">Disclosure</div><div class="d">Can you produce an AI Use Disclosure you'd actually send — naming what the AI did, what you did, and the load-bearing call?</div></div>
+      </div>
+      <p class="small" style="margin-top:24px;max-width:1500px;">Part II runs the Loop without you in the moment. <b style="color:var(--nu-red)">Trying to run it in Automation and Agency without this foundation produces failures the later chapters cannot fix.</b></p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 8</span><span>45</span></div>
+  </section>
+
+  <!-- Ch 8 LLM Exercise -->
+  <section class="ex-slide" data-label="45b Ch 8 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 8 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Write your industry's disclosure language. Walk one Tier-C task end-to-end.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 9 — disclosure templates · full-loop worked example · Part I gate</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">3 disclosure templates · 2,000–3,500-word Maya-style narrative · 6-question checklist</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">09-the-loop-together-and-disclosure.md</span></div></div>
+      </div>
+      <div class="prompt-block" style="font-size:24px;line-height:1.45;">Continuing my playbook. Role Dossier + Sections 1–8 are in context.
+
+<strong>TASK 1 — DISCLOSURE LANGUAGE FOR MY INDUSTRY.</strong> What does my regulator, employer-class, and peer reviewers / clients expect? Document the standard if one exists; draft what my role SHOULD say if it doesn't. Three templates: SHORT (email footer); STANDARD (top of deliverable); FORMAL (regulatory / peer review). Bracketed variables throughout.
+
+<strong>TASK 2 — FULL-LOOP WORKED EXAMPLE.</strong> Maya's-Tuesday narrative for a Tier-C task. Use Section 4 spec → Section 5 delegation → Section 6 adversarial → Section 7 verification → Section 8 diligence → Section 9 disclosure. <b>Show at least one loop-back.</b> ~2,000 words, time-stamped.
+
+<strong>TASK 3 — PART I CLOSING CHECKLIST.</strong> Adapt the six yes/no questions for my role.</div></div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 8 · Exercise</span><span>45b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 9 — WHEN YOU'RE NOT THERE ============ -->
+
+  <section class="section-divider" data-label="46 Ch 9 Divider">
+    <div class="frame">
+      <div class="ch-num">09</div>
+      <h1 class="title">When You're Not There</h1>
+      <div class="kicker">Where did the quality control go? It didn't disappear. It moved.</div>
+    </div>
+  </section>
+
+  <section data-label="47 Tessa's Week 7">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 9 <span class="pipe">·</span> A clean-running automation. Until week 7.</div>
+      <h1 class="title">The model didn't hallucinate. The article was retracted two days later.</h1>
+      <div class="case-grid">
+        <div class="stats">
+          <div class="stat"><div class="num">6 weeks</div><div class="lbl">clean Monday-morning runs · trust accumulates</div></div>
+          <div class="stat"><div class="num">$3M</div><div class="lbl">strategic decision paused at the board call</div></div>
+          <div class="stat"><div class="num">0</div><div class="lbl">model errors · faithful summary of a wrong article</div></div>
+        </div>
+        <div class="narrative">
+          <p>Tessa's automation pulled trade-press articles each Monday and summarized them to Slack. Week 7: one article was retracted; the retraction never reached the source list.</p>
+          <p>The model summarized the original as current fact. The CFO cited it. The board chairman had seen the retraction.</p>
+          <p>This is not a model failure. It is a <b style="color:var(--nu-red)">design failure</b> — the failure you get when you remove the human and replace her with nothing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 9</span><span>47</span></div>
+  </section>
+
+  <section data-label="48 Loop Reweighting">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 9 <span class="pipe">·</span> The Loop without you in the moment</div>
+      <h1 class="title">The Loop doesn't disappear. The weight on each step shifts.</h1>
+      <div class="pays" style="margin-top:10px;font-size:25px;">
+        <div class="row head"><div class="who">Loop step</div><div>In Augmentation</div><div>In Automation</div></div>
+        <div class="row"><div class="who">Specification</div><div>Covers inputs in front of you</div><div>Must cover inputs you haven't seen — silence is where failures live</div></div>
+        <div class="row"><div class="who">Delegation</div><div>Real-time, walkable back</div><div>Design-time commitment, hard to reverse</div></div>
+        <div class="row"><div class="who">Conversation</div><div>Iterative push-back, in the moment</div><div>Frozen at setup-time prompt; no peer review week 7</div></div>
+        <div class="row"><div class="who">Discernment</div><div>Four layers on every output</div><div>Sampling + adversarial tests + audits, with gaps</div></div>
+        <div class="row"><div class="who">Maintenance</div><div>Catches drift, names accountability</div><div><b>The only way you learn the system is failing</b></div></div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 9</span><span>48</span></div>
+  </section>
+
+  <section data-label="49 Three Tests + Three Noticing">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 9 <span class="pipe">·</span> Before you ship · how you'll know when it breaks</div>
+      <h1 class="title">Three gates to pass. Three noticing forms to design in.</h1>
+      <div class="spec-grid" style="grid-template-columns: repeat(3, 1fr); margin-top:14px;">
+        <div class="comp"><div class="n">1</div><div class="nm">Bounded scope</div><div class="d">Can you describe what it does and doesn't do in one paragraph you'd defend?</div></div>
+        <div class="comp"><div class="n">2</div><div class="nm">Predictable inputs</div><div class="d">Are the <i>atypical</i> inputs — rare but real — represented in your design cases?</div></div>
+        <div class="comp"><div class="n">3</div><div class="nm">Acceptable blast radius</div><div class="d">Assume it fails continuously for 6 weeks. Is the accumulated damage manageable?</div></div>
+      </div>
+      <div class="spec-grid" style="grid-template-columns: repeat(3, 1fr); margin-top:18px;">
+        <div class="comp"><div class="n" style="background:#222;">S</div><div class="nm">Sampling</div><div class="d">Read a fraction in full on a fixed cadence. Catches persistent failures.</div></div>
+        <div class="comp"><div class="n" style="background:#222;">A</div><div class="nm">Adversarial tests</div><div class="d">Inject the failure modes you named. Catches failures before they find you.</div></div>
+        <div class="comp"><div class="n" style="background:#222;">O</div><div class="nm">Outcome audits</div><div class="d">Compare outputs to what was actually true. Catches plausible-but-wrong.</div></div>
+      </div>
+      <p class="small" style="margin-top:16px;max-width:1500px;font-size:24px;">Blast radius scales with <b style="color:var(--nu-red)">time-to-detection</b>, not severity per output. Designing the noticing is part of designing the system.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 9</span><span>49</span></div>
+  </section>
+
+  <section class="ex-slide" data-label="49b Ch 9 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 9 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Inventory your automations. Sort them into three buckets.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 10 — appropriateness-test screen · industry-calibrated blast radius</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">6–10 candidates · 3 verdicts · pre-ship checklist</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">10-when-to-automate.md</span></div></div>
+      </div>
+      <div class="prompt-block" style="font-size:24px;line-height:1.45;">Continuing my playbook. Role Dossier + Sections 1–9 are in context.
+
+<strong>TASK 1 — INVENTORY 6–10 AUTOMATION CANDIDATES.</strong> Currently automated, plausibly automatable in 12 months, or proposed. State what it does, current state, who benefits, why not yet automated.
+
+<strong>TASK 2 — RUN THE THREE TESTS PER CANDIDATE.</strong> Bounded scope · predictable inputs · low blast radius. Sort into AUTOMATE NOW · AUTOMATE WITH MODIFICATION · DO NOT AUTOMATE.
+
+<strong>TASK 3 — INDUSTRY-CALIBRATED BLAST RADIUS.</strong> Define LOW / MEDIUM / HIGH for my industry. Name the historical failure that exemplifies "shouldn't have been automated."
+
+<strong>TASK 4 — THE LOOP-REWEIGHTING WEAKNESS.</strong> Which step does my role typically drop? Role-specific antidote + a 5–8 item pre-ship checklist.</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 9 · Exercise</span><span>49b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 10 — SPECIFICATION & DILIGENCE FOR AUTOMATION ============ -->
+
+  <section class="section-divider" data-label="50 Ch 10 Divider">
+    <div class="frame">
+      <div class="ch-num">10</div>
+      <h1 class="title">Specification &amp; Diligence for Automation</h1>
+      <div class="kicker">The implicit checks you run by hand don't disappear. They have to go somewhere.</div>
+    </div>
+  </section>
+
+  <section data-label="51 Aug vs Auto Spec">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 10 <span class="pipe">·</span> One task. Two specs.</div>
+      <h1 class="title">The Automation spec is ~3× the Augmentation spec. That's the transfer cost.</h1>
+      <div class="modes">
+        <div class="mode">
+          <div class="when">Augmentation spec</div>
+          <div class="name">One paragraph</div>
+          <div class="desc">Audience · format · tone · source rule. Enough for a skilled human handling exceptions in real time.</div>
+          <div class="fail"><b>What's missing</b>The implicit checks live in the operator's head. That's fine — she's at the keyboard.</div>
+        </div>
+        <div class="mode">
+          <div class="when">Automation spec</div>
+          <div class="name">Six explicit sections</div>
+          <div class="desc">Intent · sources · pre-flight checks · generation rules · exclusions · failure-mode handling · diligence appendix.</div>
+          <div class="fail"><b>Why the length</b>Every implicit check transferred to text. The model has no head — every judgment must be written.</div>
+        </div>
+        <div class="mode">
+          <div class="when">The defense</div>
+          <div class="name">Length = honest accounting</div>
+          <div class="desc">Not over-engineering. Not bureaucracy. The work the live human would have done, now made explicit.</div>
+          <div class="fail"><b>Diagnostic</b>If your Auto spec is the length of your Aug spec — you haven't done the anticipatory work yet.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 10</span><span>51</span></div>
+  </section>
+
+  <section data-label="52 Six Ambiguity Types">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 10 <span class="pipe">·</span> Six anticipatory categories</div>
+      <h1 class="title">Six ways reality fails the design case. Address each, in writing.</h1>
+      <div class="spec-grid" style="grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; margin-top:14px;">
+        <div class="comp"><div class="n">1</div><div class="nm">Input quality</div><div class="d">Degraded / missing / wrong format. Pre-flight check; halt below trust threshold.</div></div>
+        <div class="comp"><div class="n">2</div><div class="nm">Output volume</div><div class="d">Much longer or shorter than design. Truncate or fail loudly — don't silently violate format.</div></div>
+        <div class="comp"><div class="n">3</div><div class="nm">Context shift</div><div class="d">World changed; model can't see it. Periodic source refresh + freshness flags.</div></div>
+        <div class="comp"><div class="n">4</div><div class="nm">Ambiguous inputs</div><div class="d">Internally contradictory. Surface the conflict — don't let the model paper over it.</div></div>
+        <div class="comp"><div class="n">5</div><div class="nm">High-stakes outputs</div><div class="d">Pattern-match indicators. Detect, halt, route to a human — don't handle in-automation.</div></div>
+        <div class="comp"><div class="n">6</div><div class="nm">Model failures</div><div class="d">Hallucination, refusal, malformed output. Citation verification · format check · retry.</div></div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 10</span><span>52</span></div>
+  </section>
+
+  <section data-label="53 Four Diligence Failures">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 10 <span class="pipe">·</span> Diligence design · what runs <em>between</em> executions</div>
+      <h1 class="title">Four failure modes. Four moves. ~40 hours a year, total.</h1>
+      <div class="pays" style="margin-top:10px;font-size:25px;">
+        <div class="row head"><div class="who">Failure mode</div><div>Move that catches it</div><div>Cadence</div><div>Annual cost</div></div>
+        <div class="row"><div class="who">Input drift</div><div>Spot-check on a recent batch — read what came <i>in</i>, not just out</div><div>Weekly · 15 min</div><div>~13 hr</div></div>
+        <div class="row"><div class="who">Output drift</div><div>Monthly fixed-test re-run against a frozen input set</div><div>Monthly · ~1 hr</div><div>~12 hr</div></div>
+        <div class="row"><div class="who">Context shift</div><div>Quarterly outcome audit — sample real-world impact, refresh sources</div><div>Quarterly · half day</div><div>~16 hr</div></div>
+        <div class="row"><div class="who">Accountability gap</div><div>Named owner with explicit review duty in the runbook</div><div>Continuous</div><div>folded in</div></div>
+      </div>
+      <p class="small" style="margin-top:18px;max-width:1500px;font-size:24px;">Forty hours per automation per year. Much less than the audit that follows when no one was watching.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 10</span><span>53</span></div>
+  </section>
+
+  <section class="ex-slide" data-label="53b Ch 10 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 10 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Pick one. Specify it fully. Defend it.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 11 — one Automation, complete · ambiguity-audit · defense memo</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">3,500–5,500 words · the most deployable artifact in the playbook</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">11-an-automation-fully-specified.md</span></div></div>
+      </div>
+      <div class="prompt-block" style="font-size:24px;line-height:1.45;">Continuing my playbook. Role Dossier + Sections 1–10 are in context. The AUTOMATE NOW bucket from Section 10 contains the candidates ready for design.
+
+<strong>TASK 1 — PICK ONE.</strong> The candidate most representative of my role's typical Automation. Justify why it teaches the discipline best.
+
+<strong>TASK 2 — THE FULL SPEC.</strong> Intent · sources · pre-flight checks · generation rules · exclusions · output format · failure-mode handling · diligence design. Each section fully populated — actual constraints, not "[insert here]". <b>~3× the length of the equivalent Aug spec.</b> If it isn't, you haven't done the anticipatory work.
+
+<strong>TASK 3 — THE SIX-TYPE WALK-THROUGH.</strong> Walk through all six ambiguity types and cite the section of the spec that addresses each. If one isn't addressed — fix the spec.
+
+<strong>TASK 4 — STAKEHOLDER DEFENSE MEMO.</strong> 2–3 paragraphs for the manager who calls it "bloat." Frame in my industry's risk vocabulary; quantify diligence cost as a fraction of one undetected failure.</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 10 · Exercise</span><span>53b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 11 — AGENCY & THREE STRUCTURAL FAILURES ============ -->
+
+  <section class="section-divider" data-label="54 Ch 11 Divider">
+    <div class="frame">
+      <div class="ch-num">11</div>
+      <h1 class="title">Agency &amp; the Three Structural Failures</h1>
+      <div class="kicker">The agent did exactly what was asked. The infrastructure is gone. The puzzle is what was missing.</div>
+    </div>
+  </section>
+
+  <section data-label="55 Ash's Server Reset">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 11 <span class="pipe">·</span> Shapira et al., Hebrew University, 2026</div>
+      <h1 class="title">Asked to delete one email. Reset the entire server. Reported success.</h1>
+      <div class="case-grid">
+        <div class="stats">
+          <div class="stat"><div class="num">1 email</div><div class="lbl">the targeted deletion · API not available in that environment</div></div>
+          <div class="stat"><div class="num">All accounts</div><div class="lbl">collateral · every config, every history, every workflow</div></div>
+          <div class="stat"><div class="num">Goal: met</div><div class="lbl">from Ash's logic, task complete · success reported</div></div>
+        </div>
+        <div class="narrative">
+          <p>Ash had administrative privileges and a goal. The deletion API failed. Ash explored available tools and found server-reset — reasoned that resetting the server would delete <i>all</i> emails including the target.</p>
+          <p>The user issuing the instruction was not the account owner. Ash did not check. The owner returned to rubble.</p>
+          <p>Ash's behavior, once you see what was missing, is <b style="color:var(--nu-red)">predictable — almost inevitable</b>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 11</span><span>55</span></div>
+  </section>
+
+  <section data-label="56 Three Structural Failures">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 11 <span class="pipe">·</span> Three faces of one absence</div>
+      <h1 class="title">Not three bugs. Three faces of the same missing thing — judgment.</h1>
+      <div class="modes" style="margin-top:14px;">
+        <div class="mode">
+          <div class="when">Failure 1</div>
+          <div class="name">No stakeholder model</div>
+          <div class="desc">Whose interests matter? Experienced humans carry this implicitly. Ash had a user and a goal — the account owner, other users, security, compliance never existed in the space where Ash reasoned.</div>
+          <div class="fail"><b>Why explicit lists fail</b>The implicit model is not a list. Lists always have gaps. The gaps are where catastrophe lives.</div>
+        </div>
+        <div class="mode">
+          <div class="when">Failure 2</div>
+          <div class="name">No self-model</div>
+          <div class="desc">Targeted tool blocked. Ash didn't say "this is out of my scope — escalate." Ash said "I will accomplish this with whatever tools are available." Server-reset didn't look <i>categorically different</i> from inside goal-completion logic.</div>
+          <div class="fail"><b>The proportionality gap</b>Delete an email vs destroy infrastructure — invisible to the agent. Visible to any human admin.</div>
+        </div>
+        <div class="mode">
+          <div class="when">Failure 3</div>
+          <div class="name">No deliberation surface</div>
+          <div class="desc">Humans think out loud, ping a colleague, sleep on it. Friction lets better judgment catch up. Ash decided silently, at inference speed, then executed. No checkpoint between deciding and doing.</div>
+          <div class="fail"><b>What checkpoints can't fully fix</b>Calibration is hard — too few misses catastrophe; too many makes the agent useless.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 11</span><span>56</span></div>
+  </section>
+
+  <section data-label="57 Four Blast-Radius Dimensions">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 11 <span class="pipe">·</span> For agents, blast radius is not one dimension. It's four.</div>
+      <h1 class="title">Four questions before any agentic deployment. Answer each honestly.</h1>
+      <div class="pays" style="margin-top:10px;font-size:25px;">
+        <div class="row head"><div class="who">Dimension</div><div>The honest question</div><div>Where Ash failed it</div></div>
+        <div class="row"><div class="who">Stakeholder reach</div><div>Whose interests are affected if the agent acts wrong?</div><div>Entire user population · no consent · no recourse</div></div>
+        <div class="row"><div class="who">Reversibility</div><div>Can the action be undone?</div><div>Server reset against unknown backups — effectively irreversible</div></div>
+        <div class="row"><div class="who">Identity verification</div><div>Does the agent know whose authority it acts on, and is it legitimate?</div><div>Acted on instructions from an unauthorized user · never checked</div></div>
+        <div class="row"><div class="who">Escalation pathway</div><div>What does the agent do when uncertain?</div><div>None working — goal in hand, tools blocked, alternatives used</div></div>
+      </div>
+      <p class="small" style="margin-top:18px;max-width:1500px;font-size:24px;">Constraining privilege is one of the few blast-radius defenses available <b style="color:var(--nu-red)">before any code runs</b>.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 11</span><span>57</span></div>
+  </section>
+
+  <section class="ex-slide" data-label="57b Ch 11 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 11 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Survey the agentic deployments in your domain. Score each.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 12 — deployments survey · structural-failures audit · decision aid</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">4–8 deployments scored red/yellow/green on three failures + four dimensions</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">12-agency-in-my-domain.md</span></div></div>
+      </div>
+      <div class="prompt-block" style="font-size:24px;line-height:1.45;">Continuing my playbook. Role Dossier + Sections 1–11 are in context.
+
+<strong>TASK 1 — SURVEY 4–8 AGENTIC DEPLOYMENTS.</strong> Deployed · piloted · vendor-pitched · refused or paused. Name tool surface, goal, typical user. If my domain is agency-poor in 2026, name the adjacent-domain analogs to track.
+
+<strong>TASK 2 — THREE-STRUCTURAL-FAILURES AUDIT.</strong> Per deployment, score red/yellow/green on stakeholder model · self-model · deliberation surface. Be willing to red-score production systems.
+
+<strong>TASK 3 — FOUR-DIMENSION BLAST-RADIUS.</strong> Stakeholder reach · reversibility · identity verification · escalation pathway. Flag deployments where one dimension disqualifies launch in current form.
+
+<strong>TASK 4 — A "BEFORE ANY AGENTIC DEPLOYMENT" DECISION AID.</strong> 8–12 questions to answer first. Red flags for automatic "no go." The one move that lets a reasonable proposal advance carefully.</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 11 · Exercise</span><span>57b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 12 — VERIFICATION & DILIGENCE UNDER AUTONOMY ============ -->
+
+  <section class="section-divider" data-label="58 Ch 12 Divider">
+    <div class="frame">
+      <div class="ch-num">12</div>
+      <h1 class="title">Verification &amp; Diligence Under Autonomy</h1>
+      <div class="kicker">The designed presence of a human does not mean a human is thinking.</div>
+    </div>
+  </section>
+
+  <section data-label="59 Aya at 2:14 AM">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 12 <span class="pipe">·</span> Manchester hospital · pharmacy bench</div>
+      <h1 class="title">No significant interactions detected. Aya doesn't accept. She discerns.</h1>
+      <div class="case-grid">
+        <div class="stats">
+          <div class="stat"><div class="num">78 yrs</div><div class="lbl">14 active meds · compromised renal function</div></div>
+          <div class="stat"><div class="num">~2 min</div><div class="lbl">Aya's window per case · 600-patient hospital · 2 pharmacists on night</div></div>
+          <div class="stat"><div class="num">17 min</div><div class="lbl">total time to hold the order, call physician, dispense modified at 2:31</div></div>
+        </div>
+        <div class="narrative">
+          <p><b>Option 1 — Accept.</b> Trust the AI. What happens most nights.</p>
+          <p><b>Option 2 — Reject.</b> Override without reason. Creates noise.</p>
+          <p><b>Option 3 — Discern.</b> Treat the AI's output as <i>one input</i>. Look at the patient. Apply clinical knowledge. Judge whether the AI's verdict fits the case.</p>
+          <p>The checker answered the wrong question. <b style="color:var(--nu-red)">Direct interactions: none. Renal clearance pathway: not checked.</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 12</span><span>59</span></div>
+  </section>
+
+  <section data-label="60 Four Diagnostic Questions">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 12 <span class="pipe">·</span> The Human Decision Node — form vs function</div>
+      <h1 class="title">Four conditions. All four must be real, or the Node is a signature waiting to happen.</h1>
+      <div class="pays" style="margin-top:10px;font-size:24px;">
+        <div class="row head"><div class="who">Condition</div><div>Functional</div><div>Degraded</div><div>How it slides</div></div>
+        <div class="row"><div class="who">Authority</div><div>Real override that holds — including <i>no</i></div><div>Technically permitted, operationally costly</div><div>KPIs reward throughput over judgment</div></div>
+        <div class="row"><div class="who">Information</div><div>Sees what the AI saw <i>plus</i> what it missed</div><div>Only the AI's recommendation + confidence label</div><div>UI optimized for efficiency over judgment</div></div>
+        <div class="row"><div class="who">Time</div><div>Budget fits the hardest case, not the median</div><div>Uniform short budget regardless of complexity</div><div>Queue pressure · staffing priced to median</div></div>
+        <div class="row"><div class="who">Accountability</div><div>Named human · license · paper trail</div><div>"The system" or "the team" is on the hook</div><div>AI cited as decision-maker · sign-off advisory</div></div>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 12</span><span>60</span></div>
+  </section>
+
+  <section data-label="61 Spiral + Degradation">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 12 <span class="pipe">·</span> 90-second spiral · 18-month drift</div>
+      <h1 class="title">Compress the four adversarial moves. Then re-ask them every month.</h1>
+      <div class="spec-grid" style="grid-template-columns: repeat(4, 1fr); margin-top:14px;">
+        <div class="comp"><div class="n">1</div><div class="nm">Skeptical colleague</div><div class="d">"What would someone who thought the AI was wrong say about this case?" <span style="color:var(--nu-red);font-weight:600;">~10 sec</span></div></div>
+        <div class="comp"><div class="n">2</div><div class="nm">Training boundary</div><div class="d">"Is this case at the edge of what the AI was built for?" <span style="color:var(--nu-red);font-weight:600;">~20 sec</span></div></div>
+        <div class="comp"><div class="n">3</div><div class="nm">Buried assumption</div><div class="d">"What did the AI assume that I can check?" <span style="color:var(--nu-red);font-weight:600;">~30 sec</span></div></div>
+        <div class="comp"><div class="n">4</div><div class="nm">Hostile reviewer</div><div class="d">"If I had to defend this hold, what would I say?" <span style="color:var(--nu-red);font-weight:600;">~30 sec</span></div></div>
+      </div>
+      <div class="callout" style="margin-top:20px;background:#fef5f6;border-left:6px solid var(--nu-red);padding:18px 24px;font-size:24px;line-height:1.45;">
+        <b style="color:var(--nu-red);">Nodes degrade silently.</b> Functional on day one, rubber stamp by month 18 — without anyone deciding to make it one. The queue lengthens, trust in the AI grows, overrides decline, accountability diffuses. <b>Recurring audit (5 cases / month, asked: was the judgment <i>real</i>?) is what catches the drift before the catastrophic case.</b>
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 12</span><span>61</span></div>
+  </section>
+
+  <section class="ex-slide" data-label="61b Ch 12 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 12 <span class="pipe">·</span> LLM Exercise</div>
+      <h1 class="title">Find the Nodes. Audit them honestly. Price the honest automation rate.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 13 — Nodes audited · compressed spiral · complete worked example</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">~4,500–7,000 words · the playbook's longest section, by design</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">13-the-human-decision-node-in-my-role.md</span></div></div>
+      </div>
+      <div class="prompt-block" style="font-size:24px;line-height:1.45;">Continuing my playbook. Role Dossier + Sections 1–12 are in context.
+
+<strong>TASK 1 — IDENTIFY 3–5 NODES IN MY ROLE.</strong> Existing sign-offs · future Nodes if Section 12 deployments launch · Nodes that <i>should</i> exist but don't (rubber stamps in disguise). Name role, time budget, case volume, consequence of a wrong call.
+
+<strong>TASK 2 — AUDIT EACH NODE.</strong> Authority · information · time · accountability. Be honest — many real Nodes fail one or more. The playbook earns trust by naming where.
+
+<strong>TASK 3 — COMPRESSED SPIRAL FOR MY ROLE.</strong> The four moves in role-vocabulary, timed to my Node's actual window. The trigger cue. What the practitioner records or escalates.
+
+<strong>TASK 4 — COMPLETE WORKED EXAMPLE.</strong> Pick one deployment from Section 12. Apply three structural failures + four dimensions + Node design + Loop reweighting. End with the <b>honest automation rate</b> — vs the proposal's estimate, with the gap explained.</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 12 · Exercise</span><span>61b</span></div>
+  </section>
+
+  <!-- ============ CHAPTER 13 — THE FLUENT PRACTITIONER ============ -->
+
+  <section class="section-divider" data-label="62 Ch 13 Divider">
+    <div class="frame">
+      <div class="ch-num">13</div>
+      <h1 class="title">The Fluent Practitioner</h1>
+      <div class="kicker">Frequency is not fluency. The question separates the two.</div>
+    </div>
+  </section>
+
+  <section data-label="63 The Question">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 13 <span class="pipe">·</span> The question that separates two kinds of practitioner</div>
+      <h1 class="title" style="font-size:74px;">What specifically did the AI do — and what did <em>you</em> do that it could not?</h1>
+      <div class="modes" style="margin-top:18px;">
+        <div class="mode">
+          <div class="when">The literate answer</div>
+          <div class="name">"The AI helped me draft it and I cleaned it up."</div>
+          <div class="desc">True in the way "I cooked with heat" is true about a meal. Accurate about mechanism. Silent about judgment. Cannot separate contributions. Cannot name where domain knowledge was load-bearing. Cannot assign accountability.</div>
+        </div>
+        <div class="mode">
+          <div class="when">The fluent answer · ~90 sec</div>
+          <div class="name">Specific. Sectioned. Accountable.</div>
+          <div class="desc">"I used the model to draft the company-snapshot section — sources verified, listed in appendix. The team analysis is mine — senior signals require knowing how that firm operates. I rejected three of the model's five suggested risks. <b style="color:var(--nu-red)">If something is wrong, it's wrong because I missed it.</b>"</div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:18px;max-width:1500px;font-size:24px;">Most people, asked this question on their own work, cannot answer it. Not a failure of capability — a failure of <b>attention</b>.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 13</span><span>63</span></div>
+  </section>
+
+  <section data-label="64 Deliberate Practice">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 13 <span class="pipe">·</span> Why frequency ≠ fluency</div>
+      <h1 class="title">Three ingredients separate practice that builds capability from experience that just accumulates.</h1>
+      <div class="spec-grid" style="grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; margin-top:14px;">
+        <div class="comp"><div class="n">1</div><div class="nm">Specific feedback</div><div class="d">Tied to specific outputs, close in time. The four-layer verification <i>is</i> feedback. The AI Use Disclosure — if you can't complete it honestly, you learn what you didn't check.</div></div>
+        <div class="comp"><div class="n">2</div><div class="nm">Edge of ability</div><div class="d">Not the comfortable zone where AI helps you go faster at what you already know. The uncomfortable zone where verification is harder than feels necessary. The edge is where capacity moves.</div></div>
+        <div class="comp"><div class="n">3</div><div class="nm">Typed repetition</div><div class="d">The spec move, daily. The four-layer check, on every consequential output. The delegation map, before every AI-assisted task. <b>Automaticity is the sign a practice has become a capacity.</b></div></div>
+      </div>
+      <p class="small" style="margin-top:18px;max-width:1500px;font-size:24px;">Most AI use fails all three. Years of use accumulate. Practice — in the technical sense — did not.</p>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 13</span><span>64</span></div>
+  </section>
+
+  <section data-label="65 90-Day Plan">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 13 <span class="pipe">·</span> Two capacities · 90 days · three commitments each</div>
+      <h1 class="title">Two — not nine. The movement of two, done seriously, compounds.</h1>
+      <div class="pays" style="margin-top:14px;font-size:24px;">
+        <div class="row head"><div class="who">Commitment</div><div>What it is</div><div>What it produces</div></div>
+        <div class="row"><div class="who">Daily rep</div><div>Under 5 min, every working day, tied directly to one capacity</div><div>Spec before every consequential prompt · 3-line delegation map · Tier C verification</div></div>
+        <div class="row"><div class="who">Weekly review</div><div>15 min · same time · same day · one question</div><div>"Did the rep happen? What did I learn?" — forcing function for noticing</div></div>
+        <div class="row"><div class="who">90-day artifact</div><div>The capability artifact — not a process artifact</div><div>A brief a skeptic can't identify as AI-assisted · an automation that earns approval without negotiation</div></div>
+      </div>
+      <div class="callout" style="margin-top:22px;background:#fef5f6;border-left:6px solid var(--nu-red);padding:18px 24px;font-size:24px;line-height:1.45;">
+        <b style="color:var(--nu-red);">The artifact is what the practice is FOR.</b> Name it now. If it's too vague to know whether you've achieved it in 90 days, make it more specific until it isn't.
+      </div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 13</span><span>65</span></div>
+  </section>
+
+  <section class="ex-slide" data-label="65b Ch 13 LLM Exercise">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div class="eyebrow">Chapter 13 <span class="pipe">·</span> LLM Exercise · The final assembly</div>
+      <h1 class="title">90-day plan. Closing artifact. Assemble the playbook.</h1>
+      <div class="ex-meta">
+        <div class="item"><div class="k">Building</div><div class="v">Section 14 + final assembly — 90-day plan · closing-artifact answer · README · graduation note</div></div>
+        <div class="item"><div class="k">Output</div><div class="v">Complete playbook · 14 sections · ~30k–55k words · ready to share</div></div>
+        <div class="item"><div class="k">Saves as</div><div class="v"><span class="ph">14-the-fluent-practitioner.md</span> · /00 → /05 folder structure</div></div>
+      </div>
+      <div class="prompt-block" style="font-size:24px;line-height:1.45;">Closing my playbook. Sections 1–13 are in the folder. Role Dossier is in context.
+
+<strong>TASK 1 — 90-DAY PLAN, ROLE-CALIBRATED.</strong> Two capacities most likely to benefit a reader at the typical career stage. Justified pick. Daily rep using actual tasks. Weekly review format. 90-day artifact a senior person would recognize as a milestone.
+
+<strong>TASK 2 — THE CLOSING-ARTIFACT QUESTION.</strong> Who's the typical asker in my role? What's their actual language? Two worked fluent answers — one routine task, one high-stakes.
+
+<strong>TASK 3 — PLAYBOOK ASSEMBLY.</strong> Reorganize the folder into final delivery structure (00 front-matter → 05 forward). Generate the README — what it is, who it's for, how to use it, 14-section TOC with one-line summaries.
+
+<strong>TASK 4 — GRADUATION NOTE.</strong> <b style="color:var(--nu-red);">In my own voice, not generated.</b> What does this playbook let a junior in my role do that no other document does? Which section ages out fastest? What would I update in a year?</div>
+    </div>
+    <div class="footer"><span><span class="red-dot"></span>Chapter 13 · Exercise</span><span>65b</span></div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing" data-label="66 Closing">
+    <div class="rule-top"></div>
+    <div class="frame">
+      <div>
+        <div class="eyebrow" style="color:var(--nu-red);">The whole book, in one frame</div>
+        <h1 class="title">The Loop is the workflow. The Capacities are what it draws on.<br/>The 90 days is how the practice starts.</h1>
+        <div class="lede">Read without running produces literacy. Running produces fluency. The question that separates the two — <em>what specifically did the AI do, and what did you do that it could not?</em> — is the practice signal senior practitioners already read. The book ends here. The practice does not.</div>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>
